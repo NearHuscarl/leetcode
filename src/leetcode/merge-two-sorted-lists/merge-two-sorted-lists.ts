@@ -47,3 +47,29 @@ export function mergeTwoLists(
 
   return head;
 }
+
+function mergeTwoLists2(
+  list1: ListNode<number> | null,
+  list2: ListNode<number> | null
+): ListNode<number> | null {
+  const prefixNode = { next: null, val: 0 } as ListNode<number>;
+  let cur1 = list1;
+  let cur2 = list2;
+  let cur = prefixNode;
+
+  while (cur1 && cur2) {
+    if (cur1.val < cur2.val) {
+      cur.next = cur1;
+      cur1 = cur1.next;
+    } else {
+      cur.next = cur2;
+      cur2 = cur2.next;
+    }
+    cur = cur.next;
+  }
+
+  if (cur1) cur.next = cur1;
+  if (cur2) cur.next = cur2;
+
+  return prefixNode.next;
+}

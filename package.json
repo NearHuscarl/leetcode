@@ -5,7 +5,9 @@
   "author": "NearHuscarl",
   "license": "MIT",
   "scripts": {
-    "main": "npx tsc -p tsconfig.json && node ./out/index.js"
+    "build": "npx tsc -p tsconfig.json",
+    "main": "yarn build && node ./out/index.js",
+    "valid-palindrome-ii": "yarn build && node ./out/valid-palindrome-ii/valid-palindrome-ii.js"
   },
   "devDependencies": {
     "@types/lodash": "^4.14.191",
