@@ -87,8 +87,8 @@ unsafeWindow.on = true;
         const lines = getCode().split("\n");
         const breakpointLines = getBreakpointLines();
 
-        breakpointLines.map((breakpoint) =>
-          lines.splice(breakpoint - 1, 0, "debugger;")
+        breakpointLines.map((breakpoint, i) =>
+          lines.splice(breakpoint + i - 1, 0, "debugger;")
         );
         unsafeWindow.eval(lines.join("\n"));
       } catch (err) {
@@ -104,6 +104,7 @@ unsafeWindow.on = true;
   }
 
   function getCode() {
+    console.log(`${question.questionFrontendId}_${sessionId}_javascript`);
     const code = localStorage.getItem(
       `${question.questionFrontendId}_${sessionId}_javascript`
     );
