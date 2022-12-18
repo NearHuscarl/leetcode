@@ -118,9 +118,8 @@ unsafeWindow.on = true;
 
   function getCode() {
     let code =
-      localStorage.getItem(
-        `${question.questionFrontendId}_${sessionId}_${langSlug}`
-      ) ?? codeSnippet;
+      localStorage.getItem(`${question.questionId}_${sessionId}_${langSlug}`) ??
+      codeSnippet;
     // remove quotes and literal newlines
     code = code.slice(1, code.length - 1).replace(/\\n/g, "\n");
     const testCaseParams = getTestCaseParams()
