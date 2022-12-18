@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         Leetcode Free Javascripts Debugger
+// @name         Leetcode Javascript Debugger
 // @namespace    http://tampermonkey.net/
 // @version      0.1
 // @description  Debug leetcode problems right inside your browser!
@@ -10,6 +10,7 @@
 // ==/UserScript==
 
 unsafeWindow.on = true;
+// unsafeWindow.jQuery = window.jQuery;
 
 (async function () {
   "use strict";
@@ -54,6 +55,14 @@ unsafeWindow.on = true;
     }).then((r) => r.data.question);
   }
 
+  function queryQuestionEditorData(titleSlug) {
+    return queryGraphQL({
+      query:
+        "\n    query questionEditorData($titleSlug: String!) {\n  question(titleSlug: $titleSlug) {\n    questionId\n    questionFrontendId\n    codeSnippets {\n      lang\n      langSlug\n      code\n    }\n    envInfo\n    enableRunCode\n  }\n}\n    ",
+      variables: { titleSlug },
+    }).then((r) => r.data.question.codeSnippets);
+  }
+
   function queryActiveSessionId() {
     return queryGraphQL({
       query:
@@ -62,16 +71,20 @@ unsafeWindow.on = true;
     }).then((r) => r.data.userStatus.activeSessionId);
   }
 
-  const problemTitle = location.pathname.replace(
+  const langSlug = "javascript";
+  const titleSlug = location.pathname.replace(
     /\/problems\/([a-z-]*)\/.*/,
     "$1"
   );
-  const [question, sessionId] = await Promise.all([
-    queryQuestion(problemTitle),
+  const [question, sessionId, codeSnippets] = await Promise.all([
+    queryQuestion(titleSlug),
     queryActiveSessionId(),
+    queryQuestionEditorData(titleSlug),
   ]);
+  const codeSnippet = codeSnippets.find((s) => s.langSlug === langSlug).code;
 
   whenDOMContentLoaded(() => {
+    console.log("run code");
     const runBtn = [...document.getElementsByTagName("button")].find(
       (b) => b.textContent === "Run"
     );
@@ -104,11 +117,37 @@ unsafeWindow.on = true;
   }
 
   function getCode() {
-    console.log(`${question.questionFrontendId}_${sessionId}_javascript`);
-    const code = localStorage.getItem(
-      `${question.questionFrontendId}_${sessionId}_javascript`
-    );
+    let code =
+      localStorage.getItem(
+        `${question.questionFrontendId}_${sessionId}_${langSlug}`
+      ) ?? codeSnippet;
     // remove quotes and literal newlines
-    return code.slice(1, code.length - 1).replace(/\\n/g, "\n");
+    code = code.slice(1, code.length - 1).replace(/\\n/g, "\n");
+    const testCaseParams = getTestCaseParams()
+      .map((p) => p.value)
+      .join(",");
+    const fnName = code.match(/\nvar (\w+) /)[1];
+    code += `
+${fnName}(${testCaseParams});
+        `;
+    return code;
   }
+
+  function getTestCaseParams() {
+    return [...document.querySelectorAll('[placeholder="Enter Testcase"]')].map(
+      (el) => {
+        return {
+          name: el.parentNode.parentNode.firstChild.textContent.split(" =")[0],
+          value: el.textContent,
+        };
+      }
+    );
+  }
+
+  unsafeWindow.LC_DEBUGGER = {
+    getCode,
+    getBreakpointLines,
+    getTestCaseParams,
+    codeSnippet,
+  };
 })();
