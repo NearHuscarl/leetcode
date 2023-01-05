@@ -132,7 +132,22 @@ ${fnName}(${testCaseParams});
     return code;
   }
 
+  function getTestCaseParamsFromResultTab() {
+    return [...document.querySelectorAll(".font-menlo.text-label-1")]
+      .map((el) => {
+        return {
+          name: el.parentNode.firstChild.textContent.split(" =")[0],
+          value: el.textContent,
+        };
+      })
+      .filter((el) => !!el.name);
+  }
+
   function getTestCaseParams() {
+    const testCases = getTestCaseParamsFromResultTab();
+    if (testCases.length > 0) {
+      return testCases;
+    }
     return [...document.querySelectorAll('[placeholder="Enter Testcase"]')].map(
       (el) => {
         return {
