@@ -6,16 +6,18 @@
   "license": "MIT",
   "scripts": {
     "build": "npx tsc -p tsconfig.json",
-    "main": "yarn build && node ./out/index.js",
-    "valid-palindrome-ii": "yarn build && node ./out/valid-palindrome-ii/valid-palindrome-ii.js"
+    "build-data": "yarn build && node ./out/scripts/buildData.js"
   },
   "devDependencies": {
     "@types/lodash": "^4.14.191",
+    "@types/node": "^18.11.18",
+    "@types/react": "^18.0.27",
     "ts-node": "^10.9.1",
     "typescript": "^4.9.4"
   },
   "dependencies": {
     "@hediet/debug-visualizer-data-extraction": "^0.14.0",
-    "lodash": "^4.17.21"
+    "lodash": "^4.17.21",
+    "react": "^18.2.0"
   }
 }

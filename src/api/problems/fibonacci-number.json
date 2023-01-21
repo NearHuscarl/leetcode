@@ -1,0 +1,43 @@
+{
+  "id": "fibonacci-number",
+  "title": "Fibonacci Number",
+  "testCases": [
+    {
+      "n": 2
+    },
+    {
+      "n": 3
+    },
+    {
+      "n": 4
+    }
+  ],
+  "metaData": {
+    "name": "fib",
+    "params": [
+      {
+        "name": "n",
+        "type": "number"
+      }
+    ],
+    "return": {
+      "type": "number"
+    }
+  },
+  "solutions": {
+    "dp": {
+      "id": "dp",
+      "name": "DP",
+      "programCode": "/**\r\n * @param {number} n\r\n */\r\nfunction fib(n) {\r\n  return memoization(n);\r\n}\r\n/**\r\n * @param {number} n\r\n * @param {object} cache\r\n */\r\nconst memoization = (n, cache = {}) => {\r\n  if (n === 1 || n === 0) {\r\n    return n;\r\n  }\r\n  if (cache[n] !== undefined) {\r\n    return cache[n];\r\n  }\r\n  cache[n] = memoization(n - 1, cache) + memoization(n - 2, cache);\r\n  return cache[n];\r\n};\r\n",
+      "visualizerCode": "import React from \"react\";\r\nimport { useVisualizerData, useRecursiveTree, VTree } from \"visualizer\";\r\nimport { red, lightGreen, teal, alpha, blue } from \"colors\";\r\n\r\nexport const Visualizer = () => {\r\n  const treeData = useRecursiveTree(\"memoization\", 0);\r\n\r\n  return <VTree width=\"100%\" height=\"100%\" data={treeData} />;\r\n};\r\n",
+      "timeComplexity": "n"
+    },
+    "recursive": {
+      "id": "recursive",
+      "name": "Recursive",
+      "programCode": "/**\r\n * @param {number} n\r\n */\r\nfunction fib(n) {\r\n  if (n === 1 || n === 0) {\r\n    return n;\r\n  }\r\n  return fib(n - 1) + fib(n - 2);\r\n}\r\n",
+      "visualizerCode": "import React from \"react\";\r\nimport { useVisualizerData, useRecursiveTree, VTree } from \"visualizer\";\r\nimport { red, lightGreen, teal, alpha, blue } from \"colors\";\r\n\r\nexport const Visualizer = () => {\r\n  const treeData = useRecursiveTree(\"recursive\", 0);\r\n\r\n  return <VTree width=\"100%\" height=\"100%\" data={treeData} />;\r\n};\r\n",
+      "timeComplexity": "2^n"
+    }
+  }
+}
