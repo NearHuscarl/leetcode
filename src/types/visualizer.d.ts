@@ -21,7 +21,15 @@ export function VArray(props: TVArrayProps): JSX.Element;
 
 export interface RawNodeDatum {
   name: string;
-  attributes?: Record<string, string | number | boolean>;
+  attributes?: {
+    loc?: string;
+    completed?: boolean;
+    onStack?: boolean;
+    circleStyle?: React.CSSProperties;
+    textStyle?: React.CSSProperties;
+    tip?: boolean;
+    data?: any;
+  };
   children?: RawNodeDatum[];
   parent?: RawNodeDatum;
 }
@@ -31,6 +39,11 @@ export type TVTreeProps = {
   width?: number | string;
   height?: number | string;
   data: RawNodeDatum;
+  getTooltipContent?: (node: RawNodeDatum) => React.ReactNode;
+  getNodeStyles?: (node: RawNodeDatum) => {
+    circleStyle?: React.CSSProperties;
+    textStyle?: React.CSSProperties;
+  };
 };
 
 export function VTree(props: TVTreeProps): JSX.Element;
@@ -44,6 +57,7 @@ export type TStepType =
   | "testExpressionFailed";
 
 export function useVisualizerData(): {
+  index: number;
   data: TIdentifier;
   type: TStepType;
   loc: {
@@ -64,9 +78,11 @@ export function useVisualizerData(): {
   };
 };
 
-export function useRecursiveTree(
-  fnName: string,
-  paramIndex: number
-): RawNodeDatum;
+type TUseRecursiveTreeProps = {
+  trackedFn: string;
+  param: number;
+};
+
+export function useRecursiveTree(props: TUseRecursiveTreeProps): RawNodeDatum;
 
 export function Visualize(props: TVArrayProps): number;
