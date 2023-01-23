@@ -47,6 +47,16 @@ export const Visualizer = () => {
       <VTree
         data={treeData}
         arrowOffset={45}
+        getNodeLabel={(node) => {
+          if (node.name === "pivot") return node.name;
+          const pivot = (node.parent?.children[1].attributes as any).pivot;
+          if (node.parent?.children[0] === node && pivot) {
+            return "< " + pivot;
+          }
+          if (node.parent?.children[2] === node && pivot) {
+            return ">= " + pivot;
+          }
+        }}
         getNodeContent={(node) => {
           if (node.name === "pivot") {
             return [(node.attributes as any).pivot];

@@ -38,6 +38,7 @@ type TRenderCustomNodeElementProps = {
   showFullTree?: boolean;
   node: RawNodeDatum;
   getNodeContent: TVTreeProps["getNodeContent"];
+  getNodeLabel: TVTreeProps["getNodeLabel"];
   getTooltipContent: TVTreeProps["getTooltipContent"];
   getNodeStyles: TVTreeProps["getNodeStyles"];
 };
@@ -53,6 +54,7 @@ export type TVTreeProps = {
   arrowOffset?: number;
   renderNode?: TRenderNodeFn;
   getNodeContent?: (node: RawNodeDatum) => TDebugValue | TDebugValue[];
+  getNodeLabel?: (node: RawNodeDatum) => string;
   getTooltipContent?: (node: RawNodeDatum) => React.ReactNode;
   getNodeStyles?: (node: RawNodeDatum) => {
     circleStyle?: React.CSSProperties;
