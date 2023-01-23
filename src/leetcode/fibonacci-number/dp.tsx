@@ -4,12 +4,10 @@ import { red, amber, teal, alpha, blue } from "colors";
 
 export const Visualizer = () => {
   const { expression, type, data } = useVisualizerData();
-  const treeData = useRecursiveTree({ trackedFn: "memoization", param: 0 });
+  const treeData = useRecursiveTree({ trackedFn: "memoization" });
 
   return (
     <VTree
-      width="100%"
-      height="100%"
       data={treeData}
       getNodeStyles={(node) => {
         const { attributes } = node;
@@ -23,7 +21,7 @@ export const Visualizer = () => {
           stroke: "white",
         };
         const isHighlightedNode =
-          attributes?.tip || parseInt(node.name, 10) === data.n;
+          attributes?.tip || attributes.params[0] === data.n;
 
         return {
           circleStyle: hitCache && isHighlightedNode ? hitCircleStyle : {},

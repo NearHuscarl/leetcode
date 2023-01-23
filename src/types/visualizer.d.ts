@@ -21,28 +21,43 @@ export function VArray(props: TVArrayProps): JSX.Element;
 
 export interface RawNodeDatum {
   name: string;
-  attributes?: {
-    loc?: string;
+  attributes: {
+    index: number;
+    params: any[];
+    data: TIdentifier;
     completed?: boolean;
     onStack?: boolean;
-    circleStyle?: React.CSSProperties;
-    textStyle?: React.CSSProperties;
     tip?: boolean;
-    data?: any;
+    custom?: Record<string, any>;
   };
   children?: RawNodeDatum[];
   parent?: RawNodeDatum;
 }
+
+type TRenderCustomNodeElementProps = {
+  showFullTree?: boolean;
+  node: RawNodeDatum;
+  getNodeContent: TVTreeProps["getNodeContent"];
+  getTooltipContent: TVTreeProps["getTooltipContent"];
+  getNodeStyles: TVTreeProps["getNodeStyles"];
+};
+export type TRenderNodeFn = (
+  props: TRenderCustomNodeElementProps
+) => JSX.Element;
 
 export type TVTreeProps = {
   showFullTree?: boolean;
   width?: number | string;
   height?: number | string;
   data: RawNodeDatum;
+  arrowOffset?: number;
+  renderNode?: TRenderNodeFn;
+  getNodeContent?: (node: RawNodeDatum) => TDebugValue | TDebugValue[];
   getTooltipContent?: (node: RawNodeDatum) => React.ReactNode;
   getNodeStyles?: (node: RawNodeDatum) => {
     circleStyle?: React.CSSProperties;
     textStyle?: React.CSSProperties;
+    arrayStyle?: React.CSSProperties;
   };
 };
 
@@ -80,7 +95,7 @@ export function useVisualizerData(): {
 
 type TUseRecursiveTreeProps = {
   trackedFn: string;
-  param: number;
+  onVisitNode?: (node: RawNodeDatum) => void;
 };
 
 export function useRecursiveTree(props: TUseRecursiveTreeProps): RawNodeDatum;
