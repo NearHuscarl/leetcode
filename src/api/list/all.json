@@ -8,6 +8,10 @@
     "id": "fibonacci-number"
   },
   {
+    "title": "Reverse Linked List",
+    "id": "reverse-list"
+  },
+  {
     "title": "Sort an Array",
     "id": "sort-an-array"
   }
