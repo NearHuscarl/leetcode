@@ -1,0 +1,53 @@
+{
+  "id": "merge-two-sorted-lists",
+  "title": "Merge Two Sorted Lists",
+  "testCases": [
+    {
+      "list1": [
+        1,
+        2,
+        4
+      ],
+      "list2": [
+        1,
+        3,
+        4
+      ]
+    },
+    {
+      "list1": [],
+      "list2": []
+    },
+    {
+      "list1": [],
+      "list2": [
+        0
+      ]
+    }
+  ],
+  "metaData": {
+    "name": "mergeTwoLists",
+    "params": [
+      {
+        "name": "list1",
+        "type": "ListNode"
+      },
+      {
+        "name": "list2",
+        "type": "ListNode"
+      }
+    ],
+    "return": {
+      "type": "ListNode"
+    }
+  },
+  "solutions": {
+    "main": {
+      "id": "main",
+      "name": "Main",
+      "programCode": "/**\r\n * Definition for singly-linked list.\r\n * function ListNode(val, next) {\r\n *     this.val = (val===undefined ? 0 : val)\r\n *     this.next = (next===undefined ? null : next)\r\n * }\r\n */\r\n/**\r\n * @param {ListNode} list1\r\n * @param {ListNode} list2\r\n * @return {ListNode}\r\n */\r\nvar mergeTwoLists = function (list1, list2) {\r\n  const prefixNode = { next: null, val: 0 };\r\n  let cur1 = list1;\r\n  let cur2 = list2;\r\n  let cur = prefixNode;\r\n\r\n  while (cur1 && cur2) {\r\n    if (cur1.val < cur2.val) {\r\n      cur.next = cur1;\r\n      cur1 = cur1.next;\r\n    } else {\r\n      cur.next = cur2;\r\n      cur2 = cur2.next;\r\n    }\r\n    cur = cur.next;\r\n  }\r\n\r\n  if (cur1) cur.next = cur1;\r\n  if (cur2) cur.next = cur2;\r\n\r\n  return prefixNode.next;\r\n};\r\n",
+      "visualizerCode": "import React from \"react\";\r\nimport { useVisualizerData, VLinkedList } from \"visualizer\";\r\nimport { red, purple, amber, lightGreen, teal, alpha, blue } from \"colors\";\r\n\r\nexport const Visualizer = () => {\r\n  const { data, expression, type, nodes } = useVisualizerData();\r\n  const { prefixNode, cur, cur1, cur2 } = data;\r\n\r\n  return (\r\n    <VLinkedList\r\n      nodes={nodes}\r\n      pointers={[\r\n        { name: \"head\", value: prefixNode, color: teal[\"500\"], isHead: true },\r\n        { name: \"cur\", value: cur, color: amber[500] },\r\n        { name: \"cur1\", value: cur1, color: red[500] },\r\n        { name: \"cur2\", value: cur2, color: purple[500] },\r\n      ]}\r\n    />\r\n  );\r\n};\r\n",
+      "timeComplexity": "n1 + n2"
+    }
+  }
+}

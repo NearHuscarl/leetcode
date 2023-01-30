@@ -8,6 +8,10 @@
     "id": "fibonacci-number"
   },
   {
+    "title": "Merge Two Sorted Lists",
+    "id": "merge-two-sorted-lists"
+  },
+  {
     "title": "Reverse Linked List",
     "id": "reverse-list"
   },
