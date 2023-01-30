@@ -19,6 +19,26 @@ export type TVArrayProps = {
 
 export function VArray(props: TVArrayProps): JSX.Element;
 
+type TNodeId = number | string;
+interface TListNodeD3<T extends TDebugValue = number> {
+  id: TNodeId;
+  val: T;
+  next: TNodeId | null;
+}
+export type TVLinkedListProps<T extends TDebugValue = number> = {
+  nodes: Record<TNodeId, TListNodeD3<T>>;
+  pointers: {
+    name: string;
+    value: TListNodeD3<T>;
+    color?: string;
+    highlight?: boolean;
+    position?: "top" | "bottom";
+    isHead?: boolean;
+  }[];
+};
+
+export function VLinkedList(props: TVLinkedListProps): JSX.Element;
+
 export interface RawNodeDatum {
   name: string;
   attributes: {
@@ -93,6 +113,7 @@ export function useVisualizerData(): {
     key: string;
     name: string;
   };
+  nodes: Record<number, TListNodeD3<any>>;
 };
 
 type TUseRecursiveTreeProps = {
