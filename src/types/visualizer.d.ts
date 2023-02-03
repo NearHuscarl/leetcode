@@ -20,13 +20,26 @@ export type TVArrayProps = {
 export function VArray(props: TVArrayProps): JSX.Element;
 
 type TNodeId = number | string;
-interface TListNodeD3<T extends TDebugValue = number> {
+type TNodeType = "node" | "pointer";
+interface TListNodeD3<T extends TDebugValue = number, Type = TNodeType> {
   id: TNodeId;
   val: T;
   next: TNodeId | null;
+  references: Type extends "node" ? TNodeId[] : undefined;
+  color?: string;
+  type: Type;
+  isHead: boolean;
+  isTail?: (node: TListNodeD3<T, "node">) => boolean;
+  nodeIndex: Type extends "node" ? number : undefined;
+  headIndex: number;
+  colorNode: Type extends "pointer" ? boolean : undefined;
+  fallbackColor?: Type extends "node" ? string : undefined;
+  highlight: Type extends "pointer" ? boolean : undefined;
+  position?: TVLinkedListProps["pointers"][number]["position"];
 }
 export type TVLinkedListProps<T extends TDebugValue = number> = {
   nodes: Record<TNodeId, TListNodeD3<T>>;
+  getNode?: (node: TListNodeD3<T>) => TListNodeD3<T>;
   pointers: {
     name: string;
     value: TListNodeD3<T>;
@@ -34,6 +47,8 @@ export type TVLinkedListProps<T extends TDebugValue = number> = {
     highlight?: boolean;
     position?: "top" | "bottom";
     isHead?: boolean;
+    isTail?: (node: TListNodeD3<T, "node">) => boolean;
+    colorNode?: boolean;
   }[];
 };
 
