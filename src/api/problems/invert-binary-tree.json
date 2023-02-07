@@ -1,0 +1,48 @@
+{
+  "id": "invert-binary-tree",
+  "title": "Invert Binary Tree",
+  "testCases": [
+    {
+      "root": [
+        4,
+        2,
+        7,
+        1,
+        3,
+        6,
+        9
+      ]
+    },
+    {
+      "root": [
+        2,
+        1,
+        3
+      ]
+    },
+    {
+      "root": []
+    }
+  ],
+  "metaData": {
+    "name": "invertTree",
+    "params": [
+      {
+        "name": "root",
+        "type": "TreeNode"
+      }
+    ],
+    "return": {
+      "type": "TreeNode"
+    }
+  },
+  "solutions": {
+    "main": {
+      "id": "main",
+      "name": "Main",
+      "programCode": "/**\r\n * Definition for a binary tree node.\r\n * function TreeNode(val, left, right) {\r\n *     this.val = (val===undefined ? 0 : val)\r\n *     this.left = (left===undefined ? null : left)\r\n *     this.right = (right===undefined ? null : right)\r\n * }\r\n */\r\n/**\r\n * @param {TreeNode} root\r\n * @return {TreeNode}\r\n */\r\nvar invertTree = function (root) {\r\n  if (!root) {\r\n    return null;\r\n  }\r\n\r\n  [root.left, root.right] = [root.right, root.left];\r\n\r\n  invertTree(root.left);\r\n  invertTree(root.right);\r\n\r\n  return root;\r\n};\r\n",
+      "visualizerCode": "import React from \"react\";\r\nimport { useVisualizerData, VTree } from \"visualizer\";\r\nimport {\r\n  red,\r\n  purple,\r\n  amber,\r\n  lightGreen,\r\n  lightBlue,\r\n  teal,\r\n  alpha,\r\n  blue,\r\n} from \"colors\";\r\n\r\nexport const Visualizer = () => {\r\n  const { data, expression, type, treeNodes } = useVisualizerData();\r\n  const { root } = data;\r\n\r\n  return (\r\n    <VTree\r\n      nodes={treeNodes}\r\n      pointers={[\r\n        {\r\n          name: \"root\",\r\n          value: root,\r\n          color: teal[\"500\"],\r\n        },\r\n        {\r\n          name: \"left\",\r\n          value: root.left,\r\n          color: amber[500],\r\n        },\r\n        {\r\n          name: \"right\",\r\n          value: root.right,\r\n          color: lightBlue[500],\r\n        },\r\n      ]}\r\n    />\r\n  );\r\n};\r\n",
+      "timeComplexity": "n"
+    }
+  }
+}

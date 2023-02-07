@@ -8,6 +8,10 @@
     "id": "fibonacci-number"
   },
   {
+    "title": "Invert Binary Tree",
+    "id": "invert-binary-tree"
+  },
+  {
     "title": "Merge Two Sorted Lists",
     "id": "merge-two-sorted-lists"
   },
