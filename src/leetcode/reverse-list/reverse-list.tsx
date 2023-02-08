@@ -3,12 +3,12 @@ import { useVisualizerData, VLinkedList } from "visualizer";
 import { red, purple, amber, lightGreen, teal, alpha, blue } from "colors";
 
 export const Visualizer = () => {
-  const { data, expression, type, nodes } = useVisualizerData();
+  const { data, expression, type, listNodes } = useVisualizerData();
   const { head, left, cur, right } = data;
 
   return (
     <VLinkedList
-      nodes={nodes}
+      nodes={listNodes}
       pointers={[
         { name: "head", value: head, color: teal["500"], isHead: true },
         { name: "left", value: left, color: red["500"] },
