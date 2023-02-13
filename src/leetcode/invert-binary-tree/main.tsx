@@ -2,17 +2,16 @@ import React from "react";
 import { useVisualizerData, VTree2 } from "visualizer";
 import { red, green, amber, teal, interpolateRgb } from "colors";
 
-let computeColor = false;
 let colorLookup = {};
 let nodes = 0;
 
 export const Visualizer = () => {
-  const { data, expression, type, treeNodes, listNodes } = useVisualizerData();
+  const { data, expression, type, treeNodes } = useVisualizerData();
   const { root, node } = data;
   let minX = Number.MAX_SAFE_INTEGER;
   let maxX = Number.MIN_SAFE_INTEGER;
 
-  const nodeCount = Object.keys(listNodes).length;
+  const nodeCount = Object.keys(treeNodes).length;
   if (nodeCount !== nodes) {
     nodes = nodeCount;
     colorLookup = {};
@@ -21,17 +20,12 @@ export const Visualizer = () => {
   return (
     <VTree2
       nodes={treeNodes}
-      getNode={
-        computeColor
-          ? undefined
-          : (n) => {
-              if (n.tx < minX) minX = n.tx;
-              if (n.tx > maxX) maxX = n.tx;
-              return n;
-            }
-      }
+      getNode={(n) => {
+        if (n.tx < minX) minX = n.tx;
+        if (n.tx > maxX) maxX = n.tx;
+        return n;
+      }}
       onDataComputed={(data) => {
-        computeColor = true;
         const dx = maxX - minX;
         const interpolate = interpolateRgb(red["500"], green["500"]);
         data.treeNodes.forEach((n) => {

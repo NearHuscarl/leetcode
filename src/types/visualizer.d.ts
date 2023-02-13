@@ -1,35 +1,15 @@
-export type TDebugValue = string | number;
+export type TStepType =
+  | "statement"
+  | "callExpression"
+  | "returnStatement"
+  | "returnStatementFake"
+  | "testExpressionSuccess"
+  | "testExpressionFailed";
 
-interface SimulationNodeDatum {
-  /**
-   * Node’s zero-based index into nodes array. This property is set during the initialization process of a simulation.
-   */
-  index?: number | undefined;
-  /**
-   * Node’s current x-position
-   */
-  x?: number | undefined;
-  /**
-   * Node’s current y-position
-   */
-  y?: number | undefined;
-  /**
-   * Node’s current x-velocity
-   */
-  vx?: number | undefined;
-  /**
-   * Node’s current y-velocity
-   */
-  vy?: number | undefined;
-  /**
-   * Node’s fixed x-position (if position was fixed)
-   */
-  fx?: number | null | undefined;
-  /**
-   * Node’s fixed y-position (if position was fixed)
-   */
-  fy?: number | null | undefined;
-}
+export type TDebugValue = string | number;
+export type TDebugValue2 = TDebugValue | TDebugValue[];
+
+export function VCode(props: React.PropsWithChildren): JSX.Element;
 
 export type TArrayPointer = {
   name: string;
@@ -52,8 +32,7 @@ export function VArray(props: TVArrayProps): JSX.Element;
 
 type TNodeId = number | string;
 type TNodeType = "node" | "pointer";
-interface TListNodeD3<T extends TDebugValue = number, Type = TNodeType>
-  extends SimulationNodeDatum {
+interface TListNodeD3<T extends TDebugValue = number, Type = TNodeType> {
   id: TNodeId;
   val: T;
   next: TNodeId | null;
@@ -86,21 +65,46 @@ export type TVLinkedListProps<T extends TDebugValue = number> = {
 
 export function VLinkedList(props: TVLinkedListProps): JSX.Element;
 
-export interface TTreeNodeD3<T extends TDebugValue = number, Type = TNodeType>
+export interface TTreeNodeD3<T extends TDebugValue2 = number, Type = TNodeType>
   extends SimulationNodeDatum {
   id: TNodeId;
   val: T;
+  // for array node
+  label?: string;
   childIndex?: number;
-  left: TNodeId | null;
-  right: TNodeId | null;
-  parent: TNodeId | null;
+  children: TNodeId[];
+  parent?: TNodeId | null;
+  tooltip?: string;
   color?: string;
   borderColor?: string;
+  arrow?:
+    | {
+        color?: string;
+        dasharray?: number;
+        width?: number;
+      }
+    | false;
   type: Type;
   tx: Type extends "node" ? number : undefined;
   ty: Type extends "node" ? number : undefined;
   highlight: Type extends "pointer" ? boolean : undefined;
   highlightBorder: Type extends "pointer" ? boolean : undefined;
+}
+
+export interface TTreeNodeD32<T extends TDebugValue2, Type = TNodeType>
+  extends Partial<TTreeNodeD3<T, Type>> {
+  children: TTreeNodeD32<T, Type>[];
+  parent?: TTreeNodeD32<T, Type>;
+}
+
+export interface TTreeLinkD3<T extends TDebugValue = number>
+  extends SimulationNodeDatum<TTreeNodeD3<T>> {
+  source: TTreeNodeD3<T>;
+  target: TTreeNodeD3<T, "node">;
+  id: string;
+  dasharray?: string;
+  width?: number;
+  display?: boolean;
 }
 
 export type TTreeData<T extends TDebugValue = number> = {
@@ -112,7 +116,8 @@ export type TTreeData<T extends TDebugValue = number> = {
 };
 
 export type VTreeProps<T extends TDebugValue = number> = {
-  nodes: Record<TNodeId, TTreeNodeD3<T>>;
+  nodes?: Record<TNodeId, TTreeNodeD3<T>>;
+  hierarchyNode?: THierarchyNode<TTreeNodeD3<T>>;
   getNode?: (node: TTreeNodeD3<T>) => TTreeNodeD3<T>;
   onDataComputed?: (data: TTreeData<T>) => void;
   pointers: {
@@ -126,59 +131,39 @@ export type VTreeProps<T extends TDebugValue = number> = {
 
 export function VTree2(props: VTreeProps): JSX.Element;
 
-export interface RawNodeDatum {
-  name: string;
-  attributes: {
-    index: number;
-    params: any[];
-    data: TIdentifier;
-    completed?: boolean;
-    onStack?: boolean;
-    tip?: boolean;
-    custom?: Record<string, any>;
-  };
-  children?: RawNodeDatum[];
-  parent?: RawNodeDatum;
+export interface THierarchyNode<Datum> {
+  children?: this[];
+  data: Datum;
 }
 
-type TRenderCustomNodeElementProps = {
-  showFullTree?: boolean;
-  node: RawNodeDatum;
-  getNodeContent: TVTreeProps["getNodeContent"];
-  getNodeLabel: TVTreeProps["getNodeLabel"];
-  getTooltipContent: TVTreeProps["getTooltipContent"];
-  getNodeStyles: TVTreeProps["getNodeStyles"];
-};
-export type TRenderNodeFn = (
-  props: TRenderCustomNodeElementProps
-) => JSX.Element;
-
-export type TVTreeProps = {
-  showFullTree?: boolean;
-  width?: number | string;
-  height?: number | string;
-  data: RawNodeDatum;
-  arrowOffset?: number;
-  renderNode?: TRenderNodeFn;
-  getNodeContent?: (node: RawNodeDatum) => TDebugValue | TDebugValue[];
-  getNodeLabel?: (node: RawNodeDatum) => string;
-  getTooltipContent?: (node: RawNodeDatum) => React.ReactNode;
-  getNodeStyles?: (node: RawNodeDatum) => {
-    circleStyle?: React.CSSProperties;
-    textStyle?: React.CSSProperties;
-    arrayStyle?: React.CSSProperties;
-  };
+export type VRecursiveTreeProps<T extends TDebugValue = number> = {
+  trackedFn: string;
+  pointers?: VTreeProps<T>["pointers"];
+  onVisitNode?: (
+    node: TTreeNodeD32<any, "node">,
+    data: {
+      data: TIdentifer;
+      onStack?: boolean;
+      completed?: boolean;
+      tip?: boolean;
+    }
+  ) => void;
 };
 
-export function VTree(props: TVTreeProps): JSX.Element;
+export function VRecursiveTree(props: VRecursiveTreeProps): JSX.Element;
 
-export type TStepType =
-  | "statement"
-  | "callExpression"
-  | "returnStatement"
-  | "returnStatementFake"
-  | "testExpressionSuccess"
-  | "testExpressionFailed";
+export function SvgText(props: TSvgTextProps): JSX.Element;
+
+type TSvgArrayProps = {
+  rootRef?: (r: SVGGElement) => void;
+  array: any[];
+  size?: number;
+  color?: string;
+  borderWidth?: number;
+  label?: string;
+};
+
+export function SvgArray(props: TSvgArrayProps): JSX.Element;
 
 export function useVisualizerData(): {
   index: number;
@@ -203,12 +188,5 @@ export function useVisualizerData(): {
   listNodes: Record<number, TListNodeD3<any>>;
   treeNodes: Record<number, TTreeNodeD3<any>>;
 };
-
-type TUseRecursiveTreeProps = {
-  trackedFn: string;
-  onVisitNode?: (node: RawNodeDatum) => void;
-};
-
-export function useRecursiveTree(props: TUseRecursiveTreeProps): RawNodeDatum;
 
 export function Visualize(props: TVArrayProps): number;

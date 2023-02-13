@@ -1,40 +1,22 @@
 import React from "react";
-import { useVisualizerData, useRecursiveTree, VTree } from "visualizer";
-import { red, amber, teal, alpha, blue } from "colors";
+import { useVisualizerData, VRecursiveTree } from "visualizer";
+import { amber } from "colors";
 
 export const Visualizer = () => {
   const { expression, type, data } = useVisualizerData();
-  const treeData = useRecursiveTree({ trackedFn: "memoization" });
 
   return (
-    <VTree
-      data={treeData}
-      getNodeStyles={(node) => {
-        const { attributes } = node;
+    <VRecursiveTree
+      trackedFn="memoization"
+      onVisitNode={(node, nodeData) => {
         const test = type === "testExpressionSuccess";
         const hitCache = expression === "cache[n] !== undefined" && test;
-        const hitCircleStyle = {
-          fill: amber[500],
-          stroke: amber[500],
-        };
-        const hitTextStyle = {
-          stroke: "white",
-        };
-        const isHighlightedNode =
-          attributes?.tip || attributes.params[0] === data.n;
+        const isHighlightedNode = nodeData.tip || nodeData.data.n === data.n;
 
-        return {
-          circleStyle: hitCache && isHighlightedNode ? hitCircleStyle : {},
-          textStyle: hitCache && isHighlightedNode ? hitTextStyle : {},
-        };
-      }}
-      getTooltipContent={(node) => {
-        if (!node.attributes?.data?.cache) {
-          return null;
+        if (hitCache && isHighlightedNode) {
+          node.color = amber[500];
+          node.borderColor = amber[500];
         }
-        return (
-          <pre>{JSON.stringify(node.attributes?.data?.cache, null, 2)}</pre>
-        );
       }}
     />
   );
