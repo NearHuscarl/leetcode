@@ -16,6 +16,10 @@
     "id": "merge-two-sorted-lists"
   },
   {
+    "title": "Palindrome Linked List",
+    "id": "palindrome-linked-list"
+  },
+  {
     "title": "Reverse Linked List",
     "id": "reverse-list"
   },

@@ -1,0 +1,41 @@
+{
+  "id": "palindrome-linked-list",
+  "title": "Palindrome Linked List",
+  "testCases": [
+    {
+      "head": [
+        1,
+        2,
+        2,
+        1
+      ]
+    },
+    {
+      "head": [
+        1,
+        2
+      ]
+    }
+  ],
+  "metaData": {
+    "name": "isPalindrome",
+    "params": [
+      {
+        "name": "head",
+        "type": "ListNode"
+      }
+    ],
+    "return": {
+      "type": "boolean"
+    }
+  },
+  "solutions": {
+    "array": {
+      "id": "array",
+      "name": "Array",
+      "programCode": "/**\r\n * Definition for singly-linked list.\r\n * function ListNode(val, next) {\r\n *     this.val = (val===undefined ? 0 : val)\r\n *     this.next = (next===undefined ? null : next)\r\n * }\r\n */\r\n/**\r\n * @param {ListNode} head\r\n * @return {boolean}\r\n */\r\nvar isPalindrome = function (head) {\r\n  const array = [];\r\n  let cur = head;\r\n\r\n  while (cur) {\r\n    array.push(cur.val);\r\n    cur = cur.next;\r\n  }\r\n\r\n  let left = 0;\r\n  let right = array.length - 1;\r\n\r\n  while (left < right) {\r\n    if (array[left] !== array[right]) {\r\n      return false;\r\n    }\r\n    left++;\r\n    right--;\r\n  }\r\n\r\n  return true;\r\n};\r\n",
+      "visualizerCode": "import React from \"react\";\r\nimport { useVisualizerData, VRecursiveTree } from \"visualizer\";\r\nimport { amber } from \"colors\";\r\n\r\nexport const Visualizer = () => {\r\n  return null;\r\n};\r\n",
+      "timeComplexity": "n"
+    }
+  }
+}
