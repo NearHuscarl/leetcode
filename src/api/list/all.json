@@ -26,5 +26,9 @@
   {
     "title": "Sort an Array",
     "id": "sort-an-array"
+  },
+  {
+    "title": "Valid Anagram",
+    "id": "valid-anagram"
   }
 ]

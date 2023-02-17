@@ -1,0 +1,39 @@
+{
+  "id": "valid-anagram",
+  "title": "Valid Anagram",
+  "testCases": [
+    {
+      "s": "anagram",
+      "t": "nagaram"
+    },
+    {
+      "s": "rat",
+      "t": "car"
+    }
+  ],
+  "metaData": {
+    "name": "isAnagram",
+    "params": [
+      {
+        "name": "s",
+        "type": "string"
+      },
+      {
+        "name": "t",
+        "type": "string"
+      }
+    ],
+    "return": {
+      "type": "boolean"
+    }
+  },
+  "solutions": {
+    "lookupTable": {
+      "id": "lookupTable",
+      "name": "Lookup Table",
+      "programCode": "/**\r\n * @param {string} s\r\n * @param {string} t\r\n * @return {boolean}\r\n */\r\nvar isAnagram = function (s, t) {\r\n  if (s.length !== t.length) {\r\n    return false;\r\n  }\r\n\r\n  const freq1 = {};\r\n  const freq2 = {};\r\n\r\n  for (let i = 0; i < s.length; i++) {\r\n    freq1[s[i]] = (freq1[s[i]] ?? 0) + 1;\r\n    freq2[t[i]] = (freq2[t[i]] ?? 0) + 1;\r\n  }\r\n\r\n  for (const chr in freq1) {\r\n    if (freq1[chr] !== freq2[chr]) {\r\n      return false;\r\n    }\r\n  }\r\n  return true;\r\n};\r\n",
+      "visualizerCode": "import React from \"react\";\r\nimport { useVisualizerData, VTree } from \"visualizer\";\r\nimport { red, green, amber, teal, interpolateRgb } from \"colors\";\r\n\r\nexport const Visualizer = () => {\r\n  return null;\r\n};\r\n",
+      "timeComplexity": "s + t"
+    }
+  }
+}
