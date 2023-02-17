@@ -235,8 +235,17 @@ type TSvgArrayProps = {
 
 export function SvgArray(props: TSvgArrayProps): JSX.Element;
 
+type HighlightedKey = string;
+type HighlightedColor = string;
+export type TLookupTableHighlight = Record<HighlightedKey, HighlightedColor>;
+
 interface TVLookupTableProps<K extends string, V> extends VBase {
   value: Record<K, V>;
+  highlights?: TLookupTableHighlight;
+  getEntryStyle?: (
+    entry: [K, V],
+    style: React.CSSProperties
+  ) => React.CSSProperties;
 }
 export function VLookupTable<K extends string, V>(
   props: TVLookupTableProps<K, V>

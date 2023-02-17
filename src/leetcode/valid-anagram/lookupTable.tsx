@@ -1,27 +1,41 @@
 import React from "react";
 import { useVisualizerData, VLookupTable, VArray } from "visualizer";
-import { red, green, amber, teal, interpolateRgb } from "colors";
+import { red, green, amber, teal, lightGreen } from "colors";
 
 export const Visualizer = () => {
-  const { data } = useVisualizerData();
-  const { freq1, freq2, s = "", t = "", i } = data;
+  const { data, expression, type } = useVisualizerData();
+  const { freq1, freq2, s = "", t = "", i, chr } = data;
 
   return (
     <>
-      <VArray
-        position={{ x: 0, y: 30 }}
-        label="s"
-        value={s.split("")}
-        pointers={[{ name: "i", value: i, color: red[500] }]}
-      />
-      <VArray
-        position={{ x: 300, y: 30 }}
-        label="t"
-        value={t.split("")}
-        pointers={[{ name: "i", value: i }]}
-      />
-      <VLookupTable position={{ x: 0, y: 110 }} value={freq1} />
-      <VLookupTable position={{ x: 300, y: 110 }} value={freq2} />
+      {[s, t].map((str, index) => (
+        <VArray
+          key={index}
+          position={{ x: 300 * index, y: 30 }}
+          label={index === 0 ? "s" : "t"}
+          value={str.split("")}
+          pointers={[{ name: "i", value: i, color: red[500] }]}
+        />
+      ))}
+      {[freq1, freq2].map((freq, i) => (
+        <VLookupTable
+          key={i}
+          position={{ x: 300 * i, y: 110 }}
+          value={freq}
+          highlights={{ [chr]: amber[700] }}
+          getEntryStyle={(entry, style) => {
+            const test = type === "testExpressionSuccess";
+            if (
+              expression === "freq1[chr] !== freq2[chr]" &&
+              entry[0] === chr
+            ) {
+              style.background = test ? red[500] : lightGreen[500];
+              style.color = "#ffffff";
+            }
+            return style;
+          }}
+        />
+      ))}
     </>
   );
 };
