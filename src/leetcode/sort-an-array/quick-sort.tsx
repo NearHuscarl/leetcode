@@ -9,7 +9,7 @@ export const Visualizer = () => {
   return (
     <>
       <VArray
-        array={nums}
+        value={nums}
         pointers={[
           { name: "left", value: left, color: red[500] },
           { name: "i", value: i, color: blue[500] },

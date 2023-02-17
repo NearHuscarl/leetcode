@@ -7,8 +7,9 @@ var isAnagram = function (s, t) {
   if (s.length !== t.length) {
     return false;
   }
-
+  /** @type {Object.<string, number>} */
   const freq1 = {};
+  /** @type {Object.<string, number>} */
   const freq2 = {};
 
   for (let i = 0; i < s.length; i++) {

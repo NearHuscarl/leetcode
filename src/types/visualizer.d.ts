@@ -3,7 +3,7 @@ export type TVectorLike = {
   y: number;
 };
 
-interface VBase {
+export interface VBase {
   position?: TVectorLike;
 }
 
@@ -18,7 +18,13 @@ export type TStepType =
 export type TDebugValue = string | number;
 export type TDebugValue2 = TDebugValue | TDebugValue[];
 
-export function VCode(props: React.PropsWithChildren): JSX.Element;
+export interface TVCodeProps extends VBase {
+  width?: number | string;
+  height?: number | string;
+  children: any;
+}
+
+export function VCode(props: TVCodeProps): JSX.Element;
 
 export type TArrayPointer = {
   name: string;
@@ -27,23 +33,14 @@ export type TArrayPointer = {
   color?: string;
 };
 export interface TVArrayProps extends VBase {
-  array: TDebugValue[];
+  value: TDebugValue[];
+  label?: TSvgArrayProps["label"];
   highlightRange?: TSvgArrayProps["highlightRange"];
   getElementStyles?: TSvgArrayProps["getElementStyles"];
   pointers?: TArrayPointer[];
 }
 
 export function VArray(props: TVArrayProps): JSX.Element;
-
-export type TSvgTextProps = {
-  children: TDebugValue;
-  color?: string;
-  style?: React.CSSProperties;
-  x?: number;
-  y?: number;
-  dx?: number;
-  dy?: number;
-};
 
 interface SimulationNodeDatum {
   /**
@@ -201,6 +198,16 @@ export interface VRecursiveTreeProps<T extends TDebugValue = number>
 
 export function VRecursiveTree(props: VRecursiveTreeProps): JSX.Element;
 
+export type TSvgTextProps = {
+  children: TDebugValue;
+  color?: string;
+  style?: React.CSSProperties;
+  x?: number;
+  y?: number;
+  dx?: number;
+  dy?: number;
+};
+
 export function SvgText(props: TSvgTextProps): JSX.Element;
 
 type ArrayElementStyles = {
@@ -212,7 +219,7 @@ type ArrayElementStyles = {
 
 type TSvgArrayProps = {
   rootRef?: (r: SVGGElement | null) => void;
-  array: any[];
+  value: any[];
   size?: number;
   color?: string;
   borderWidth?: number;
@@ -227,6 +234,13 @@ type TSvgArrayProps = {
 };
 
 export function SvgArray(props: TSvgArrayProps): JSX.Element;
+
+interface TVLookupTableProps<K extends string, V> extends VBase {
+  value: Record<K, V>;
+}
+export function VLookupTable<K extends string, V>(
+  props: TVLookupTableProps<K, V>
+): JSX.Element;
 
 export function useVisualizerData(): {
   index: number;
