@@ -1,3 +1,12 @@
+export type TVectorLike = {
+  x: number;
+  y: number;
+};
+
+interface VBase {
+  position?: TVectorLike;
+}
+
 export type TStepType =
   | "statement"
   | "callExpression"
@@ -17,22 +26,60 @@ export type TArrayPointer = {
   prevNonEmptyValue?: number;
   color?: string;
 };
-export type TVArrayProps = {
+export interface TVArrayProps extends VBase {
   array: TDebugValue[];
-  highlightRange?: [start: number, end: number, color: string];
-  getElementStyles?: (
-    value: TDebugValue,
-    index: number,
-    styles: React.CSSProperties
-  ) => React.CSSProperties | undefined;
+  highlightRange?: TSvgArrayProps["highlightRange"];
+  getElementStyles?: TSvgArrayProps["getElementStyles"];
   pointers?: TArrayPointer[];
-};
+}
 
 export function VArray(props: TVArrayProps): JSX.Element;
 
-type TNodeId = number | string;
-type TNodeType = "node" | "pointer";
-interface TListNodeD3<T extends TDebugValue = number, Type = TNodeType> {
+export type TSvgTextProps = {
+  children: TDebugValue;
+  color?: string;
+  style?: React.CSSProperties;
+  x?: number;
+  y?: number;
+  dx?: number;
+  dy?: number;
+};
+
+interface SimulationNodeDatum {
+  /**
+   * Node’s zero-based index into nodes array. This property is set during the initialization process of a simulation.
+   */
+  index?: number | undefined;
+  /**
+   * Node’s current x-position
+   */
+  x?: number | undefined;
+  /**
+   * Node’s current y-position
+   */
+  y?: number | undefined;
+  /**
+   * Node’s current x-velocity
+   */
+  vx?: number | undefined;
+  /**
+   * Node’s current y-velocity
+   */
+  vy?: number | undefined;
+  /**
+   * Node’s fixed x-position (if position was fixed)
+   */
+  fx?: number | null | undefined;
+  /**
+   * Node’s fixed y-position (if position was fixed)
+   */
+  fy?: number | null | undefined;
+}
+
+export type TNodeId = number | string;
+export type TNodeType = "node" | "pointer";
+export interface TListNodeD3<T extends TDebugValue = number, Type = TNodeType>
+  extends SimulationNodeDatum {
   id: TNodeId;
   val: T;
   next: TNodeId | null;
@@ -48,7 +95,8 @@ interface TListNodeD3<T extends TDebugValue = number, Type = TNodeType> {
   highlight: Type extends "pointer" ? boolean : undefined;
   position?: TVLinkedListProps["pointers"][number]["position"];
 }
-export type TVLinkedListProps<T extends TDebugValue = number> = {
+export interface TVLinkedListProps<T extends TDebugValue = number>
+  extends VBase {
   nodes: Record<TNodeId, TListNodeD3<T>>;
   getNode?: (node: TListNodeD3<T>) => TListNodeD3<T>;
   pointers: {
@@ -61,7 +109,7 @@ export type TVLinkedListProps<T extends TDebugValue = number> = {
     isTail?: (node: TListNodeD3<T, "node">) => boolean;
     colorNode?: boolean;
   }[];
-};
+}
 
 export function VLinkedList(props: TVLinkedListProps): JSX.Element;
 
@@ -98,7 +146,7 @@ export interface TTreeNodeD32<T extends TDebugValue2, Type = TNodeType>
 }
 
 export interface TTreeLinkD3<T extends TDebugValue = number>
-  extends SimulationNodeDatum<TTreeNodeD3<T>> {
+  extends SimulationNodeDatum {
   source: TTreeNodeD3<T>;
   target: TTreeNodeD3<T, "node">;
   id: string;
@@ -115,7 +163,7 @@ export type TTreeData<T extends TDebugValue = number> = {
   treePointers: TTreeNodeD3<T, "pointer">[];
 };
 
-export type VTreeProps<T extends TDebugValue = number> = {
+export interface VTreeProps<T extends TDebugValue = number> extends VBase {
   nodes?: Record<TNodeId, TTreeNodeD3<T>>;
   hierarchyNode?: THierarchyNode<TTreeNodeD3<T>>;
   getNode?: (node: TTreeNodeD3<T>) => TTreeNodeD3<T>;
@@ -127,47 +175,62 @@ export type VTreeProps<T extends TDebugValue = number> = {
     highlight?: boolean;
     highlightBorder?: boolean;
   }[];
-};
+}
 
-export function VTree2(props: VTreeProps): JSX.Element;
+export function VTree(props: VTreeProps): JSX.Element;
 
 export interface THierarchyNode<Datum> {
   children?: this[];
   data: Datum;
 }
 
-export type VRecursiveTreeProps<T extends TDebugValue = number> = {
+export interface VRecursiveTreeProps<T extends TDebugValue = number>
+  extends VBase {
   trackedFn: string;
   pointers?: VTreeProps<T>["pointers"];
   onVisitNode?: (
     node: TTreeNodeD32<any, "node">,
     data: {
-      data: TIdentifer;
+      data: TIdentifier;
       onStack?: boolean;
       completed?: boolean;
       tip?: boolean;
     }
   ) => void;
-};
+}
 
 export function VRecursiveTree(props: VRecursiveTreeProps): JSX.Element;
 
 export function SvgText(props: TSvgTextProps): JSX.Element;
 
+type ArrayElementStyles = {
+  color?: string;
+  background?: string;
+  borderColor?: string;
+  fontWeight?: string | number;
+};
+
 type TSvgArrayProps = {
-  rootRef?: (r: SVGGElement) => void;
+  rootRef?: (r: SVGGElement | null) => void;
   array: any[];
   size?: number;
   color?: string;
   borderWidth?: number;
   label?: string;
+  center?: boolean;
+  getElementStyles?: (
+    value: TDebugValue,
+    index: number,
+    styles: ArrayElementStyles
+  ) => ArrayElementStyles | undefined;
+  highlightRange?: [start: number, end: number, color: string];
 };
 
 export function SvgArray(props: TSvgArrayProps): JSX.Element;
 
 export function useVisualizerData(): {
   index: number;
-  data: TIdentifier;
+  data: any;
   type: TStepType;
   loc: {
     lineStart: number;
@@ -179,7 +242,7 @@ export function useVisualizerData(): {
   callStack: {
     name: string;
   }[];
-  expression?: TExpression | undefined;
+  expression?: string | undefined;
   params?: any[];
   fn: {
     key: string;

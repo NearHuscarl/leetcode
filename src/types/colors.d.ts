@@ -1,5 +1,7 @@
 /* tslint:disable max-line-length */
 
+export function interpolateRgb(a: string, b: string): (t: number) => string;
+
 export function alpha(color: string, value: number): string;
 
 /**

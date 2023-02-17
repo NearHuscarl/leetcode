@@ -1,5 +1,5 @@
 import React from "react";
-import { useVisualizerData, VTree2 } from "visualizer";
+import { useVisualizerData, VTree } from "visualizer";
 import { red, green, amber, teal, interpolateRgb } from "colors";
 
 let colorLookup = {};
@@ -18,7 +18,7 @@ export const Visualizer = () => {
   }
 
   return (
-    <VTree2
+    <VTree
       nodes={treeNodes}
       getNode={(n) => {
         if (n.tx < minX) minX = n.tx;

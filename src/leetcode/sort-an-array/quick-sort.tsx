@@ -10,11 +10,15 @@ export const Visualizer = () => {
     <>
       <VArray
         array={nums}
+        pointers={[
+          { name: "left", value: left, color: red[500] },
+          { name: "i", value: i, color: blue[500] },
+        ]}
         highlightRange={[start, end, teal[300]]}
         getElementStyles={(value, index, style) => {
           if (value === pivot) {
             style.background = lightGreen[200];
-            style.fontWeight = "bold";
+            style.fontWeight = "500";
           }
 
           const test = type === "testExpressionSuccess";
@@ -23,14 +27,10 @@ export const Visualizer = () => {
             (index === i || value === pivot)
           ) {
             style.background = test ? lightGreen[500] : red[500];
-            style.color = test ? "white" : "black";
+            style.color = test ? "#ffffff" : "#000000";
           }
           return style;
         }}
-        pointers={[
-          { name: "left", value: left, color: red[500] },
-          { name: "i", value: i, color: blue[500] },
-        ]}
       />
       <VRecursiveTree
         trackedFn="quickSort"

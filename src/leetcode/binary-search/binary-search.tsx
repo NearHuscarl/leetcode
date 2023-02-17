@@ -8,10 +8,11 @@ export const Visualizer = () => {
 
   return (
     <VArray
+      position={{ x: 0, y: 50 }}
       array={nums}
       getElementStyles={(value, index, style) => {
         if (value === target) {
-          style.border = `3px solid ${lightGreen[500]}`;
+          style.borderColor = lightGreen[500];
         }
 
         const test = type === "testExpressionSuccess";
