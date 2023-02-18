@@ -31,5 +31,12 @@ export const settings: TProblemSettings = {
       visualizerCode: "",
       timeComplexity: "s + t",
     },
+    sort: {
+      id: "sort",
+      name: "Sort",
+      programCode: "",
+      visualizerCode: "",
+      timeComplexity: "s*log(s) + t*log(t)",
+    },
   },
 };

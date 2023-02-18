@@ -41,7 +41,7 @@
     ]
   },
   {
-    "acRate": 74.3,
+    "acRate": 74.4,
     "difficulty": "Easy",
     "title": "Invert Binary Tree",
     "titleSlug": "invert-binary-tree",
@@ -108,7 +108,7 @@
     "neetcode": "https://www.youtube.com/watch?v=yOzXms1J6Nk"
   },
   {
-    "acRate": 73.2,
+    "acRate": 73.3,
     "difficulty": "Easy",
     "title": "Reverse Linked List",
     "titleSlug": "reverse-linked-list",
