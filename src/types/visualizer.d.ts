@@ -1,3 +1,13 @@
+export type TVisualizerConstants = {
+  ArrayItemSize: number;
+  ArrayBorderW: number;
+};
+
+/**
+ * Visualizer Constants
+ */
+export const VC: TVisualizerConstants;
+
 export type TVectorLike = {
   x: number;
   y: number;

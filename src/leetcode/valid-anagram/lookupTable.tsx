@@ -1,17 +1,18 @@
 import React from "react";
-import { useVisualizerData, VLookupTable, VArray } from "visualizer";
+import { useVisualizerData, VLookupTable, VArray, VC } from "visualizer";
 import { red, green, amber, teal, lightGreen } from "colors";
 
 export const Visualizer = () => {
   const { data, expression, type } = useVisualizerData();
   const { freq1, freq2, s = "", t = "", i, chr } = data;
+  const arraySize = VC.ArrayItemSize * (s.length + 1);
 
   return (
     <>
       {[s, t].map((str, index) => (
         <VArray
           key={index}
-          position={{ x: 300 * index, y: 30 }}
+          position={{ x: arraySize * index, y: 30 }}
           label={index === 0 ? "s" : "t"}
           value={str.split("")}
           pointers={[{ name: "i", value: i, color: red[500] }]}
@@ -20,7 +21,7 @@ export const Visualizer = () => {
       {[freq1, freq2].map((freq, i) => (
         <VLookupTable
           key={i}
-          position={{ x: 300 * i, y: 110 }}
+          position={{ x: arraySize * i, y: 110 }}
           value={freq}
           highlights={{ [chr]: amber[700] }}
           getEntryStyle={(entry, style) => {
