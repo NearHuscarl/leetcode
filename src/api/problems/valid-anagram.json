@@ -1,6 +1,6 @@
 {
   "id": "valid-anagram",
-  "title": "Valid Anagram",
+  "neetcode": "https://www.youtube.com/watch?v=9UtInBqnCgA",
   "testCases": [
     {
       "s": "anagram",
@@ -35,5 +35,23 @@
       "visualizerCode": "import React from \"react\";\r\nimport { useVisualizerData, VLookupTable, VArray, VC } from \"visualizer\";\r\nimport { red, green, amber, teal, lightGreen } from \"colors\";\r\n\r\nexport const Visualizer = () => {\r\n  const { data, expression, type } = useVisualizerData();\r\n  const { freq1, freq2, s = \"\", t = \"\", i, chr } = data;\r\n  const arraySize = VC.ArrayItemSize * (s.length + 1);\r\n\r\n  return (\r\n    <>\r\n      {[s, t].map((str, index) => (\r\n        <VArray\r\n          key={index}\r\n          position={{ x: arraySize * index, y: 30 }}\r\n          label={index === 0 ? \"s\" : \"t\"}\r\n          value={str.split(\"\")}\r\n          pointers={[{ name: \"i\", value: i, color: red[500] }]}\r\n        />\r\n      ))}\r\n      {[freq1, freq2].map((freq, i) => (\r\n        <VLookupTable\r\n          key={i}\r\n          position={{ x: arraySize * i, y: 110 }}\r\n          value={freq}\r\n          highlights={{ [chr]: amber[700] }}\r\n          getEntryStyle={(entry, style) => {\r\n            const test = type === \"testExpressionSuccess\";\r\n            if (\r\n              expression === \"freq1[chr] !== freq2[chr]\" &&\r\n              entry[0] === chr\r\n            ) {\r\n              style.background = test ? red[500] : lightGreen[500];\r\n              style.color = \"#ffffff\";\r\n            }\r\n            return style;\r\n          }}\r\n        />\r\n      ))}\r\n    </>\r\n  );\r\n};\r\n",
       "timeComplexity": "s + t"
     }
-  }
+  },
+  "acRate": 63,
+  "difficulty": "Easy",
+  "title": "Valid Anagram",
+  "titleSlug": "valid-anagram",
+  "topicTags": [
+    {
+      "name": "Hash Table",
+      "slug": "hash-table"
+    },
+    {
+      "name": "String",
+      "slug": "string"
+    },
+    {
+      "name": "Sorting",
+      "slug": "sorting"
+    }
+  ]
 }

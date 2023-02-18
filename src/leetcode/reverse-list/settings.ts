@@ -1,8 +1,8 @@
-import { TProblem } from "../../types/problem";
+import { TProblemSettings } from "../../types/problem";
 
-export const settings: TProblem = {
+export const settings: TProblemSettings = {
   id: "reverse-list",
-  title: "Reverse Linked List",
+  neetcode: "https://www.youtube.com/watch?v=G0_I-ZF0S38",
   testCases: [
     {
       head: [1, 2, 3, 4, 5],

@@ -1,8 +1,8 @@
-import { TProblem } from "../../types/problem";
+import { TProblemSettings } from "../../types/problem";
 
-export const settings: TProblem = {
+export const settings: TProblemSettings = {
   id: "invert-binary-tree",
-  title: "Invert Binary Tree",
+  neetcode: "https://www.youtube.com/watch?v=OnSn2XEQ4MY",
   testCases: [
     {
       root: [4, 2, 7, 1, 3, 6, 9],

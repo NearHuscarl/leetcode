@@ -1,6 +1,5 @@
 {
   "id": "fibonacci-number",
-  "title": "Fibonacci Number",
   "testCases": [
     {
       "n": 2
@@ -39,5 +38,27 @@
       "visualizerCode": "import React from \"react\";\r\nimport { useVisualizerData, VRecursiveTree } from \"visualizer\";\r\nimport { red, lightGreen, teal, alpha, blue } from \"colors\";\r\n\r\nexport const Visualizer = () => {\r\n  return <VRecursiveTree trackedFn=\"fib\" />;\r\n};\r\n",
       "timeComplexity": "2^n"
     }
-  }
+  },
+  "acRate": 69.6,
+  "difficulty": "Easy",
+  "title": "Fibonacci Number",
+  "titleSlug": "fibonacci-number",
+  "topicTags": [
+    {
+      "name": "Math",
+      "slug": "math"
+    },
+    {
+      "name": "Dynamic Programming",
+      "slug": "dynamic-programming"
+    },
+    {
+      "name": "Recursion",
+      "slug": "recursion"
+    },
+    {
+      "name": "Memoization",
+      "slug": "memoization"
+    }
+  ]
 }

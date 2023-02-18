@@ -1,6 +1,6 @@
 {
   "id": "invert-binary-tree",
-  "title": "Invert Binary Tree",
+  "neetcode": "https://www.youtube.com/watch?v=OnSn2XEQ4MY",
   "testCases": [
     {
       "root": [
@@ -44,5 +44,27 @@
       "visualizerCode": "import React from \"react\";\r\nimport { useVisualizerData, VTree } from \"visualizer\";\r\nimport { red, green, amber, teal, interpolateRgb } from \"colors\";\r\n\r\nlet colorLookup = {};\r\nlet nodes = 0;\r\n\r\nexport const Visualizer = () => {\r\n  const { data, expression, type, treeNodes } = useVisualizerData();\r\n  const { root, node } = data;\r\n  let minX = Number.MAX_SAFE_INTEGER;\r\n  let maxX = Number.MIN_SAFE_INTEGER;\r\n\r\n  const nodeCount = Object.keys(treeNodes).length;\r\n  if (nodeCount !== nodes) {\r\n    nodes = nodeCount;\r\n    colorLookup = {};\r\n  }\r\n\r\n  return (\r\n    <VTree\r\n      nodes={treeNodes}\r\n      getNode={(n) => {\r\n        if (n.tx < minX) minX = n.tx;\r\n        if (n.tx > maxX) maxX = n.tx;\r\n        return n;\r\n      }}\r\n      onDataComputed={(data) => {\r\n        const dx = maxX - minX;\r\n        const interpolate = interpolateRgb(red[\"500\"], green[\"500\"]);\r\n        data.treeNodes.forEach((n) => {\r\n          const color = interpolate((n.tx - minX) / dx);\r\n          if (!colorLookup[n.id]) {\r\n            colorLookup[n.id] = color;\r\n          }\r\n          n.color = colorLookup[n.id];\r\n        });\r\n      }}\r\n      pointers={[\r\n        {\r\n          name: \"root\",\r\n          value: root,\r\n          color: teal[\"500\"],\r\n        },\r\n        {\r\n          name: \"node\",\r\n          value: node,\r\n          color: amber[500],\r\n          highlightBorder: true,\r\n        },\r\n      ]}\r\n    />\r\n  );\r\n};\r\n",
       "timeComplexity": "n"
     }
-  }
+  },
+  "acRate": 74.3,
+  "difficulty": "Easy",
+  "title": "Invert Binary Tree",
+  "titleSlug": "invert-binary-tree",
+  "topicTags": [
+    {
+      "name": "Tree",
+      "slug": "tree"
+    },
+    {
+      "name": "Depth-First Search",
+      "slug": "depth-first-search"
+    },
+    {
+      "name": "Breadth-First Search",
+      "slug": "breadth-first-search"
+    },
+    {
+      "name": "Binary Tree",
+      "slug": "binary-tree"
+    }
+  ]
 }

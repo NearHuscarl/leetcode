@@ -1,8 +1,7 @@
-import { TProblem } from "../../types/problem";
+import { TProblemSettings } from "../../types/problem";
 
-export const settings: TProblem = {
+export const settings: TProblemSettings = {
   id: "fibonacci-number",
-  title: "Fibonacci Number",
   testCases: [{ n: 2 }, { n: 3 }, { n: 4 }],
   metaData: {
     name: "fib",

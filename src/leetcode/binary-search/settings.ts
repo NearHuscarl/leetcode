@@ -1,8 +1,8 @@
-import { TProblem } from "../../types/problem";
+import { TProblemSettings } from "../../types/problem";
 
-export const settings: TProblem = {
+export const settings: TProblemSettings = {
   id: "binary-search",
-  title: "Binary Search",
+  neetcode: "https://www.youtube.com/watch?v=s4DPM8ct1pI",
   testCases: [
     {
       nums: [1, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59],

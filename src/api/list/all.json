@@ -1,34 +1,174 @@
 [
   {
+    "acRate": 55.3,
+    "difficulty": "Easy",
     "title": "Binary Search",
-    "id": "binary-search"
+    "titleSlug": "binary-search",
+    "topicTags": [
+      {
+        "name": "Array",
+        "slug": "array"
+      },
+      {
+        "name": "Binary Search",
+        "slug": "binary-search"
+      }
+    ],
+    "neetcode": "https://www.youtube.com/watch?v=s4DPM8ct1pI"
   },
   {
+    "acRate": 69.6,
+    "difficulty": "Easy",
     "title": "Fibonacci Number",
-    "id": "fibonacci-number"
+    "titleSlug": "fibonacci-number",
+    "topicTags": [
+      {
+        "name": "Math",
+        "slug": "math"
+      },
+      {
+        "name": "Dynamic Programming",
+        "slug": "dynamic-programming"
+      },
+      {
+        "name": "Recursion",
+        "slug": "recursion"
+      },
+      {
+        "name": "Memoization",
+        "slug": "memoization"
+      }
+    ]
   },
   {
+    "acRate": 74.3,
+    "difficulty": "Easy",
     "title": "Invert Binary Tree",
-    "id": "invert-binary-tree"
+    "titleSlug": "invert-binary-tree",
+    "topicTags": [
+      {
+        "name": "Tree",
+        "slug": "tree"
+      },
+      {
+        "name": "Depth-First Search",
+        "slug": "depth-first-search"
+      },
+      {
+        "name": "Breadth-First Search",
+        "slug": "breadth-first-search"
+      },
+      {
+        "name": "Binary Tree",
+        "slug": "binary-tree"
+      }
+    ],
+    "neetcode": "https://www.youtube.com/watch?v=OnSn2XEQ4MY"
   },
   {
+    "acRate": 62.3,
+    "difficulty": "Easy",
     "title": "Merge Two Sorted Lists",
-    "id": "merge-two-sorted-lists"
+    "titleSlug": "merge-two-sorted-lists",
+    "topicTags": [
+      {
+        "name": "Linked List",
+        "slug": "linked-list"
+      },
+      {
+        "name": "Recursion",
+        "slug": "recursion"
+      }
+    ],
+    "neetcode": "https://www.youtube.com/watch?v=XIdigk956u0"
   },
   {
+    "acRate": 50,
+    "difficulty": "Easy",
     "title": "Palindrome Linked List",
-    "id": "palindrome-linked-list"
+    "titleSlug": "palindrome-linked-list",
+    "topicTags": [
+      {
+        "name": "Linked List",
+        "slug": "linked-list"
+      },
+      {
+        "name": "Two Pointers",
+        "slug": "two-pointers"
+      },
+      {
+        "name": "Stack",
+        "slug": "stack"
+      },
+      {
+        "name": "Recursion",
+        "slug": "recursion"
+      }
+    ],
+    "neetcode": "https://www.youtube.com/watch?v=yOzXms1J6Nk"
   },
   {
-    "title": "Reverse Linked List",
-    "id": "reverse-list"
+    "neetcode": "https://www.youtube.com/watch?v=G0_I-ZF0S38"
   },
   {
+    "acRate": 58.4,
+    "difficulty": "Medium",
     "title": "Sort an Array",
-    "id": "sort-an-array"
+    "titleSlug": "sort-an-array",
+    "topicTags": [
+      {
+        "name": "Array",
+        "slug": "array"
+      },
+      {
+        "name": "Divide and Conquer",
+        "slug": "divide-and-conquer"
+      },
+      {
+        "name": "Sorting",
+        "slug": "sorting"
+      },
+      {
+        "name": "Heap (Priority Queue)",
+        "slug": "heap-priority-queue"
+      },
+      {
+        "name": "Merge Sort",
+        "slug": "merge-sort"
+      },
+      {
+        "name": "Bucket Sort",
+        "slug": "bucket-sort"
+      },
+      {
+        "name": "Radix Sort",
+        "slug": "radix-sort"
+      },
+      {
+        "name": "Counting Sort",
+        "slug": "counting-sort"
+      }
+    ]
   },
   {
+    "acRate": 63,
+    "difficulty": "Easy",
     "title": "Valid Anagram",
-    "id": "valid-anagram"
+    "titleSlug": "valid-anagram",
+    "topicTags": [
+      {
+        "name": "Hash Table",
+        "slug": "hash-table"
+      },
+      {
+        "name": "String",
+        "slug": "string"
+      },
+      {
+        "name": "Sorting",
+        "slug": "sorting"
+      }
+    ],
+    "neetcode": "https://www.youtube.com/watch?v=9UtInBqnCgA"
   }
 ]

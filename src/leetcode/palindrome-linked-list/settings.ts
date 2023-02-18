@@ -1,8 +1,8 @@
-import { TProblem } from "../../types/problem";
+import { TProblemSettings } from "../../types/problem";
 
-export const settings: TProblem = {
+export const settings: TProblemSettings = {
   id: "palindrome-linked-list",
-  title: "Palindrome Linked List",
+  neetcode: "https://www.youtube.com/watch?v=yOzXms1J6Nk",
   testCases: [
     {
       head: [1, 2, 2, 1],

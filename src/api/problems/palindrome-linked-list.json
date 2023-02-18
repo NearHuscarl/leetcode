@@ -1,6 +1,6 @@
 {
   "id": "palindrome-linked-list",
-  "title": "Palindrome Linked List",
+  "neetcode": "https://www.youtube.com/watch?v=yOzXms1J6Nk",
   "testCases": [
     {
       "head": [
@@ -37,5 +37,27 @@
       "visualizerCode": "import React from \"react\";\r\nimport { useVisualizerData, VRecursiveTree } from \"visualizer\";\r\nimport { amber } from \"colors\";\r\n\r\nexport const Visualizer = () => {\r\n  return null;\r\n};\r\n",
       "timeComplexity": "n"
     }
-  }
+  },
+  "acRate": 50,
+  "difficulty": "Easy",
+  "title": "Palindrome Linked List",
+  "titleSlug": "palindrome-linked-list",
+  "topicTags": [
+    {
+      "name": "Linked List",
+      "slug": "linked-list"
+    },
+    {
+      "name": "Two Pointers",
+      "slug": "two-pointers"
+    },
+    {
+      "name": "Stack",
+      "slug": "stack"
+    },
+    {
+      "name": "Recursion",
+      "slug": "recursion"
+    }
+  ]
 }

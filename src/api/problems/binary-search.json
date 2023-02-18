@@ -1,6 +1,6 @@
 {
   "id": "binary-search",
-  "title": "Binary Search",
+  "neetcode": "https://www.youtube.com/watch?v=s4DPM8ct1pI",
   "testCases": [
     {
       "nums": [
@@ -68,5 +68,19 @@
       "visualizerCode": "import React, { CSSProperties } from \"react\";\r\nimport { useVisualizerData, VArray } from \"visualizer\";\r\nimport { red, purple, lightGreen, amber } from \"colors\";\r\n\r\nexport const Visualizer = () => {\r\n  const { data, expression, type } = useVisualizerData();\r\n  const { nums = [], left, right, mid, target } = data;\r\n\r\n  return (\r\n    <VArray\r\n      position={{ x: 0, y: 50 }}\r\n      value={nums}\r\n      getElementStyles={(value, index, style) => {\r\n        if (value === target) {\r\n          style.borderColor = lightGreen[500];\r\n        }\r\n\r\n        const test = type === \"testExpressionSuccess\";\r\n\r\n        if (index < left || index > right) {\r\n          style.color = \"#00000044\";\r\n        }\r\n        if (expression === \"nums[mid] === target\" && index === mid) {\r\n          style.background = test ? lightGreen[500] : red[500];\r\n        }\r\n        if (expression === \"nums[mid] > target\" && index < mid) {\r\n          style.background = test ? lightGreen[100] : red[100];\r\n        }\r\n        if (expression === \"nums[mid] < target\" && index > mid) {\r\n          style.background = test ? lightGreen[100] : red[100];\r\n        }\r\n        return style;\r\n      }}\r\n      pointers={[\r\n        { name: \"left\", value: left, color: purple[\"500\"] },\r\n        { name: \"right\", value: right, color: red[\"500\"] },\r\n        { name: \"mid\", value: mid, color: amber[600] },\r\n      ]}\r\n    />\r\n  );\r\n};\r\n",
       "timeComplexity": "log(n)"
     }
-  }
+  },
+  "acRate": 55.3,
+  "difficulty": "Easy",
+  "title": "Binary Search",
+  "titleSlug": "binary-search",
+  "topicTags": [
+    {
+      "name": "Array",
+      "slug": "array"
+    },
+    {
+      "name": "Binary Search",
+      "slug": "binary-search"
+    }
+  ]
 }

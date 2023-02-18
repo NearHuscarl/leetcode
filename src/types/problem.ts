@@ -1,6 +1,8 @@
-export type TProblem = {
+import { TLcQuestion } from "src/scripts/queryLcProblems";
+
+export type TProblemSettings = {
   id: string;
-  title: string;
+  neetcode?: string;
   testCases: Record<string, any>[];
   metaData: {
     name: string;
@@ -19,7 +21,8 @@ export type TProblem = {
   >;
 };
 
-export type TProblemSummary = {
-  id: string;
-  title: string;
+export type TProblem = TLcQuestion & TProblemSettings;
+
+export type TProblemEntry = TLcQuestion & {
+  neetcode?: string;
 };

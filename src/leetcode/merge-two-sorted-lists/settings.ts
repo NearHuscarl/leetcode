@@ -1,8 +1,8 @@
-import { TProblem } from "../../types/problem";
+import { TProblemSettings } from "../../types/problem";
 
-export const settings: TProblem = {
+export const settings: TProblemSettings = {
   id: "merge-two-sorted-lists",
-  title: "Merge Two Sorted Lists",
+  neetcode: "https://www.youtube.com/watch?v=XIdigk956u0",
   testCases: [
     {
       list1: [1, 2, 4],

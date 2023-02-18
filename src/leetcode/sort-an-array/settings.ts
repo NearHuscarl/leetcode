@@ -1,8 +1,7 @@
-import { TProblem } from "../../types/problem";
+import { TProblemSettings } from "../../types/problem";
 
-export const settings: TProblem = {
+export const settings: TProblemSettings = {
   id: "sort-an-array",
-  title: "Sort an Array",
   testCases: [
     { nums: [6, 2, 4, 1, 3] },
     { nums: [5, 1, 1, 2, 0, 0] },

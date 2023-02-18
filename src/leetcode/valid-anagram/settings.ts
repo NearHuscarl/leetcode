@@ -1,8 +1,8 @@
-import { TProblem } from "../../types/problem";
+import { TProblemSettings } from "../../types/problem";
 
-export const settings: TProblem = {
+export const settings: TProblemSettings = {
   id: "valid-anagram",
-  title: "Valid Anagram",
+  neetcode: "https://www.youtube.com/watch?v=9UtInBqnCgA",
   testCases: [
     {
       s: "anagram",

@@ -1,3 +1,5 @@
 node_modules/
 out/
 yarn-error.log
+
+src/api/leetcode/problems.json

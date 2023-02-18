@@ -1,6 +1,6 @@
 {
   "id": "merge-two-sorted-lists",
-  "title": "Merge Two Sorted Lists",
+  "neetcode": "https://www.youtube.com/watch?v=XIdigk956u0",
   "testCases": [
     {
       "list1": [
@@ -49,5 +49,19 @@
       "visualizerCode": "import React from \"react\";\r\nimport { useVisualizerData, VLinkedList } from \"visualizer\";\r\nimport {\r\n  red,\r\n  purple,\r\n  amber,\r\n  lightGreen,\r\n  lightBlue,\r\n  teal,\r\n  alpha,\r\n  blue,\r\n} from \"colors\";\r\n\r\nexport const Visualizer = () => {\r\n  const { data, expression, type, listNodes } = useVisualizerData();\r\n  const { prefixNode, cur, list1, list2, cur1, cur2 } = data;\r\n\r\n  return (\r\n    <VLinkedList\r\n      nodes={listNodes}\r\n      getNode={(n) => {\r\n        const test = type === \"testExpressionSuccess\";\r\n        if (expression === \"cur1.val < cur2.val\") {\r\n          const cur1 = n.references.some((x) => x === \"cur1\");\r\n          const cur2 = n.references.some((x) => x === \"cur2\");\r\n          if (cur1) n.color = test ? lightGreen[500] : red[500];\r\n          if (cur2) n.color = test ? red[500] : lightGreen[500];\r\n        }\r\n\r\n        return n;\r\n      }}\r\n      pointers={[\r\n        {\r\n          name: \"list1\",\r\n          value: list1,\r\n          color: amber[500],\r\n          isHead: true,\r\n          colorNode: true,\r\n        },\r\n        {\r\n          name: \"head\",\r\n          value: prefixNode,\r\n          color: teal[\"500\"],\r\n          isHead: true,\r\n          isTail: (n) => n.references.some((p) => p === \"cur\"),\r\n        },\r\n        {\r\n          name: \"list2\",\r\n          value: list2,\r\n          color: lightBlue[500],\r\n          isHead: true,\r\n          colorNode: true,\r\n        },\r\n        { name: \"cur\", value: cur, color: red[500] },\r\n        { name: \"cur1\", value: cur1, color: amber[700] },\r\n        { name: \"cur2\", value: cur2, color: lightBlue[700] },\r\n      ]}\r\n    />\r\n  );\r\n};\r\n",
       "timeComplexity": "n1 + n2"
     }
-  }
+  },
+  "acRate": 62.3,
+  "difficulty": "Easy",
+  "title": "Merge Two Sorted Lists",
+  "titleSlug": "merge-two-sorted-lists",
+  "topicTags": [
+    {
+      "name": "Linked List",
+      "slug": "linked-list"
+    },
+    {
+      "name": "Recursion",
+      "slug": "recursion"
+    }
+  ]
 }
