@@ -1,7 +1,7 @@
 import { TProblemSettings } from "../../types/problem";
 
 export const settings: TProblemSettings = {
-  id: "reverse-list",
+  id: "reverse-linked-list",
   neetcode: "https://www.youtube.com/watch?v=G0_I-ZF0S38",
   testCases: [
     {
