@@ -20,7 +20,7 @@ export const Visualizer = () => {
           position={{ x: arraySize * index, y: 30 }}
           label={index === 0 ? "s" : "t"}
           value={str.split("")}
-          getElementStyles={(e, i, style) => {
+          getElementStyle={(e, i, style) => {
             style.background = interpolateColor(e.charCodeAt(0));
             return style;
           }}

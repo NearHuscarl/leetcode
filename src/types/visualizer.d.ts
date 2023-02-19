@@ -46,7 +46,7 @@ export interface TVArrayProps<T extends TDebugValue> extends VBase {
   value: T[];
   label?: TSvgArrayProps<T>["label"];
   highlightRange?: TSvgArrayProps<T>["highlightRange"];
-  getElementStyles?: TSvgArrayProps<T>["getElementStyles"];
+  getElementStyle?: TSvgArrayProps<T>["getElementStyle"];
   pointers?: TArrayPointer[];
 }
 
@@ -237,7 +237,7 @@ type TSvgArrayProps<T extends TDebugValue> = {
   borderWidth?: number;
   label?: string;
   center?: boolean;
-  getElementStyles?: (
+  getElementStyle?: (
     value: T,
     index: number,
     styles: ArrayElementStyles

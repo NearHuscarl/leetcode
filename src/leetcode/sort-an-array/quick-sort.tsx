@@ -15,7 +15,7 @@ export const Visualizer = () => {
           { name: "i", value: i, color: blue[500] },
         ]}
         highlightRange={[start, end, teal[300]]}
-        getElementStyles={(value, index, style) => {
+        getElementStyle={(value, index, style) => {
           if (value === pivot) {
             style.background = lightGreen[200];
             style.fontWeight = "500";

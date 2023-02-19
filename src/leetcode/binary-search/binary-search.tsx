@@ -10,7 +10,7 @@ export const Visualizer = () => {
     <VArray
       position={{ x: 0, y: 50 }}
       value={nums}
-      getElementStyles={(value, index, style) => {
+      getElementStyle={(value, index, style) => {
         if (value === target) {
           style.borderColor = lightGreen[500];
         }
