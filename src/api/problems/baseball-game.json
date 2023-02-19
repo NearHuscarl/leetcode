@@ -1,0 +1,72 @@
+{
+  "id": "baseball-game",
+  "neetcode": "https://www.youtube.com/watch?v=Id_tqGdsZQI",
+  "testCases": [
+    {
+      "operations": [
+        "5",
+        "2",
+        "C",
+        "D",
+        "+"
+      ]
+    },
+    {
+      "operations": [
+        "5",
+        "-2",
+        "4",
+        "C",
+        "D",
+        "9",
+        "+",
+        "+"
+      ]
+    },
+    {
+      "operations": [
+        "1",
+        "C"
+      ]
+    }
+  ],
+  "metaData": {
+    "name": "calPoints",
+    "params": [
+      {
+        "name": "operations",
+        "type": "string[]"
+      }
+    ],
+    "return": {
+      "type": "number"
+    }
+  },
+  "solutions": {
+    "stack": {
+      "id": "stack",
+      "name": "Stack",
+      "programCode": "/**\r\n * @param {string[]} operations\r\n * @return {number}\r\n */\r\nvar calPoints = function (operations) {\r\n  const stack = [];\r\n\r\n  for (const op of operations) {\r\n    switch (op) {\r\n      case \"+\":\r\n        stack.push(stack[stack.length - 1] + stack[stack.length - 2]);\r\n        break;\r\n      case \"D\":\r\n        stack.push(stack[stack.length - 1] * 2);\r\n        break;\r\n      case \"C\":\r\n        stack.pop();\r\n        break;\r\n      default:\r\n        stack.push(parseInt(op, 10));\r\n        break;\r\n    }\r\n  }\r\n\r\n  return stack.reduce((a, c) => a + c, 0);\r\n};\r\n",
+      "visualizerCode": "import React from \"react\";\r\nimport { useVisualizerData } from \"visualizer\";\r\nimport { red, green, amber, lightGreen, teal } from \"colors\";\r\n\r\nexport const Visualizer = () => {\r\n  const { data, expression, type } = useVisualizerData();\r\n\r\n  return null;\r\n};\r\n",
+      "timeComplexity": "n"
+    }
+  },
+  "acRate": 74.1,
+  "difficulty": "Easy",
+  "title": "Baseball Game",
+  "titleSlug": "baseball-game",
+  "topicTags": [
+    {
+      "name": "Array",
+      "slug": "array"
+    },
+    {
+      "name": "Stack",
+      "slug": "stack"
+    },
+    {
+      "name": "Simulation",
+      "slug": "simulation"
+    }
+  ]
+}

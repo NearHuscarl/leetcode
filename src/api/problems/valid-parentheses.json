@@ -28,7 +28,7 @@
     "stack": {
       "id": "stack",
       "name": "Stack",
-      "programCode": "/**\r\n * @param {string} s\r\n * @return {boolean}\r\n */\r\nvar isValid = function (s) {\r\n  const stack = [];\r\n  const openParenLookup = {\r\n    \")\": \"(\",\r\n    \"}\": \"{\",\r\n    \"]\": \"[\",\r\n  };\r\n\r\n  for (const chr of s) {\r\n    if (openParenLookup[chr]) {\r\n      if (stack[stack.length - 1] === openParenLookup[chr]) {\r\n        stack.pop();\r\n      } else {\r\n        return false;\r\n      }\r\n    } else {\r\n      stack.push(chr);\r\n    }\r\n  }\r\n\r\n  return stack.length === 0;\r\n};\r\n",
+      "programCode": "/**\r\n * @param {string} s\r\n * @return {boolean}\r\n */\r\nvar isValid = function (s) {\r\n  const stack = [];\r\n  const openParenLookup = {\r\n    \")\": \"(\",\r\n    \"}\": \"{\",\r\n    \"]\": \"[\",\r\n  };\r\n\r\n  for (let i = 0; i < s.length; i++) {\r\n    const chr = s[i];\r\n    if (openParenLookup[chr]) {\r\n      if (stack[stack.length - 1] === openParenLookup[chr]) {\r\n        stack.pop();\r\n      } else {\r\n        return false;\r\n      }\r\n    } else {\r\n      stack.push(chr);\r\n    }\r\n  }\r\n\r\n  return stack.length === 0;\r\n};\r\n",
       "visualizerCode": "import React from \"react\";\r\nimport { useVisualizerData, VArray } from \"visualizer\";\r\nimport { red, lightGreen, teal, amber, blue } from \"colors\";\r\n\r\nexport const Visualizer = () => {\r\n  const { data, expression, type } = useVisualizerData();\r\n\r\n  return null;\r\n};\r\n",
       "timeComplexity": "n"
     }

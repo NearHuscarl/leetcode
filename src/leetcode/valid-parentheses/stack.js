@@ -10,7 +10,8 @@ var isValid = function (s) {
     "]": "[",
   };
 
-  for (const chr of s) {
+  for (let i = 0; i < s.length; i++) {
+    const chr = s[i];
     if (openParenLookup[chr]) {
       if (stack[stack.length - 1] === openParenLookup[chr]) {
         stack.pop();

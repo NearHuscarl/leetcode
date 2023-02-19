@@ -1,5 +1,26 @@
 [
   {
+    "acRate": 74.1,
+    "difficulty": "Easy",
+    "title": "Baseball Game",
+    "titleSlug": "baseball-game",
+    "topicTags": [
+      {
+        "name": "Array",
+        "slug": "array"
+      },
+      {
+        "name": "Stack",
+        "slug": "stack"
+      },
+      {
+        "name": "Simulation",
+        "slug": "simulation"
+      }
+    ],
+    "neetcode": "https://www.youtube.com/watch?v=Id_tqGdsZQI"
+  },
+  {
     "acRate": 55.3,
     "difficulty": "Easy",
     "title": "Binary Search",
