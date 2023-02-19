@@ -1,6 +1,11 @@
 import React from "react";
 import { useVisualizerData, VTree } from "visualizer";
-import { red, green, amber, teal, interpolateRgb } from "colors";
+import { red, green, amber, lightGreen, teal, transform } from "colors";
+
+const interpolate = transform(
+  [0, 0.5, 1],
+  [red[500], amber[500], lightGreen[500]]
+);
 
 let colorLookup = {};
 let nodes = 0;
@@ -27,7 +32,6 @@ export const Visualizer = () => {
       }}
       onDataComputed={(data) => {
         const dx = maxX - minX;
-        const interpolate = interpolateRgb(red["500"], green["500"]);
         data.treeNodes.forEach((n) => {
           const color = interpolate((n.tx - minX) / dx);
           if (!colorLookup[n.id]) {

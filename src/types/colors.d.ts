@@ -1,6 +1,9 @@
 /* tslint:disable max-line-length */
 
-export function interpolateRgb(a: string, b: string): (t: number) => string;
+export function transform<T>(
+  inputRange: number[],
+  outputRange: T[]
+): (inputValue: number) => T;
 
 export function alpha(color: string, value: number): string;
 

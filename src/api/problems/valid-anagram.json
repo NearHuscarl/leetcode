@@ -39,7 +39,7 @@
       "id": "sort",
       "name": "Sort",
       "programCode": "/**\r\n * @param {string} s\r\n * @param {string} t\r\n * @return {boolean}\r\n */\r\nvar isAnagram = function (s, t) {\r\n  s = s.split(\"\").sort().join(\"\");\r\n  t = t.split(\"\").sort().join(\"\");\r\n\r\n  return s === t;\r\n};\r\n",
-      "visualizerCode": "import React from \"react\";\r\nimport { useVisualizerData, VLookupTable, VArray, VC } from \"visualizer\";\r\nimport { red, green, amber, teal, lightGreen } from \"colors\";\r\n\r\nexport const Visualizer = () => {\r\n  return null;\r\n};\r\n",
+      "visualizerCode": "import React from \"react\";\r\nimport { useVisualizerData, VArray, VC } from \"visualizer\";\r\nimport { red, green, amber, blue, lightGreen, transform } from \"colors\";\r\n\r\nconst interpolateColor = transform(\r\n  [\"a\".charCodeAt(0), \"l\".charCodeAt(0), \"z\".charCodeAt(0)],\r\n  [red[500], amber[500], lightGreen[500]]\r\n);\r\n\r\nexport const Visualizer = () => {\r\n  const { data, expression, type } = useVisualizerData();\r\n  const { s = \"\", t = \"\" } = data;\r\n  const arraySize = VC.ArrayItemSize * (s.length + 1);\r\n\r\n  return (\r\n    <>\r\n      {[s, t].map((str, index) => (\r\n        <VArray\r\n          key={index}\r\n          position={{ x: arraySize * index, y: 30 }}\r\n          label={index === 0 ? \"s\" : \"t\"}\r\n          value={str.split(\"\")}\r\n          getElementStyles={(e, i, style) => {\r\n            style.background = interpolateColor(e.charCodeAt(0));\r\n            return style;\r\n          }}\r\n        />\r\n      ))}\r\n    </>\r\n  );\r\n};\r\n",
       "timeComplexity": "s*log(s) + t*log(t)"
     }
   },

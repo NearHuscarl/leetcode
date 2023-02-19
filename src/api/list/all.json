@@ -41,7 +41,7 @@
     ]
   },
   {
-    "acRate": 74.4,
+    "acRate": 74.5,
     "difficulty": "Easy",
     "title": "Invert Binary Tree",
     "titleSlug": "invert-binary-tree",

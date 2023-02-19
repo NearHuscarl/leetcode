@@ -42,15 +42,17 @@ export type TArrayPointer = {
   prevNonEmptyValue?: number;
   color?: string;
 };
-export interface TVArrayProps extends VBase {
-  value: TDebugValue[];
-  label?: TSvgArrayProps["label"];
-  highlightRange?: TSvgArrayProps["highlightRange"];
-  getElementStyles?: TSvgArrayProps["getElementStyles"];
+export interface TVArrayProps<T extends TDebugValue> extends VBase {
+  value: T[];
+  label?: TSvgArrayProps<T>["label"];
+  highlightRange?: TSvgArrayProps<T>["highlightRange"];
+  getElementStyles?: TSvgArrayProps<T>["getElementStyles"];
   pointers?: TArrayPointer[];
 }
 
-export function VArray(props: TVArrayProps): JSX.Element;
+export function VArray<T extends TDebugValue>(
+  props: TVArrayProps<T>
+): JSX.Element;
 
 interface SimulationNodeDatum {
   /**
@@ -227,7 +229,7 @@ type ArrayElementStyles = {
   fontWeight?: string | number;
 };
 
-type TSvgArrayProps = {
+type TSvgArrayProps<T extends TDebugValue> = {
   rootRef?: (r: SVGGElement | null) => void;
   value: any[];
   size?: number;
@@ -236,14 +238,16 @@ type TSvgArrayProps = {
   label?: string;
   center?: boolean;
   getElementStyles?: (
-    value: TDebugValue,
+    value: T,
     index: number,
     styles: ArrayElementStyles
   ) => ArrayElementStyles | undefined;
   highlightRange?: [start: number, end: number, color: string];
 };
 
-export function SvgArray(props: TSvgArrayProps): JSX.Element;
+export function SvgArray<T extends TDebugValue>(
+  props: TSvgArrayProps<T>
+): JSX.Element;
 
 type HighlightedKey = string;
 type HighlightedColor = string;
