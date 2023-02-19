@@ -265,6 +265,15 @@ export function VLookupTable<K extends string, V>(
   props: TVLookupTableProps<K, V>
 ): JSX.Element;
 
+interface TVStackProps<T extends TDebugValue> extends VBase {
+  value: T[];
+  length: number;
+  getElementStyle?: TSvgArrayProps<T>["getElementStyle"];
+}
+export function VStack<T extends TDebugValue>(
+  props: TVStackProps<T>
+): JSX.Element;
+
 export function useVisualizerData(): {
   index: number;
   data: any;
