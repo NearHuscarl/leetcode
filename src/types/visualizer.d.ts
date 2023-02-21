@@ -1,6 +1,12 @@
 export type TVisualizerConstants = {
-  ArrayItemSize: number;
-  ArrayBorderW: number;
+  Array: {
+    ItemSize: number;
+    BorderW: number;
+  };
+  LinkedList: {
+    NodeSize: number;
+    LinkDistance: number;
+  };
 };
 
 /**
@@ -13,22 +19,23 @@ export type TVectorLike = {
   y: number;
 };
 
-export interface VBase {
-  position?: TVectorLike;
+export interface TVBase {
+  x?: number;
+  y?: number;
 }
 
 export type TStepType =
-  | "statement"
-  | "callExpression"
-  | "returnStatement"
-  | "returnStatementFake"
-  | "testExpressionSuccess"
-  | "testExpressionFailed";
+  | 'statement'
+  | 'callExpression'
+  | 'returnStatement'
+  | 'returnStatementFake'
+  | 'testExpressionSuccess'
+  | 'testExpressionFailed';
 
 export type TDebugValue = string | number;
 export type TDebugValue2 = TDebugValue | TDebugValue[];
 
-export interface TVCodeProps extends VBase {
+export interface TVCodeProps extends TVBase {
   width?: number | string;
   height?: number | string;
   children: any;
@@ -42,11 +49,11 @@ export type TArrayPointer = {
   prevNonEmptyValue?: number;
   color?: string;
 };
-export interface TVArrayProps<T extends TDebugValue> extends VBase {
+export interface TVArrayProps<T extends TDebugValue> extends TVBase {
   value: T[];
-  label?: TSvgArrayProps<T>["label"];
-  highlightRange?: TSvgArrayProps<T>["highlightRange"];
-  getElementStyle?: TSvgArrayProps<T>["getElementStyle"];
+  label?: TSvgArrayProps<T>['label'];
+  highlightRange?: TSvgArrayProps<T>['highlightRange'];
+  getElementStyle?: TSvgArrayProps<T>['getElementStyle'];
   pointers?: TArrayPointer[];
 }
 
@@ -86,26 +93,26 @@ interface SimulationNodeDatum {
 }
 
 export type TNodeId = number | string;
-export type TNodeType = "node" | "pointer";
+export type TNodeType = 'node' | 'pointer';
 export interface TListNodeD3<T extends TDebugValue = number, Type = TNodeType>
   extends SimulationNodeDatum {
   id: TNodeId;
   val: T;
   next: TNodeId | null;
-  references: Type extends "node" ? TNodeId[] : undefined;
+  references: Type extends 'node' ? TNodeId[] : undefined;
   color?: string;
   type: Type;
   isHead: boolean;
-  isTail?: (node: TListNodeD3<T, "node">) => boolean;
-  nodeIndex: Type extends "node" ? number : undefined;
+  isTail?: (node: TListNodeD3<T, 'node'>) => boolean;
+  nodeIndex: Type extends 'node' ? number : undefined;
   headIndex: number;
-  colorNode: Type extends "pointer" ? boolean : undefined;
-  fallbackColor?: Type extends "node" ? string : undefined;
-  highlight: Type extends "pointer" ? boolean : undefined;
-  position?: TVLinkedListProps["pointers"][number]["position"];
+  colorNode: Type extends 'pointer' ? boolean : undefined;
+  fallbackColor?: Type extends 'node' ? string : undefined;
+  highlight: Type extends 'pointer' ? boolean : undefined;
+  position?: TVLinkedListProps['pointers'][number]['position'];
 }
 export interface TVLinkedListProps<T extends TDebugValue = number>
-  extends VBase {
+  extends TVBase {
   nodes: Record<TNodeId, TListNodeD3<T>>;
   getNode?: (node: TListNodeD3<T>) => TListNodeD3<T>;
   pointers: {
@@ -113,9 +120,9 @@ export interface TVLinkedListProps<T extends TDebugValue = number>
     value: TListNodeD3<T>;
     color?: string;
     highlight?: boolean;
-    position?: "top" | "bottom";
+    position?: 'top' | 'bottom';
     isHead?: boolean;
-    isTail?: (node: TListNodeD3<T, "node">) => boolean;
+    isTail?: (node: TListNodeD3<T, 'node'>) => boolean;
     colorNode?: boolean;
   }[];
 }
@@ -142,10 +149,10 @@ export interface TTreeNodeD3<T extends TDebugValue2 = number, Type = TNodeType>
       }
     | false;
   type: Type;
-  tx: Type extends "node" ? number : undefined;
-  ty: Type extends "node" ? number : undefined;
-  highlight: Type extends "pointer" ? boolean : undefined;
-  highlightBorder: Type extends "pointer" ? boolean : undefined;
+  tx: Type extends 'node' ? number : undefined;
+  ty: Type extends 'node' ? number : undefined;
+  highlight: Type extends 'pointer' ? boolean : undefined;
+  highlightBorder: Type extends 'pointer' ? boolean : undefined;
 }
 
 export interface TTreeNodeD32<T extends TDebugValue2, Type = TNodeType>
@@ -157,7 +164,7 @@ export interface TTreeNodeD32<T extends TDebugValue2, Type = TNodeType>
 export interface TTreeLinkD3<T extends TDebugValue = number>
   extends SimulationNodeDatum {
   source: TTreeNodeD3<T>;
-  target: TTreeNodeD3<T, "node">;
+  target: TTreeNodeD3<T, 'node'>;
   id: string;
   dasharray?: string;
   width?: number;
@@ -168,11 +175,11 @@ export type TTreeData<T extends TDebugValue = number> = {
   nodes: TTreeNodeD3<T, TNodeType>[];
   links: TTreeLinkD3<T>[];
   nodeLookup: Record<TNodeId, TTreeNodeD3<T>>;
-  treeNodes: TTreeNodeD3<T, "node">[];
-  treePointers: TTreeNodeD3<T, "pointer">[];
+  treeNodes: TTreeNodeD3<T, 'node'>[];
+  treePointers: TTreeNodeD3<T, 'pointer'>[];
 };
 
-export interface VTreeProps<T extends TDebugValue = number> extends VBase {
+export interface VTreeProps<T extends TDebugValue = number> extends TVBase {
   nodes?: Record<TNodeId, TTreeNodeD3<T>>;
   hierarchyNode?: THierarchyNode<TTreeNodeD3<T>>;
   getNode?: (node: TTreeNodeD3<T>) => TTreeNodeD3<T>;
@@ -194,11 +201,11 @@ export interface THierarchyNode<Datum> {
 }
 
 export interface VRecursiveTreeProps<T extends TDebugValue = number>
-  extends VBase {
+  extends TVBase {
   trackedFn: string;
-  pointers?: VTreeProps<T>["pointers"];
+  pointers?: VTreeProps<T>['pointers'];
   onVisitNode?: (
-    node: TTreeNodeD32<any, "node">,
+    node: TTreeNodeD32<any, 'node'>,
     data: {
       data: TIdentifier;
       onStack?: boolean;
@@ -253,7 +260,7 @@ type HighlightedKey = string;
 type HighlightedColor = string;
 export type TLookupTableHighlight = Record<HighlightedKey, HighlightedColor>;
 
-interface TVLookupTableProps<K extends string, V> extends VBase {
+interface TVLookupTableProps<K extends string, V> extends TVBase {
   value: Record<K, V>;
   highlights?: TLookupTableHighlight;
   getEntryStyle?: (
@@ -265,10 +272,10 @@ export function VLookupTable<K extends string, V>(
   props: TVLookupTableProps<K, V>
 ): JSX.Element;
 
-interface TVStackProps<T extends TDebugValue> extends VBase {
+interface TVStackProps<T extends TDebugValue> extends TVBase {
   value: T[];
   length: number;
-  getElementStyle?: TSvgArrayProps<T>["getElementStyle"];
+  getElementStyle?: TSvgArrayProps<T>['getElementStyle'];
 }
 export function VStack<T extends TDebugValue>(
   props: TVStackProps<T>

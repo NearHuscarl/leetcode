@@ -1,37 +1,39 @@
-import React from "react";
-import { useVisualizerData, VLookupTable, VArray, VC } from "visualizer";
-import { red, green, amber, teal, lightGreen } from "colors";
+import React from 'react';
+import { useVisualizerData, VLookupTable, VArray, VC } from 'visualizer';
+import { red, green, amber, teal, lightGreen } from 'colors';
 
 export const Visualizer = () => {
   const { data, expression, type } = useVisualizerData();
-  const { freq1, freq2, s = "", t = "", i, chr } = data;
-  const arraySize = VC.ArrayItemSize * (s.length + 1);
+  const { freq1, freq2, s = '', t = '', i, chr } = data;
+  const arraySize = VC.Array.ItemSize * (s.length + 1);
 
   return (
     <>
       {[s, t].map((str, index) => (
         <VArray
           key={index}
-          position={{ x: arraySize * index, y: 30 }}
-          label={index === 0 ? "s" : "t"}
-          value={str.split("")}
-          pointers={[{ name: "i", value: i, color: red[500] }]}
+          x={arraySize * index}
+          y={30}
+          label={index === 0 ? 's' : 't'}
+          value={str.split('')}
+          pointers={[{ name: 'i', value: i, color: red[500] }]}
         />
       ))}
-      {[freq1, freq2].map((freq, i) => (
+      {[freq1, freq2].map((freq, index) => (
         <VLookupTable
-          key={i}
-          position={{ x: arraySize * i, y: 110 }}
+          key={index}
+          x={arraySize * index}
+          y={110}
           value={freq}
           highlights={{ [chr]: amber[700] }}
           getEntryStyle={(entry, style) => {
-            const test = type === "testExpressionSuccess";
+            const test = type === 'testExpressionSuccess';
             if (
-              expression === "freq1[chr] !== freq2[chr]" &&
+              expression === 'freq1[chr] !== freq2[chr]' &&
               entry[0] === chr
             ) {
               style.background = test ? red[500] : lightGreen[500];
-              style.color = "#ffffff";
+              style.color = '#ffffff';
             }
             return style;
           }}

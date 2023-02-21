@@ -21,7 +21,7 @@
     "neetcode": "https://www.youtube.com/watch?v=Id_tqGdsZQI"
   },
   {
-    "acRate": 55.3,
+    "acRate": 55.4,
     "difficulty": "Easy",
     "title": "Binary Search",
     "titleSlug": "binary-search",
@@ -87,7 +87,7 @@
     "neetcode": "https://www.youtube.com/watch?v=OnSn2XEQ4MY"
   },
   {
-    "acRate": 62.3,
+    "acRate": 62.4,
     "difficulty": "Easy",
     "title": "Merge Two Sorted Lists",
     "titleSlug": "merge-two-sorted-lists",

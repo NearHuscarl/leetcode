@@ -13,7 +13,7 @@ export const Visualizer = () => {
         pointers={[{ name: 'i', value: i, color: amber[700] }]}
       />
       <VStack
-        position={{ x: 0, y: 80 }}
+        y={80}
         value={stack}
         length={operations.length}
         getElementStyle={(value, i, style) => {
