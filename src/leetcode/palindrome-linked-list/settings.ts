@@ -1,8 +1,8 @@
-import { TProblemSettings } from "../../types/problem";
+import { TProblemSettings } from '../../types/problem';
 
 export const settings: TProblemSettings = {
-  id: "palindrome-linked-list",
-  neetcode: "https://www.youtube.com/watch?v=yOzXms1J6Nk",
+  id: 'palindrome-linked-list',
+  neetcode: 'https://www.youtube.com/watch?v=yOzXms1J6Nk',
   testCases: [
     {
       head: [1, 2, 2, 1],
@@ -12,19 +12,26 @@ export const settings: TProblemSettings = {
     },
   ],
   metaData: {
-    name: "isPalindrome",
-    params: [{ name: "head", type: "ListNode" }],
+    name: 'isPalindrome',
+    params: [{ name: 'head', type: 'ListNode' }],
     return: {
-      type: "boolean",
+      type: 'boolean',
     },
   },
   solutions: {
     array: {
-      id: "array",
-      name: "Array",
-      programCode: "",
-      visualizerCode: "",
-      timeComplexity: "n",
+      id: 'array',
+      name: 'Array',
+      programCode: '',
+      visualizerCode: '',
+      timeComplexity: 'n',
+    },
+    linkedList: {
+      id: 'linkedList',
+      name: 'Linked List',
+      programCode: '',
+      visualizerCode: '',
+      timeComplexity: 'n',
     },
   },
 };
