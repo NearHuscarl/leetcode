@@ -1,27 +1,24 @@
 import { TProblemSettings } from '../../types/problem';
 
 export const settings: TProblemSettings = {
-  id: 'invert-binary-tree',
-  neetcode: 'https://www.youtube.com/watch?v=OnSn2XEQ4MY',
+  id: 'binary-tree-inorder-traversal',
+  neetcode: 'https://www.youtube.com/watch?v=g_S5WuasWUE',
   testCases: [
     {
-      root: [4, 2, 7, 1, 3, 6, 9],
+      root: [1, null, 2, 3],
     },
     {
-      root: [1, 2],
+      root: [1],
     },
     {
-      root: [2, 1, 3],
-    },
-    {
-      root: [],
+      root: [1, 2, 3, 4, 5],
     },
   ],
   metaData: {
-    name: 'invertTree',
+    name: 'inorderTraversal',
     params: [{ name: 'root', type: 'TreeNode' }],
     return: {
-      type: 'TreeNode',
+      type: 'number[]',
     },
   },
   solutions: {

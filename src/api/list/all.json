@@ -38,6 +38,31 @@
     "neetcode": "https://www.youtube.com/watch?v=s4DPM8ct1pI"
   },
   {
+    "acRate": 73.6,
+    "difficulty": "Easy",
+    "title": "Binary Tree Inorder Traversal",
+    "titleSlug": "binary-tree-inorder-traversal",
+    "topicTags": [
+      {
+        "name": "Stack",
+        "slug": "stack"
+      },
+      {
+        "name": "Tree",
+        "slug": "tree"
+      },
+      {
+        "name": "Depth-First Search",
+        "slug": "depth-first-search"
+      },
+      {
+        "name": "Binary Tree",
+        "slug": "binary-tree"
+      }
+    ],
+    "neetcode": "https://www.youtube.com/watch?v=g_S5WuasWUE"
+  },
+  {
     "acRate": 69.7,
     "difficulty": "Easy",
     "title": "Fibonacci Number",

@@ -1,0 +1,71 @@
+{
+  "id": "binary-tree-inorder-traversal",
+  "neetcode": "https://www.youtube.com/watch?v=g_S5WuasWUE",
+  "testCases": [
+    {
+      "root": [
+        1,
+        null,
+        2,
+        3
+      ]
+    },
+    {
+      "root": [
+        1
+      ]
+    },
+    {
+      "root": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    }
+  ],
+  "metaData": {
+    "name": "inorderTraversal",
+    "params": [
+      {
+        "name": "root",
+        "type": "TreeNode"
+      }
+    ],
+    "return": {
+      "type": "number[]"
+    }
+  },
+  "solutions": {
+    "main": {
+      "id": "main",
+      "name": "Main",
+      "programCode": "/**\r\n * Definition for a binary tree node.\r\n * function TreeNode(val, left, right) {\r\n *     this.val = (val===undefined ? 0 : val)\r\n *     this.left = (left===undefined ? null : left)\r\n *     this.right = (right===undefined ? null : right)\r\n * }\r\n */\r\n/**\r\n * @param {TreeNode} root\r\n * @return {number[]}\r\n */\r\nvar inorderTraversal = function (root) {\r\n  const results = [];\r\n  const inorder = (node = root) => {\r\n    if (!node) return;\r\n\r\n    inorder(node.left);\r\n    results.push(node.val);\r\n    inorder(node.right);\r\n  };\r\n\r\n  inorder();\r\n  return results;\r\n};\r\n",
+      "visualizerCode": "import React from 'react';\r\nimport { useVisualizerData, VTree } from 'visualizer';\r\nimport { red, green, amber, lightGreen, teal } from 'colors';\r\n\r\nexport const Visualizer = () => {\r\n  const { data, expression, type, treeNodes } = useVisualizerData();\r\n  const { root } = data;\r\n\r\n  return (\r\n    <VTree\r\n      nodes={treeNodes}\r\n      pointers={[\r\n        {\r\n          name: 'root',\r\n          value: root,\r\n          color: teal['500'],\r\n        },\r\n      ]}\r\n    />\r\n  );\r\n};\r\n",
+      "timeComplexity": "n"
+    }
+  },
+  "acRate": 73.6,
+  "difficulty": "Easy",
+  "title": "Binary Tree Inorder Traversal",
+  "titleSlug": "binary-tree-inorder-traversal",
+  "topicTags": [
+    {
+      "name": "Stack",
+      "slug": "stack"
+    },
+    {
+      "name": "Tree",
+      "slug": "tree"
+    },
+    {
+      "name": "Depth-First Search",
+      "slug": "depth-first-search"
+    },
+    {
+      "name": "Binary Tree",
+      "slug": "binary-tree"
+    }
+  ]
+}
