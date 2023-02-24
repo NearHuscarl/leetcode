@@ -32,7 +32,7 @@ export const Visualizer = () => {
       onDataComputed={(data) => {
         const dx = maxX - minX;
         data.treeNodes.forEach((n) => {
-          const color = interpolate((n.tx - minX) / dx);
+          const color = interpolate((n.tx - minX) / (dx || 1));
           if (!colorLookupRef.current[n.id]) {
             colorLookupRef.current[n.id] = color;
           }
