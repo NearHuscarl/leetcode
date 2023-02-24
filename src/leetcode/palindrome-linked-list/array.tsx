@@ -11,7 +11,7 @@ export const Visualizer = () => {
       <VLinkedList
         nodes={listNodes}
         pointers={[
-          { name: 'head', value: head, color: red[500], isHead: true },
+          { name: 'head', value: head, color: red[500] },
           { name: 'cur', value: cur, color: lightGreen[500], highlight: true },
         ]}
       />

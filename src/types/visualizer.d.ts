@@ -99,7 +99,7 @@ export interface TListNodeD3<T extends TDebugValue = number, Type = TNodeType>
   id: TNodeId;
   val: T;
   next: TNodeId | null;
-  references: Type extends 'node' ? TNodeId[] : undefined;
+  references: Type extends 'node' ? Set<TNodeId> : undefined;
   color?: string;
   type: Type;
   isHead: boolean;
@@ -111,10 +111,20 @@ export interface TListNodeD3<T extends TDebugValue = number, Type = TNodeType>
   highlight: Type extends 'pointer' ? boolean : undefined;
   position?: TVLinkedListProps['pointers'][number]['position'];
 }
+
+type TLLGroupProps<T extends TDebugValue> = {
+  head: string;
+  tail?: string;
+  pin?: boolean;
+};
 export interface TVLinkedListProps<T extends TDebugValue = number>
   extends TVBase {
   nodes: Record<TNodeId, TListNodeD3<T>>;
-  getNode?: (node: TListNodeD3<T>) => TListNodeD3<T>;
+  group?: TLLGroupProps<T>[];
+  getNode?: (
+    node: TListNodeD3<T>,
+    nodeLookup: Record<TNodeId, TListNodeD3<T>>
+  ) => TListNodeD3<T>;
   pointers: {
     name: string;
     value: TListNodeD3<T>;

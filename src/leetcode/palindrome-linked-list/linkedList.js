@@ -15,26 +15,29 @@ var isPalindrome = function (head) {
 
   while (fastPointer?.next) {
     slowPointer = slowPointer.next;
-    fastPointer = fastPointer.next?.next;
+    fastPointer = fastPointer.next;
+    fastPointer = fastPointer?.next;
   }
 
-  let reversedHead = reverse(slowPointer);
+  let reversedHead = _reverse(slowPointer);
 
-  while (reversedHead) {
-    if (head.val !== reversedHead.val) {
+  let cur1 = head;
+  let cur2 = reversedHead;
+  while (cur2) {
+    if (cur1.val !== cur2.val) {
       return false;
     }
 
-    head = head.next;
-    reversedHead = reversedHead.next;
+    cur1 = cur1.next;
+    cur2 = cur2.next;
   }
 
   return true;
 };
 
-function reverse(head) {
+function _reverse(head) {
   let cur = head;
-  let left;
+  let left = null;
 
   while (cur) {
     let right = cur.next;
