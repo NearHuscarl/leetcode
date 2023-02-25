@@ -11,7 +11,7 @@ export const settings: TProblemSettings = {
       s: 'race a car',
     },
     {
-      s: ' ',
+      s: ' !"#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~',
     },
   ],
   metaData: {
