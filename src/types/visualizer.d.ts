@@ -159,6 +159,7 @@ export interface TTreeNodeD3<T extends TDebugValue2 = number, Type = TNodeType>
       }
     | false;
   type: Type;
+  references: Set<TNodeId>;
   tx: Type extends 'node' ? number : undefined;
   ty: Type extends 'node' ? number : undefined;
   highlight: Type extends 'pointer' ? boolean : undefined;
@@ -192,7 +193,10 @@ export type TTreeData<T extends TDebugValue = number> = {
 export interface VTreeProps<T extends TDebugValue = number> extends TVBase {
   nodes?: Record<TNodeId, TTreeNodeD3<T>>;
   hierarchyNode?: THierarchyNode<TTreeNodeD3<T>>;
-  getNode?: (node: TTreeNodeD3<T>) => TTreeNodeD3<T>;
+  getNode?: (
+    node: TTreeNodeD3<T>,
+    nodeLookup: Record<TNodeId, TTreeNodeD3<T>>
+  ) => TTreeNodeD3<T>;
   onDataComputed?: (data: TTreeData<T>) => void;
   pointers: {
     name: string;

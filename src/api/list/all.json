@@ -129,7 +129,7 @@
     "neetcode": "https://www.youtube.com/watch?v=XIdigk956u0"
   },
   {
-    "acRate": 50,
+    "acRate": 50.1,
     "difficulty": "Easy",
     "title": "Palindrome Linked List",
     "titleSlug": "palindrome-linked-list",

@@ -12,7 +12,7 @@
  */
 var inorderTraversal = function (root) {
   const results = [];
-  const inorder = (node = root) => {
+  const inorder = (node) => {
     if (!node) return;
 
     inorder(node.left);
@@ -20,6 +20,6 @@ var inorderTraversal = function (root) {
     inorder(node.right);
   };
 
-  inorder();
+  inorder(root);
   return results;
 };

@@ -45,7 +45,7 @@
       "timeComplexity": "n"
     }
   },
-  "acRate": 50,
+  "acRate": 50.1,
   "difficulty": "Easy",
   "title": "Palindrome Linked List",
   "titleSlug": "palindrome-linked-list",
