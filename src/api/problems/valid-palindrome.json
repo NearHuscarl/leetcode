@@ -1,0 +1,50 @@
+{
+  "id": "valid-palindrome",
+  "neetcode": "https://www.youtube.com/watch?v=jJXJ16kPFWg",
+  "testCases": [
+    {
+      "s": "A man, a plan, a canal: Panama"
+    },
+    {
+      "s": "race a car"
+    },
+    {
+      "s": " "
+    }
+  ],
+  "metaData": {
+    "name": "isPalindrome",
+    "params": [
+      {
+        "name": "s",
+        "type": "string"
+      }
+    ],
+    "return": {
+      "type": "boolean"
+    }
+  },
+  "solutions": {
+    "twoPointers": {
+      "id": "twoPointers",
+      "name": "Two Pointers",
+      "programCode": "/**\r\n * @param {string} s\r\n * @return {boolean}\r\n */\r\nvar isPalindrome = function (s) {\r\n  const normalizedStr = s.toLowerCase().replace(/[^a-z0-9]/g, '');\r\n  let left = 0;\r\n  let right = normalizedStr.length - 1;\r\n\r\n  while (left < right) {\r\n    if (normalizedStr[left] !== normalizedStr[right]) {\r\n      return false;\r\n    }\r\n    left++;\r\n    right--;\r\n  }\r\n\r\n  return true;\r\n};\r\n",
+      "visualizerCode": "import React from \"react\";\r\nimport { useVisualizerData, VArray } from \"visualizer\";\r\nimport { red, lightGreen, teal, amber, blue } from \"colors\";\r\n\r\nexport const Visualizer = () => {\r\n  const { data, expression, type } = useVisualizerData();\r\n\r\n  return null;\r\n};\r\n",
+      "timeComplexity": "n"
+    }
+  },
+  "acRate": 44.2,
+  "difficulty": "Easy",
+  "title": "Valid Palindrome",
+  "titleSlug": "valid-palindrome",
+  "topicTags": [
+    {
+      "name": "Two Pointers",
+      "slug": "two-pointers"
+    },
+    {
+      "name": "String",
+      "slug": "string"
+    }
+  ]
+}

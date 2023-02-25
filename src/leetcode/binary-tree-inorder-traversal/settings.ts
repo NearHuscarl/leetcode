@@ -8,6 +8,9 @@ export const settings: TProblemSettings = {
       root: [1, null, 2, 3],
     },
     {
+      root: [2, 4, 5, null, null, null, 1, null, 3, 6],
+    },
+    {
       root: [1],
     },
     {

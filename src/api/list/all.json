@@ -232,6 +232,23 @@
     "neetcode": "https://www.youtube.com/watch?v=9UtInBqnCgA"
   },
   {
+    "acRate": 44.2,
+    "difficulty": "Easy",
+    "title": "Valid Palindrome",
+    "titleSlug": "valid-palindrome",
+    "topicTags": [
+      {
+        "name": "Two Pointers",
+        "slug": "two-pointers"
+      },
+      {
+        "name": "String",
+        "slug": "string"
+      }
+    ],
+    "neetcode": "https://www.youtube.com/watch?v=jJXJ16kPFWg"
+  },
+  {
     "acRate": 40.3,
     "difficulty": "Easy",
     "title": "Valid Parentheses",
