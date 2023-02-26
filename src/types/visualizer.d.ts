@@ -49,17 +49,27 @@ export type TArrayPointer = {
   prevNonEmptyValue?: number;
   color?: string;
 };
-export interface TVArrayProps<T extends TDebugValue> extends TVBase {
-  value: T[];
-  label?: TSvgArrayProps<T>['label'];
-  highlightRange?: TSvgArrayProps<T>['highlightRange'];
-  getElementStyle?: TSvgArrayProps<T>['getElementStyle'];
+
+export type TArrayLike = TDebugValue[] | string;
+export type TArrayValue<T extends TArrayLike> = T extends Array<TDebugValue>
+  ? T[number]
+  : string;
+
+export interface TVArrayProps<
+  A extends TArrayLike,
+  V extends TArrayValue<A> = TArrayValue<A>
+> extends TVBase {
+  value?: A;
+  label?: TSvgArrayProps<V>['label'];
+  highlightRange?: TSvgArrayProps<V>['highlightRange'];
+  getElementStyle?: TSvgArrayProps<V>['getElementStyle'];
   pointers?: TArrayPointer[];
 }
 
-export function VArray<T extends TDebugValue>(
-  props: TVArrayProps<T>
-): JSX.Element;
+export function VArray<
+  A extends TArrayLike,
+  V extends TArrayValue<A> = TArrayValue<A>
+>(props: TVArrayProps<A, V>): JSX.Element;
 
 interface SimulationNodeDatum {
   /**

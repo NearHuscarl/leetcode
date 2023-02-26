@@ -15,7 +15,7 @@ export const Visualizer = () => {
           x={arraySize * index}
           y={30}
           label={index === 0 ? 's' : 't'}
-          value={str.split('')}
+          value={str}
           pointers={[{ name: 'i', value: i, color: red[500] }]}
         />
       ))}

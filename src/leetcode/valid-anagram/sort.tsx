@@ -14,13 +14,13 @@ export const Visualizer = () => {
 
   return (
     <>
-      {[s, t].map((str, index) => (
+      {([s, t] as string[]).map((str, index) => (
         <VArray
           key={index}
           x={arraySize * index}
           y={30}
           label={index === 0 ? 's' : 't'}
-          value={str.split('')}
+          value={str}
           getElementStyle={(e, i, style) => {
             style.background = interpolateColor(e.charCodeAt(0));
             return style;
