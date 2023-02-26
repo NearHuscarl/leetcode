@@ -1,0 +1,54 @@
+{
+  "id": "longest-substring-without-repeating-characters",
+  "neetcode": "https://www.youtube.com/watch?v=wiGpQwVHdE0",
+  "testCases": [
+    {
+      "s": "abcabcbb"
+    },
+    {
+      "s": "bbbbb"
+    },
+    {
+      "s": "pwwkew"
+    }
+  ],
+  "metaData": {
+    "name": "lengthOfLongestSubstring",
+    "params": [
+      {
+        "name": "s",
+        "type": "string"
+      }
+    ],
+    "return": {
+      "type": "number"
+    }
+  },
+  "solutions": {
+    "slidingWindow": {
+      "id": "slidingWindow",
+      "name": "Sliding Window",
+      "programCode": "/**\r\n * @param {string} s\r\n * @return {number}\r\n */\r\nvar lengthOfLongestSubstring = function (s) {\r\n  let set = new Set();\r\n  let left = 0;\r\n  let right = 0;\r\n  let maxLength = 0;\r\n\r\n  while (right < s.length) {\r\n    while (set.has(s[right])) {\r\n      set.delete(s[left]);\r\n      left++;\r\n    }\r\n    maxLength = Math.max(maxLength, right - left + 1);\r\n    set.add(s[right]);\r\n    right++;\r\n  }\r\n\r\n  return maxLength;\r\n};\r\n",
+      "visualizerCode": "import React from 'react';\r\nimport { useVisualizerData, VArray } from 'visualizer';\r\nimport { red, yellow, blue, lightGreen } from 'colors';\r\n\r\nexport const Visualizer = () => {\r\n  const { data, expression, type } = useVisualizerData();\r\n  const {} = data;\r\n  const test = type === 'testExpressionSuccess';\r\n\r\n  return null;\r\n};\r\n",
+      "timeComplexity": "n"
+    }
+  },
+  "acRate": 33.8,
+  "difficulty": "Medium",
+  "title": "Longest Substring Without Repeating Characters",
+  "titleSlug": "longest-substring-without-repeating-characters",
+  "topicTags": [
+    {
+      "name": "Hash Table",
+      "slug": "hash-table"
+    },
+    {
+      "name": "String",
+      "slug": "string"
+    },
+    {
+      "name": "Sliding Window",
+      "slug": "sliding-window"
+    }
+  ]
+}

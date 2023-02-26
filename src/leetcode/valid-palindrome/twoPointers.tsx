@@ -1,39 +1,6 @@
 import React from 'react';
 import { useVisualizerData, VArray } from 'visualizer';
-import {
-  red,
-  orange,
-  yellow,
-  green,
-  blue,
-  cyan,
-  purple,
-  transform,
-} from 'colors';
-
-const l = 40; // space
-const h = 126; // ~
-const r = h - l;
-const interpolateColor = transform(
-  [
-    l,
-    l + (r * 1) / 6,
-    l + (r * 2) / 6,
-    l + (r * 3) / 6,
-    l + (r * 4) / 6,
-    l + (r * 5) / 6,
-    h,
-  ],
-  [
-    red[500],
-    orange[500],
-    yellow[500],
-    green[500],
-    blue[500],
-    cyan[500],
-    purple[500],
-  ]
-);
+import { red, yellow, blue, lightGreen } from 'colors';
 
 export const Visualizer = () => {
   const { data, expression, type } = useVisualizerData();
@@ -43,6 +10,7 @@ export const Visualizer = () => {
   return (
     <>
       <VArray
+        y={100}
         value={
           (normalizedStr ? normalizedStr.split('') : s.split('')) as string[]
         }
@@ -51,12 +19,14 @@ export const Visualizer = () => {
           { name: 'right', value: right, color: blue[500] },
         ]}
         getElementStyle={(e, i, style) => {
-          style.background = interpolateColor(e.charCodeAt(0));
           const checkExpression =
             expression === 'normalizedStr[left] !== normalizedStr[right]';
 
+          const isAlphaNumeric = /^[a-z0-9]+$/i.test(e);
+          style.background = isAlphaNumeric ? yellow[100] : red[100];
+
           if (checkExpression && (i === left || i === right)) {
-            style.background = !test ? green[500] : red[500];
+            style.background = !test ? lightGreen[500] : red[500];
             style.color = '#ffffff';
           }
           return style;
