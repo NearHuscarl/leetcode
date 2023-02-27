@@ -25,7 +25,7 @@ export const Visualizer = () => {
           x={arraySize * index}
           y={110}
           value={freq}
-          highlights={{ [chr]: amber[700] }}
+          highlights={{ [chr]: amber[500] }}
           getEntryStyle={(entry, style) => {
             const test = type === 'testExpressionSuccess';
             if (

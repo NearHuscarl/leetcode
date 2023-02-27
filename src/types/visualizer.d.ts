@@ -296,6 +296,21 @@ export function VLookupTable<K extends string, V>(
   props: TVLookupTableProps<K, V>
 ): JSX.Element;
 
+export type TSetElementStyle = {
+  color?: string;
+  background?: string;
+  borderColor?: string;
+  fontWeight?: string | number;
+};
+
+interface TVSetProps<K extends TDebugValue> extends TVBase {
+  value?: K[];
+  label?: string;
+  highlights?: [key: string, color: string][];
+  getElementStyle?: (value: K, style: TSetElementStyle) => TSetElementStyle;
+}
+export function VSet<K extends TDebugValue>(props: TVSetProps<K>): JSX.Element;
+
 interface TVStackProps<T extends TDebugValue> extends TVBase {
   value: T[];
   length: number;
