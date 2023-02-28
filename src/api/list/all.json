@@ -192,6 +192,23 @@
     "neetcode": "https://www.youtube.com/watch?v=G0_I-ZF0S38"
   },
   {
+    "acRate": 76.6,
+    "difficulty": "Easy",
+    "title": "Reverse String",
+    "titleSlug": "reverse-string",
+    "topicTags": [
+      {
+        "name": "Two Pointers",
+        "slug": "two-pointers"
+      },
+      {
+        "name": "String",
+        "slug": "string"
+      }
+    ],
+    "neetcode": "https://www.youtube.com/watch?v=_d0T_2Lk2qA"
+  },
+  {
     "acRate": 58.4,
     "difficulty": "Medium",
     "title": "Sort an Array",

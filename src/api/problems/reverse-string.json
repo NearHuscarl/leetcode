@@ -1,0 +1,60 @@
+{
+  "id": "reverse-string",
+  "neetcode": "https://www.youtube.com/watch?v=_d0T_2Lk2qA",
+  "testCases": [
+    {
+      "s": [
+        "h",
+        "e",
+        "l",
+        "l",
+        "o"
+      ]
+    },
+    {
+      "s": [
+        "H",
+        "a",
+        "n",
+        "n",
+        "a",
+        "h"
+      ]
+    }
+  ],
+  "metaData": {
+    "name": "reverseString",
+    "params": [
+      {
+        "name": "s",
+        "type": "string[]"
+      }
+    ],
+    "return": {
+      "type": "string[]"
+    }
+  },
+  "solutions": {
+    "twoPointers": {
+      "id": "twoPointers",
+      "name": "Two Pointers",
+      "programCode": "/**\r\n * @param {character[]} s\r\n * @return {void} Do not return anything, modify s in-place instead.\r\n */\r\nvar reverseString = function (s) {\r\n  let left = 0;\r\n  let right = s.length - 1;\r\n\r\n  while (left < right) {\r\n    const swap = s[left];\r\n    s[left] = s[right];\r\n    s[right] = swap;\r\n\r\n    left++;\r\n    right--;\r\n  }\r\n};\r\n",
+      "visualizerCode": "import React from 'react';\r\nimport { useVisualizerData, VArray } from 'visualizer';\r\nimport { red, yellow, blue, lightGreen } from 'colors';\r\n\r\nexport const Visualizer = () => {\r\n  const { data, expression, type } = useVisualizerData();\r\n\r\n  return null;\r\n};\r\n",
+      "timeComplexity": "s + t"
+    }
+  },
+  "acRate": 76.6,
+  "difficulty": "Easy",
+  "title": "Reverse String",
+  "titleSlug": "reverse-string",
+  "topicTags": [
+    {
+      "name": "Two Pointers",
+      "slug": "two-pointers"
+    },
+    {
+      "name": "String",
+      "slug": "string"
+    }
+  ]
+}
