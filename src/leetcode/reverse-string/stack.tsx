@@ -1,10 +1,16 @@
 import React from 'react';
-import { useVisualizerData, VArray } from 'visualizer';
+import { useVisualizerData, useTestCase, VArray, VStack } from 'visualizer';
 import { red, yellow, blue, lightGreen } from 'colors';
 
 export const Visualizer = () => {
   const { data, expression, type } = useVisualizerData();
-  const { s, left, right } = data;
+  const { s: sParam = [] } = useTestCase();
+  const { s, stack } = data;
 
-  return null;
+  return (
+    <>
+      <VArray y={0} value={s} />
+      <VStack y={50} value={stack} length={sParam.length} />
+    </>
+  );
 };

@@ -46,7 +46,7 @@
       "id": "stack",
       "name": "Stack",
       "programCode": "/**\r\n * @param {character[]} s\r\n * @return {void} Do not return anything, modify s in-place instead.\r\n */\r\nvar reverseString = function (s) {\r\n  const stack = [];\r\n\r\n  while (s.length > 0) {\r\n    stack.push(s.shift());\r\n  }\r\n\r\n  while (stack.length > 0) {\r\n    s.push(stack.pop());\r\n  }\r\n};\r\n",
-      "visualizerCode": "import React from 'react';\r\nimport { useVisualizerData, VArray } from 'visualizer';\r\nimport { red, yellow, blue, lightGreen } from 'colors';\r\n\r\nexport const Visualizer = () => {\r\n  const { data, expression, type } = useVisualizerData();\r\n  const { s, left, right } = data;\r\n\r\n  return null;\r\n};\r\n",
+      "visualizerCode": "import React from 'react';\r\nimport { useVisualizerData, useTestCase, VArray, VStack } from 'visualizer';\r\nimport { red, yellow, blue, lightGreen } from 'colors';\r\n\r\nexport const Visualizer = () => {\r\n  const { data, expression, type } = useVisualizerData();\r\n  const { s: sParam = [] } = useTestCase();\r\n  const { s, stack } = data;\r\n\r\n  return (\r\n    <>\r\n      <VArray y={0} value={s} />\r\n      <VStack y={50} value={stack} length={sParam.length} />\r\n    </>\r\n  );\r\n};\r\n",
       "timeComplexity": "s"
     }
   },

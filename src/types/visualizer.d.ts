@@ -320,6 +320,8 @@ export function VStack<T extends TDebugValue>(
   props: TVStackProps<T>
 ): JSX.Element;
 
+export function useTestCase(): Record<string, string>;
+
 export function useVisualizerData(): {
   index: number;
   data: any;
