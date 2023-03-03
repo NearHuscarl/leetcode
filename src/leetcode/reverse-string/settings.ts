@@ -24,7 +24,14 @@ export const settings: TProblemSettings = {
       name: 'Two Pointers',
       programCode: '',
       visualizerCode: '',
-      timeComplexity: 's + t',
+      timeComplexity: 's',
+    },
+    stack: {
+      id: 'stack',
+      name: 'Stack',
+      programCode: '',
+      visualizerCode: '',
+      timeComplexity: 's',
     },
   },
 };
