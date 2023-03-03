@@ -15,7 +15,7 @@ export const settings: TProblemSettings = {
     name: 'reverseString',
     params: [{ name: 's', type: 'string[]' }],
     return: {
-      type: 'string[]',
+      type: 'void',
     },
   },
   solutions: {

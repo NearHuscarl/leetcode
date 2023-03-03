@@ -7,9 +7,7 @@ var reverseString = function (s) {
   let right = s.length - 1;
 
   while (left < right) {
-    const swap = s[left];
-    s[left] = s[right];
-    s[right] = swap;
+    [s[left], s[right]] = [s[right], s[left]];
 
     left++;
     right--;

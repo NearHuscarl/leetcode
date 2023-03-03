@@ -31,15 +31,15 @@
       }
     ],
     "return": {
-      "type": "string[]"
+      "type": "void"
     }
   },
   "solutions": {
     "twoPointers": {
       "id": "twoPointers",
       "name": "Two Pointers",
-      "programCode": "/**\r\n * @param {character[]} s\r\n * @return {void} Do not return anything, modify s in-place instead.\r\n */\r\nvar reverseString = function (s) {\r\n  let left = 0;\r\n  let right = s.length - 1;\r\n\r\n  while (left < right) {\r\n    const swap = s[left];\r\n    s[left] = s[right];\r\n    s[right] = swap;\r\n\r\n    left++;\r\n    right--;\r\n  }\r\n};\r\n",
-      "visualizerCode": "import React from 'react';\r\nimport { useVisualizerData, VArray } from 'visualizer';\r\nimport { red, yellow, blue, lightGreen } from 'colors';\r\n\r\nexport const Visualizer = () => {\r\n  const { data, expression, type } = useVisualizerData();\r\n\r\n  return null;\r\n};\r\n",
+      "programCode": "/**\r\n * @param {character[]} s\r\n * @return {void} Do not return anything, modify s in-place instead.\r\n */\r\nvar reverseString = function (s) {\r\n  let left = 0;\r\n  let right = s.length - 1;\r\n\r\n  while (left < right) {\r\n    [s[left], s[right]] = [s[right], s[left]];\r\n\r\n    left++;\r\n    right--;\r\n  }\r\n};\r\n",
+      "visualizerCode": "import React from 'react';\r\nimport { useVisualizerData, VArray } from 'visualizer';\r\nimport { red, yellow, blue, lightGreen } from 'colors';\r\n\r\nexport const Visualizer = () => {\r\n  const { data, expression, type } = useVisualizerData();\r\n  const { s, left, right } = data;\r\n\r\n  return (\r\n    <VArray\r\n      value={s}\r\n      pointers={[\r\n        { name: 'left', value: left, color: red[500] },\r\n        { name: 'right', value: right, color: blue[500] },\r\n      ]}\r\n    />\r\n  );\r\n};\r\n",
       "timeComplexity": "s + t"
     }
   },
