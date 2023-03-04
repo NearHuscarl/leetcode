@@ -1,33 +1,33 @@
-import { TProblemSettings } from "../../types/problem";
+import { TProblemSettings } from '../../types/problem';
 
 export const settings: TProblemSettings = {
-  id: "valid-parentheses",
-  neetcode: "https://www.youtube.com/watch?v=WTzjTskDFMg",
+  id: 'valid-parentheses',
+  neetcode: 'https://www.youtube.com/watch?v=WTzjTskDFMg',
   testCases: [
     {
-      s: "()",
+      s: '{[()]}',
     },
     {
-      s: "()[]{}",
+      s: '()[]{}',
     },
     {
-      s: "(]",
+      s: '([)]',
     },
   ],
   metaData: {
-    name: "isValid",
-    params: [{ name: "s", type: "string" }],
+    name: 'isValid',
+    params: [{ name: 's', type: 'string' }],
     return: {
-      type: "boolean",
+      type: 'boolean',
     },
   },
   solutions: {
     stack: {
-      id: "stack",
-      name: "Stack",
-      programCode: "",
-      visualizerCode: "",
-      timeComplexity: "n",
+      id: 'stack',
+      name: 'Stack',
+      programCode: '',
+      visualizerCode: '',
+      timeComplexity: 'n',
     },
   },
 };
