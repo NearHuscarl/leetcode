@@ -13,26 +13,26 @@ unsafeWindow.on = true;
 // unsafeWindow.jQuery = window.jQuery;
 
 (async function () {
-  "use strict";
+  'use strict';
 
   // https://stackoverflow.com/a/37798293/9449426
   const whenDOMContentLoaded = (cb) => {
     if (
-      document.readyState === "complete" ||
-      document.readyState === "loaded" ||
-      document.readyState === "interactive"
+      document.readyState === 'complete' ||
+      document.readyState === 'loaded' ||
+      document.readyState === 'interactive'
     ) {
       cb();
     } else {
-      document.addEventListener("DOMContentLoaded", cb);
+      document.addEventListener('DOMContentLoaded', cb);
     }
   };
 
   function queryGraphQL({ query, variables = {}, ...rest }) {
-    return fetch("https://leetcode.com/graphql", {
-      method: "POST",
+    return fetch('https://leetcode.com/graphql', {
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify({ query, variables, ...rest }),
     })
@@ -40,7 +40,7 @@ unsafeWindow.on = true;
         if (r.ok) {
           return r.json();
         } else {
-          throw new Error("Failed to query GraphQL. HTTP " + r.status);
+          throw new Error('Failed to query GraphQL. HTTP ' + r.status);
         }
       })
       .catch((e) => console.log(e));
@@ -48,9 +48,9 @@ unsafeWindow.on = true;
 
   function queryQuestion(titleSlug) {
     return queryGraphQL({
-      operationName: "questionTitle",
+      operationName: 'questionTitle',
       query:
-        "\n    query questionTitle($titleSlug: String!) {\n  question(titleSlug: $titleSlug) {\n    questionId\n    questionFrontendId\n    title\n    titleSlug\n    isPaidOnly\n    difficulty\n    likes\n    dislikes\n  }\n}\n    ",
+        '\n    query questionTitle($titleSlug: String!) {\n  question(titleSlug: $titleSlug) {\n    questionId\n    questionFrontendId\n    title\n    titleSlug\n    isPaidOnly\n    difficulty\n    likes\n    dislikes\n  }\n}\n    ',
       variables: { titleSlug },
     }).then((r) => r.data.question);
   }
@@ -58,7 +58,7 @@ unsafeWindow.on = true;
   function queryQuestionEditorData(titleSlug) {
     return queryGraphQL({
       query:
-        "\n    query questionEditorData($titleSlug: String!) {\n  question(titleSlug: $titleSlug) {\n    questionId\n    questionFrontendId\n    codeSnippets {\n      lang\n      langSlug\n      code\n    }\n    envInfo\n    enableRunCode\n  }\n}\n    ",
+        '\n    query questionEditorData($titleSlug: String!) {\n  question(titleSlug: $titleSlug) {\n    questionId\n    questionFrontendId\n    codeSnippets {\n      lang\n      langSlug\n      code\n    }\n    envInfo\n    enableRunCode\n  }\n}\n    ',
       variables: { titleSlug },
     }).then((r) => r.data.question.codeSnippets);
   }
@@ -66,52 +66,13 @@ unsafeWindow.on = true;
   function queryActiveSessionId() {
     return queryGraphQL({
       query:
-        "\n    query globalData {\n  userStatus {\n    userId\n    isSignedIn\n    isMockUser\n    isPremium\n    isVerified\n    username\n    avatar\n    isAdmin\n    isSuperuser\n    permissions\n    isTranslator\n    activeSessionId\n    checkedInToday\n    notificationStatus {\n      lastModified\n      numUnread\n    }\n  }\n}\n    ",
+        '\n    query globalData {\n  userStatus {\n    userId\n    isSignedIn\n    isMockUser\n    isPremium\n    isVerified\n    username\n    avatar\n    isAdmin\n    isSuperuser\n    permissions\n    isTranslator\n    activeSessionId\n    checkedInToday\n    notificationStatus {\n      lastModified\n      numUnread\n    }\n  }\n}\n    ',
       variables: {},
     }).then((r) => r.data.userStatus.activeSessionId);
   }
 
-  const langSlug = "javascript";
-  const titleSlug = location.pathname.replace(
-    /\/problems\/([a-z-]*)\/.*/,
-    "$1"
-  );
-  const [question, sessionId, codeSnippets] = await Promise.all([
-    queryQuestion(titleSlug),
-    queryActiveSessionId(),
-    queryQuestionEditorData(titleSlug),
-  ]);
-  const codeSnippet = codeSnippets.find((s) => s.langSlug === langSlug).code;
-
-  whenDOMContentLoaded(() => {
-    console.log("run code");
-    const runBtn = [...document.getElementsByTagName("button")].find(
-      (b) => b.textContent === "Run"
-    );
-    const debugBtn = document.createElement("button");
-    const container = runBtn.parentNode;
-
-    debugBtn.textContent = "Debug";
-    debugBtn.classList = runBtn.classList;
-    container.insertBefore(debugBtn, container.firstChild);
-
-    debugBtn.addEventListener("click", () => {
-      try {
-        const lines = getCode().split("\n");
-        const breakpointLines = getBreakpointLines();
-
-        breakpointLines.map((breakpoint, i) =>
-          lines.splice(breakpoint + i - 1, 0, "debugger;")
-        );
-        unsafeWindow.eval(lines.join("\n"));
-      } catch (err) {
-        console.log({ err });
-      }
-    });
-  });
-
   function getBreakpointLines() {
-    return [...document.getElementsByClassName("cgmr")].map((el) =>
+    return [...document.getElementsByClassName('cgmr')].map((el) =>
       parseInt(el.nextSibling.textContent, 10)
     );
   }
@@ -121,10 +82,10 @@ unsafeWindow.on = true;
       localStorage.getItem(`${question.questionId}_${sessionId}_${langSlug}`) ??
       codeSnippet;
     // remove quotes and literal newlines
-    code = code.slice(1, code.length - 1).replace(/\\n/g, "\n");
+    code = code.slice(1, code.length - 1).replace(/\\n/g, '\n');
     const testCaseParams = getTestCaseParams()
       .map((p) => p.value)
-      .join(",");
+      .join(',');
     const fnName = code.match(/\nvar (\w+) /)[1];
     code += `
 ${fnName}(${testCaseParams});
@@ -133,10 +94,10 @@ ${fnName}(${testCaseParams});
   }
 
   function getTestCaseParamsFromResultTab() {
-    return [...document.querySelectorAll(".font-menlo.text-label-1")]
+    return [...document.querySelectorAll('.font-menlo.text-label-1')]
       .map((el) => {
         return {
-          name: el.parentNode.firstChild.textContent.split(" =")[0],
+          name: el.parentNode.firstChild.textContent.split(' =')[0],
           value: el.textContent,
         };
       })
@@ -151,12 +112,55 @@ ${fnName}(${testCaseParams});
     return [...document.querySelectorAll('[placeholder="Enter Testcase"]')].map(
       (el) => {
         return {
-          name: el.parentNode.parentNode.firstChild.textContent.split(" =")[0],
+          name: el.parentNode.parentNode.firstChild.textContent.split(' =')[0],
           value: el.textContent,
         };
       }
     );
   }
+
+  const langSlug = 'javascript';
+  const titleSlug = location.pathname.replace(
+    /\/problems\/([a-z-]*)\/.*/,
+    '$1'
+  );
+  const [question, sessionId, codeSnippets] = await Promise.all([
+    queryQuestion(titleSlug),
+    queryActiveSessionId(),
+    queryQuestionEditorData(titleSlug),
+  ]);
+  const codeSnippet = codeSnippets.find((s) => s.langSlug === langSlug).code;
+
+  const main = async () => {
+    whenDOMContentLoaded(() => {
+      console.log('run code');
+      const runBtn = [...document.getElementsByTagName('button')].find(
+        (b) => b.textContent === 'Run'
+      );
+      const debugBtn = document.createElement('button');
+      const container = runBtn.parentNode;
+
+      debugBtn.textContent = 'Debug';
+      debugBtn.classList = runBtn.classList;
+      container.insertBefore(debugBtn, container.firstChild);
+
+      debugBtn.addEventListener('click', () => {
+        try {
+          const lines = getCode().split('\n');
+          const breakpointLines = getBreakpointLines();
+
+          breakpointLines.map((breakpoint, i) =>
+            lines.splice(breakpoint + i - 1, 0, 'debugger;')
+          );
+          unsafeWindow.eval(lines.join('\n'));
+        } catch (err) {
+          console.log({ err });
+        }
+      });
+    });
+  };
+
+  setTimeout(() => main(), 4000);
 
   unsafeWindow.LC_DEBUGGER = {
     getCode,
