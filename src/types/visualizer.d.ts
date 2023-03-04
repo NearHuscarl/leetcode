@@ -344,6 +344,7 @@ export function useVisualizerData(): {
   };
   listNodes: Record<number, TListNodeD3<any>>;
   treeNodes: Record<number, TTreeNodeD3<any>>;
+  treeNodeCount: number;
 };
 
 export function Visualize(props: TVArrayProps): number;

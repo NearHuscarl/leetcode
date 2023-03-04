@@ -1,33 +1,33 @@
-import { TProblemSettings } from "../../types/problem";
+import { TProblemSettings } from '../../types/problem';
 
 export const settings: TProblemSettings = {
-  id: "baseball-game",
-  neetcode: "https://www.youtube.com/watch?v=Id_tqGdsZQI",
+  id: 'baseball-game',
+  neetcode: 'https://www.youtube.com/watch?v=Id_tqGdsZQI',
   testCases: [
     {
-      operations: ["5", "2", "C", "D", "+"],
+      operations: ['5', '-2', '4', 'C', 'D', '9', '+', '+'],
     },
     {
-      operations: ["5", "-2", "4", "C", "D", "9", "+", "+"],
+      operations: ['5', '2', 'C', 'D', '+'],
     },
     {
-      operations: ["1", "C"],
+      operations: ['1', 'C'],
     },
   ],
   metaData: {
-    name: "calPoints",
-    params: [{ name: "operations", type: "string[]" }],
+    name: 'calPoints',
+    params: [{ name: 'operations', type: 'string[]' }],
     return: {
-      type: "number",
+      type: 'number',
     },
   },
   solutions: {
     stack: {
-      id: "stack",
-      name: "Stack",
-      programCode: "",
-      visualizerCode: "",
-      timeComplexity: "n",
+      id: 'stack',
+      name: 'Stack',
+      programCode: '',
+      visualizerCode: '',
+      timeComplexity: 'n',
     },
   },
 };

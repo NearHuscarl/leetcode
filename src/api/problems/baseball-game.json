@@ -5,21 +5,21 @@
     {
       "operations": [
         "5",
-        "2",
-        "C",
-        "D",
-        "+"
-      ]
-    },
-    {
-      "operations": [
-        "5",
         "-2",
         "4",
         "C",
         "D",
         "9",
         "+",
+        "+"
+      ]
+    },
+    {
+      "operations": [
+        "5",
+        "2",
+        "C",
+        "D",
         "+"
       ]
     },
@@ -51,7 +51,7 @@
       "timeComplexity": "n"
     }
   },
-  "acRate": 74.2,
+  "acRate": 74.1,
   "difficulty": "Easy",
   "title": "Baseball Game",
   "titleSlug": "baseball-game",
