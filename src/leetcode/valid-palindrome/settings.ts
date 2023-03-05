@@ -29,5 +29,12 @@ export const settings: TProblemSettings = {
       visualizerCode: '',
       timeComplexity: 'n',
     },
+    reverse: {
+      id: 'reverse',
+      name: 'Reverse',
+      programCode: '',
+      visualizerCode: '',
+      timeComplexity: 'n',
+    },
   },
 };
