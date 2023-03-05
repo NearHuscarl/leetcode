@@ -5,10 +5,10 @@ export const settings: TProblemSettings = {
   neetcode: 'https://www.youtube.com/watch?v=jJXJ16kPFWg',
   testCases: [
     {
-      s: 'A man, a plan, a canal: Panama',
+      s: 'race a car',
     },
     {
-      s: 'race a car',
+      s: 'A man, a plan, a canal: Panama',
     },
     {
       s: ' !"#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~',

@@ -3,10 +3,10 @@
   "neetcode": "https://www.youtube.com/watch?v=jJXJ16kPFWg",
   "testCases": [
     {
-      "s": "A man, a plan, a canal: Panama"
+      "s": "race a car"
     },
     {
-      "s": "race a car"
+      "s": "A man, a plan, a canal: Panama"
     },
     {
       "s": " !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~"
@@ -36,7 +36,7 @@
       "id": "reverse",
       "name": "Reverse",
       "programCode": "/**\r\n * @param {string} s\r\n * @return {boolean}\r\n */\r\nvar isPalindrome = function (s) {\r\n  const arr1 = s\r\n    .toLowerCase()\r\n    .replace(/[^a-z0-9]/g, '')\r\n    .split('');\r\n  const arr2 = arr1.slice();\r\n\r\n  arr2.reverse();\r\n\r\n  for (let i = 0; i < arr1.length; i++) {\r\n    if (arr1[i] !== arr2[i]) {\r\n      return false;\r\n    }\r\n  }\r\n\r\n  return true;\r\n};\r\n",
-      "visualizerCode": "import React from 'react';\r\nimport { useVisualizerData, VArray } from 'visualizer';\r\nimport { red, yellow, blue, lightGreen } from 'colors';\r\n\r\nexport const Visualizer = () => {\r\n  const { data, expression, type } = useVisualizerData();\r\n\r\n  return null;\r\n};\r\n",
+      "visualizerCode": "import React from 'react';\r\nimport { useVisualizerData, VArray, VC } from 'visualizer';\r\nimport { red, yellow, blue, amber, lightGreen, transform } from 'colors';\r\n\r\nconst interpolateColor = transform(\r\n  ['a'.charCodeAt(0), 'l'.charCodeAt(0), 'z'.charCodeAt(0)],\r\n  [red[500], amber[500], lightGreen[500]]\r\n);\r\n\r\nexport const Visualizer = () => {\r\n  const { data, expression, type } = useVisualizerData();\r\n  const { arr1, arr2, i } = data;\r\n  const test = type === 'testExpressionSuccess';\r\n\r\n  return (\r\n    <>\r\n      {[arr1, arr2].map((arr, index) => (\r\n        <VArray\r\n          key={index}\r\n          y={VC.Array.ItemSize + index * 80}\r\n          value={arr}\r\n          pointers={[{ name: 'i', value: i, color: red[500] }]}\r\n          getElementStyle={(value, i2, style) => {\r\n            style.background = interpolateColor(value.charCodeAt(0));\r\n            style.color = '#ffffff';\r\n\r\n            if (i === i2 && expression === 'arr1[i] !== arr2[i]') {\r\n              style.background = !test ? lightGreen[500] : red[500];\r\n              style.color = '#ffffff';\r\n            }\r\n            return style;\r\n          }}\r\n        />\r\n      ))}\r\n    </>\r\n  );\r\n};\r\n",
       "timeComplexity": "n"
     }
   },
