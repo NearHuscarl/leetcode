@@ -44,6 +44,7 @@ export interface TVCodeProps extends TVBase {
 export function VCode(props: TVCodeProps): JSX.Element;
 
 export type TArrayPointer = {
+  key?: string;
   name: string;
   value: number;
   prevNonEmptyValue?: number;
@@ -284,13 +285,27 @@ type HighlightedKey = string;
 type HighlightedColor = string;
 export type TLookupTableHighlight = Record<HighlightedKey, HighlightedColor>;
 
+export type TBoxStyle = {
+  color?: string;
+  background?: string;
+  borderColor?: string;
+  fontWeight?: string | number;
+};
+
+export type TEntryStyle = {
+  key: TBoxStyle;
+  value: TBoxStyle;
+} & TBoxStyle;
+
 interface TVLookupTableProps<K extends string, V> extends TVBase {
   value: Record<K, V>;
   highlights?: TLookupTableHighlight;
-  getEntryStyle?: (
-    entry: [K, V],
-    style: React.CSSProperties
-  ) => React.CSSProperties;
+  hideRatio?: boolean;
+  keyWidth?: number;
+  valueWidth?: number;
+  header?: [keyLabel: string, valueLabel: string];
+  label?: string;
+  getEntryStyle?: (entry: [K, V], style: TEntryStyle) => TEntryStyle;
 }
 export function VLookupTable<K extends string, V>(
   props: TVLookupTableProps<K, V>
