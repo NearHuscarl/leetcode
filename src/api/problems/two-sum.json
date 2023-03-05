@@ -1,0 +1,63 @@
+{
+  "id": "two-sum",
+  "neetcode": "https://www.youtube.com/watch?v=KLlXCFG5TnA",
+  "testCases": [
+    {
+      "nums": [
+        2,
+        1,
+        6,
+        5,
+        3
+      ],
+      "target": 4
+    },
+    {
+      "nums": [
+        3,
+        2,
+        4
+      ],
+      "target": 6
+    }
+  ],
+  "metaData": {
+    "name": "twoSum",
+    "params": [
+      {
+        "name": "nums",
+        "type": "number[]"
+      },
+      {
+        "name": "target",
+        "type": "number"
+      }
+    ],
+    "return": {
+      "type": "number[]"
+    }
+  },
+  "solutions": {
+    "lookupTable": {
+      "id": "lookupTable",
+      "name": "Lookup Table",
+      "programCode": "/**\r\n * @param {number[]} nums\r\n * @param {number} target\r\n * @return {number[]}\r\n */\r\nvar twoSum = function (nums, target) {\r\n  const indexLookup = {};\r\n  for (let i = 0; i < nums.length; i++) {\r\n    const subtracted = target - nums[i];\r\n    if (indexLookup[subtracted] !== undefined) {\r\n      return [indexLookup[subtracted], i];\r\n    } else {\r\n      indexLookup[nums[i]] = i;\r\n    }\r\n  }\r\n};\r\n",
+      "visualizerCode": "import React from 'react';\r\nimport { useVisualizerData, VArray } from 'visualizer';\r\nimport { red, yellow, blue, lightGreen } from 'colors';\r\n\r\nexport const Visualizer = () => {\r\n  const { data, expression, type } = useVisualizerData();\r\n\r\n  return null;\r\n};\r\n",
+      "timeComplexity": "n"
+    }
+  },
+  "acRate": 49.5,
+  "difficulty": "Easy",
+  "title": "Two Sum",
+  "titleSlug": "two-sum",
+  "topicTags": [
+    {
+      "name": "Array",
+      "slug": "array"
+    },
+    {
+      "name": "Hash Table",
+      "slug": "hash-table"
+    }
+  ]
+}

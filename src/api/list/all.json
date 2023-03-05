@@ -249,6 +249,23 @@
     ]
   },
   {
+    "acRate": 49.5,
+    "difficulty": "Easy",
+    "title": "Two Sum",
+    "titleSlug": "two-sum",
+    "topicTags": [
+      {
+        "name": "Array",
+        "slug": "array"
+      },
+      {
+        "name": "Hash Table",
+        "slug": "hash-table"
+      }
+    ],
+    "neetcode": "https://www.youtube.com/watch?v=KLlXCFG5TnA"
+  },
+  {
     "acRate": 63,
     "difficulty": "Easy",
     "title": "Valid Anagram",
