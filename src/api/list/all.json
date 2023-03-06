@@ -21,6 +21,23 @@
     "neetcode": "https://www.youtube.com/watch?v=Id_tqGdsZQI"
   },
   {
+    "acRate": 54.4,
+    "difficulty": "Easy",
+    "title": "Best Time to Buy and Sell Stock",
+    "titleSlug": "best-time-to-buy-and-sell-stock",
+    "topicTags": [
+      {
+        "name": "Array",
+        "slug": "array"
+      },
+      {
+        "name": "Dynamic Programming",
+        "slug": "dynamic-programming"
+      }
+    ],
+    "neetcode": "https://www.youtube.com/watch?v=1pkOgXD63yU"
+  },
+  {
     "acRate": 55.4,
     "difficulty": "Easy",
     "title": "Binary Search",

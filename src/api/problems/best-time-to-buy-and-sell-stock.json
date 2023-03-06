@@ -1,0 +1,60 @@
+{
+  "id": "best-time-to-buy-and-sell-stock",
+  "neetcode": "https://www.youtube.com/watch?v=1pkOgXD63yU",
+  "testCases": [
+    {
+      "prices": [
+        7,
+        1,
+        5,
+        3,
+        6,
+        4
+      ]
+    },
+    {
+      "prices": [
+        7,
+        6,
+        4,
+        3,
+        1
+      ]
+    }
+  ],
+  "metaData": {
+    "name": "maxProfit",
+    "params": [
+      {
+        "name": "prices",
+        "type": "number[]"
+      }
+    ],
+    "return": {
+      "type": "number"
+    }
+  },
+  "solutions": {
+    "slidingWindow": {
+      "id": "slidingWindow",
+      "name": "Sliding Window",
+      "programCode": "/**\r\n * @param {number[]} prices\r\n * @return {number}\r\n */\r\nfunction maxProfit(prices) {\r\n  let maxProfit = 0;\r\n  let left = 0;\r\n  let right = 1;\r\n\r\n  while (right < prices.length) {\r\n    if (prices[left] > prices[right]) {\r\n      left = right;\r\n    } else {\r\n      const profit = prices[right] - prices[left];\r\n      maxProfit = Math.max(maxProfit, profit);\r\n    }\r\n    right++;\r\n  }\r\n\r\n  return maxProfit;\r\n}\r\n",
+      "visualizerCode": "import React from 'react';\r\nimport { useVisualizerData, VArray, VStack, VTree, VC } from 'visualizer';\r\nimport { red, green, amber, lightGreen, teal } from 'colors';\r\n\r\nexport const Visualizer = () => {\r\n  const { data, expression, type } = useVisualizerData();\r\n\r\n  return null;\r\n};\r\n",
+      "timeComplexity": "n"
+    }
+  },
+  "acRate": 54.4,
+  "difficulty": "Easy",
+  "title": "Best Time to Buy and Sell Stock",
+  "titleSlug": "best-time-to-buy-and-sell-stock",
+  "topicTags": [
+    {
+      "name": "Array",
+      "slug": "array"
+    },
+    {
+      "name": "Dynamic Programming",
+      "slug": "dynamic-programming"
+    }
+  ]
+}
