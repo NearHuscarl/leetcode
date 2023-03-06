@@ -7,6 +7,11 @@ export type TVisualizerConstants = {
     NodeSize: number;
     LinkDistance: number;
   };
+  LineChart: {
+    Width: number;
+    Height: number;
+    Padding: number;
+  };
 };
 
 /**
@@ -334,6 +339,31 @@ interface TVStackProps<T extends TDebugValue> extends TVBase {
 export function VStack<T extends TDebugValue>(
   props: TVStackProps<T>
 ): JSX.Element;
+
+export type TLineStyle = {
+  color?: string;
+  width?: number;
+};
+export interface TVLineChartProps extends TVBase {
+  value?: number[];
+  labels: [x: string, y: string];
+  getLineStyle?: (
+    lineData: [number, number],
+    index: number,
+    styles: TLineStyle
+  ) => TLineStyle;
+  xPointers?: TArrayPointer[];
+  xRange?: [start: number, end: number, color: string];
+}
+export function VLineChart(props: TVLineChartProps): JSX.Element;
+
+export interface TVFieldProps extends TVBase {
+  label: string;
+  value?: TDebugValue;
+  color?: string;
+}
+
+export function VField(props: TVFieldProps): JSX.Element;
 
 export function useTestCase(): Record<string, string>;
 
