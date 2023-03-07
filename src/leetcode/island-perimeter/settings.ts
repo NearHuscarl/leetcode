@@ -5,7 +5,12 @@ export const settings: TProblemSettings = {
   neetcode: 'https://www.youtube.com/watch?v=fISIuAFRM2s',
   testCases: [
     {
-      grid: '[[0,1,0,0],[1,1,1,0],[0,1,0,0],[1,1,0,0]]',
+      grid: [
+        [0, 1, 0, 0],
+        [1, 1, 1, 0],
+        [0, 1, 0, 0],
+        [1, 1, 0, 0],
+      ],
     },
   ],
   metaData: {
