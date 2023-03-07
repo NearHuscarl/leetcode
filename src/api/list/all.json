@@ -129,6 +129,31 @@
     "neetcode": "https://www.youtube.com/watch?v=OnSn2XEQ4MY"
   },
   {
+    "acRate": 69.7,
+    "difficulty": "Easy",
+    "title": "Island Perimeter",
+    "titleSlug": "island-perimeter",
+    "topicTags": [
+      {
+        "name": "Array",
+        "slug": "array"
+      },
+      {
+        "name": "Depth-First Search",
+        "slug": "depth-first-search"
+      },
+      {
+        "name": "Breadth-First Search",
+        "slug": "breadth-first-search"
+      },
+      {
+        "name": "Matrix",
+        "slug": "matrix"
+      }
+    ],
+    "neetcode": "https://www.youtube.com/watch?v=fISIuAFRM2s"
+  },
+  {
     "acRate": 33.8,
     "difficulty": "Medium",
     "title": "Longest Substring Without Repeating Characters",
@@ -304,7 +329,7 @@
     "neetcode": "https://www.youtube.com/watch?v=9UtInBqnCgA"
   },
   {
-    "acRate": 44.2,
+    "acRate": 44.3,
     "difficulty": "Easy",
     "title": "Valid Palindrome",
     "titleSlug": "valid-palindrome",
