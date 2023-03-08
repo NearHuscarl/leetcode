@@ -4,28 +4,29 @@
  */
 var islandPerimeter = function (grid) {
   const visit = new Set();
+  let perim = 0;
 
-  const dfs = (i, j) => {
+  const dfs = (row, col) => {
     if (
-      i >= grid.length ||
-      j >= grid[0].length ||
-      i < 0 ||
-      j < 0 ||
-      grid[i][j] === 0
+      row >= grid.length ||
+      col >= grid[0].length ||
+      row < 0 ||
+      col < 0 ||
+      grid[row][col] === 0
     ) {
-      return 1;
+      perim++;
+      return;
     }
-    const key = `${i},${j}`;
+    const key = `${row},${col}`;
     if (visit.has(key)) {
-      return 0;
+      return;
     }
     visit.add(key);
 
-    let perim = dfs(i, j + 1);
-    perim += dfs(i + 1, j);
-    perim += dfs(i, j - 1);
-    perim += dfs(i - 1, j);
-    return perim;
+    dfs(row, col + 1);
+    dfs(row + 1, col);
+    dfs(row, col - 1);
+    dfs(row - 1, col);
   };
 
   for (let i = 0; i < grid.length; i++) {

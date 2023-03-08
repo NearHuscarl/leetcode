@@ -365,6 +365,19 @@ export interface TVFieldProps extends TVBase {
 
 export function VField(props: TVFieldProps): JSX.Element;
 
+export interface TVMatrixProps extends TVBase {
+  value?: TDebugValue[][];
+  highlight?: [value: TDebugValue, color: string];
+  getElementStyle?: (
+    value: TDebugValue,
+    row: number,
+    col: number,
+    styles: TBoxStyle
+  ) => TBoxStyle;
+}
+
+export function VMatrix(props: TVMatrixProps): JSX.Element;
+
 export function useTestCase(): Record<string, string>;
 
 export function useVisualizerData(): {
@@ -380,6 +393,7 @@ export function useVisualizerData(): {
   };
   callStack: {
     name: string;
+    params: any[];
   }[];
   expression?: string | undefined;
   params?: any[];
