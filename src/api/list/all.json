@@ -80,6 +80,27 @@
     "neetcode": "https://www.youtube.com/watch?v=g_S5WuasWUE"
   },
   {
+    "acRate": 42.5,
+    "difficulty": "Easy",
+    "title": "Contains Duplicate II",
+    "titleSlug": "contains-duplicate-ii",
+    "topicTags": [
+      {
+        "name": "Array",
+        "slug": "array"
+      },
+      {
+        "name": "Hash Table",
+        "slug": "hash-table"
+      },
+      {
+        "name": "Sliding Window",
+        "slug": "sliding-window"
+      }
+    ],
+    "neetcode": "https://www.youtube.com/watch?v=ypn0aZ0nrL4"
+  },
+  {
     "acRate": 69.7,
     "difficulty": "Easy",
     "title": "Fibonacci Number",

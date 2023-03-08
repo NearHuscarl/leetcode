@@ -32,7 +32,8 @@ var islandPerimeter = function (grid) {
   for (let i = 0; i < grid.length; i++) {
     for (let j = 0; j < grid[0].length; j++) {
       if (grid[i][j]) {
-        return dfs(i, j);
+        dfs(i, j);
+        return perim;
       }
     }
   }
