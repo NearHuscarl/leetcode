@@ -54,8 +54,6 @@
   "difficulty": "Easy",
   "title": "Merge Two Sorted Lists",
   "titleSlug": "merge-two-sorted-lists",
-  "likes": 17372,
-  "dislikes": 1600,
   "topicTags": [
     {
       "name": "Linked List",

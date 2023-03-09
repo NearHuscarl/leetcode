@@ -65,10 +65,8 @@ const updateProblem = async (
   const settings2 = await getSettings(problemId);
   if (!settings2) return;
 
-  const settings = {
-    ...settings2,
-    ...problemLookup[problemId],
-  };
+  const { likes, dislikes, ...problem } = problemLookup[problemId] ?? {};
+  const settings = { ...settings2, ...problem };
 
   for (const solutionId in settings.solutions) {
     const [programCode, visualizerCode] = await getCode(problemId, solutionId);

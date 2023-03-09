@@ -1,0 +1,61 @@
+{
+  "id": "permutation-in-string",
+  "neetcode": "https://www.youtube.com/watch?v=UbyhOgBN834",
+  "testCases": [
+    {
+      "s1": "ab",
+      "s2": "eidbaooo"
+    },
+    {
+      "s1": "ab",
+      "s2": "eidboaoo"
+    }
+  ],
+  "metaData": {
+    "name": "checkInclusion",
+    "params": [
+      {
+        "name": "s1",
+        "type": "string"
+      },
+      {
+        "name": "s2",
+        "type": "string"
+      }
+    ],
+    "return": {
+      "type": "boolean"
+    }
+  },
+  "solutions": {
+    "slidingWindow": {
+      "id": "slidingWindow",
+      "name": "Sliding Window",
+      "programCode": "/**\r\n * @param {string} s1\r\n * @param {string} s2\r\n * @return {boolean}\r\n */\r\nvar checkInclusion = function (s1, s2) {\r\n  if (s2.length < s1.length) {\r\n    return false;\r\n  }\r\n\r\n  const s1Freq = {};\r\n  const s2Freq = {};\r\n  for (let i = 0; i < s1.length; i++) {\r\n    s1Freq[s1[i]] = (s1Freq[s1[i]] ?? 0) + 1;\r\n    s2Freq[s2[i]] = (s2Freq[s2[i]] ?? 0) + 1;\r\n  }\r\n\r\n  let left = 0;\r\n  let right = s1.length - 1;\r\n\r\n  while (right < s2.length) {\r\n    if (_sameFreq(s1Freq, s2Freq)) {\r\n      return true;\r\n    }\r\n\r\n    s2Freq[s2[left]] = s2Freq[s2[left]] - 1;\r\n    left++;\r\n    right++;\r\n    s2Freq[s2[right]] = (s2Freq[s2[right]] ?? 0) + 1;\r\n  }\r\n\r\n  return false;\r\n};\r\n\r\nconst _sameFreq = (freq1, freq2) => {\r\n  for (const prop in freq1) {\r\n    if (freq1[prop] > 0 && freq1[prop] !== freq2[prop]) {\r\n      return false;\r\n    }\r\n  }\r\n  return true;\r\n};\r\n",
+      "visualizerCode": "import React from 'react';\r\nimport { useVisualizerData, VLinkedList, VArray } from 'visualizer';\r\nimport { red, amber, lightGreen } from 'colors';\r\n\r\nexport const Visualizer = () => {\r\n  const { data, type, expression, listNodes } = useVisualizerData();\r\n  const {} = data;\r\n\r\n  return null;\r\n};\r\n",
+      "timeComplexity": "n"
+    }
+  },
+  "acRate": 44.4,
+  "difficulty": "Medium",
+  "title": "Permutation in String",
+  "titleSlug": "permutation-in-string",
+  "topicTags": [
+    {
+      "name": "Hash Table",
+      "slug": "hash-table"
+    },
+    {
+      "name": "Two Pointers",
+      "slug": "two-pointers"
+    },
+    {
+      "name": "String",
+      "slug": "string"
+    },
+    {
+      "name": "Sliding Window",
+      "slug": "sliding-window"
+    }
+  ]
+}

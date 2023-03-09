@@ -54,8 +54,6 @@
   "difficulty": "Easy",
   "title": "Reverse String",
   "titleSlug": "reverse-string",
-  "likes": 6998,
-  "dislikes": 1059,
   "topicTags": [
     {
       "name": "Two Pointers",

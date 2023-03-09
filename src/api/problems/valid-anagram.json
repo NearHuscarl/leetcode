@@ -47,8 +47,6 @@
   "difficulty": "Easy",
   "title": "Valid Anagram",
   "titleSlug": "valid-anagram",
-  "likes": 8439,
-  "dislikes": 276,
   "topicTags": [
     {
       "name": "Hash Table",

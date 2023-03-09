@@ -55,8 +55,6 @@
   "difficulty": "Easy",
   "title": "Baseball Game",
   "titleSlug": "baseball-game",
-  "likes": 2162,
-  "dislikes": 1771,
   "topicTags": [
     {
       "name": "Array",

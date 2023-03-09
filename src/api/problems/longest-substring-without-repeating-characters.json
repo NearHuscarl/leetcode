@@ -37,8 +37,6 @@
   "difficulty": "Medium",
   "title": "Longest Substring Without Repeating Characters",
   "titleSlug": "longest-substring-without-repeating-characters",
-  "likes": 32566,
-  "dislikes": 1420,
   "topicTags": [
     {
       "name": "Hash Table",
