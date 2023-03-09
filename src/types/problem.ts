@@ -1,4 +1,4 @@
-import { TLcQuestion } from "src/scripts/queryLcProblems";
+import { TLcQuestion } from 'src/scripts/queryProblems';
 
 export type TProblemSettings = {
   id: string;

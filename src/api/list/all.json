@@ -4,6 +4,8 @@
     "difficulty": "Easy",
     "title": "Baseball Game",
     "titleSlug": "baseball-game",
+    "likes": 2162,
+    "dislikes": 1771,
     "topicTags": [
       {
         "name": "Array",
@@ -25,6 +27,8 @@
     "difficulty": "Easy",
     "title": "Best Time to Buy and Sell Stock",
     "titleSlug": "best-time-to-buy-and-sell-stock",
+    "likes": 24066,
+    "dislikes": 753,
     "topicTags": [
       {
         "name": "Array",
@@ -42,6 +46,8 @@
     "difficulty": "Easy",
     "title": "Binary Search",
     "titleSlug": "binary-search",
+    "likes": 8281,
+    "dislikes": 178,
     "topicTags": [
       {
         "name": "Array",
@@ -59,6 +65,8 @@
     "difficulty": "Easy",
     "title": "Binary Tree Inorder Traversal",
     "titleSlug": "binary-tree-inorder-traversal",
+    "likes": 10993,
+    "dislikes": 537,
     "topicTags": [
       {
         "name": "Stack",
@@ -84,6 +92,8 @@
     "difficulty": "Easy",
     "title": "Contains Duplicate II",
     "titleSlug": "contains-duplicate-ii",
+    "likes": 4597,
+    "dislikes": 2534,
     "topicTags": [
       {
         "name": "Array",
@@ -105,6 +115,8 @@
     "difficulty": "Easy",
     "title": "Fibonacci Number",
     "titleSlug": "fibonacci-number",
+    "likes": 6317,
+    "dislikes": 309,
     "topicTags": [
       {
         "name": "Math",
@@ -129,6 +141,8 @@
     "difficulty": "Easy",
     "title": "Invert Binary Tree",
     "titleSlug": "invert-binary-tree",
+    "likes": 11791,
+    "dislikes": 165,
     "topicTags": [
       {
         "name": "Tree",
@@ -154,6 +168,8 @@
     "difficulty": "Easy",
     "title": "Island Perimeter",
     "titleSlug": "island-perimeter",
+    "likes": 5450,
+    "dislikes": 268,
     "topicTags": [
       {
         "name": "Array",
@@ -179,6 +195,8 @@
     "difficulty": "Medium",
     "title": "Longest Substring Without Repeating Characters",
     "titleSlug": "longest-substring-without-repeating-characters",
+    "likes": 32566,
+    "dislikes": 1420,
     "topicTags": [
       {
         "name": "Hash Table",
@@ -200,6 +218,8 @@
     "difficulty": "Easy",
     "title": "Merge Two Sorted Lists",
     "titleSlug": "merge-two-sorted-lists",
+    "likes": 17372,
+    "dislikes": 1600,
     "topicTags": [
       {
         "name": "Linked List",
@@ -217,6 +237,8 @@
     "difficulty": "Easy",
     "title": "Palindrome Linked List",
     "titleSlug": "palindrome-linked-list",
+    "likes": 13338,
+    "dislikes": 739,
     "topicTags": [
       {
         "name": "Linked List",
@@ -242,6 +264,8 @@
     "difficulty": "Easy",
     "title": "Reverse Linked List",
     "titleSlug": "reverse-linked-list",
+    "likes": 16940,
+    "dislikes": 296,
     "topicTags": [
       {
         "name": "Linked List",
@@ -255,10 +279,12 @@
     "neetcode": "https://www.youtube.com/watch?v=G0_I-ZF0S38"
   },
   {
-    "acRate": 76.6,
+    "acRate": 76.7,
     "difficulty": "Easy",
     "title": "Reverse String",
     "titleSlug": "reverse-string",
+    "likes": 6998,
+    "dislikes": 1059,
     "topicTags": [
       {
         "name": "Two Pointers",
@@ -276,6 +302,8 @@
     "difficulty": "Medium",
     "title": "Sort an Array",
     "titleSlug": "sort-an-array",
+    "likes": 4554,
+    "dislikes": 671,
     "topicTags": [
       {
         "name": "Array",
@@ -316,6 +344,8 @@
     "difficulty": "Easy",
     "title": "Two Sum",
     "titleSlug": "two-sum",
+    "likes": 44043,
+    "dislikes": 1443,
     "topicTags": [
       {
         "name": "Array",
@@ -333,6 +363,8 @@
     "difficulty": "Easy",
     "title": "Valid Anagram",
     "titleSlug": "valid-anagram",
+    "likes": 8439,
+    "dislikes": 276,
     "topicTags": [
       {
         "name": "Hash Table",
@@ -354,6 +386,8 @@
     "difficulty": "Easy",
     "title": "Valid Palindrome",
     "titleSlug": "valid-palindrome",
+    "likes": 6218,
+    "dislikes": 6748,
     "topicTags": [
       {
         "name": "Two Pointers",
@@ -371,6 +405,8 @@
     "difficulty": "Easy",
     "title": "Valid Parentheses",
     "titleSlug": "valid-parentheses",
+    "likes": 18390,
+    "dislikes": 1046,
     "topicTags": [
       {
         "name": "String",

@@ -1,4 +1,4 @@
-import { queryLeetcode } from "./leetcode";
+import { queryLeetcode } from './leetcode';
 
 type TQueryLcProblemsProps = {
   limit: number;
@@ -6,9 +6,11 @@ type TQueryLcProblemsProps = {
 
 export type TLcQuestion = {
   acRate: number;
-  difficulty: "Easy" | "Medium" | "Hard";
+  difficulty: 'Easy' | 'Medium' | 'Hard';
   title: string;
   titleSlug: string;
+  likes: number;
+  dislikes: number;
   topicTags: {
     name: string;
     slug: string;
@@ -20,7 +22,7 @@ type Response = Promise<{
   total: number;
 }>;
 
-export const queryLcProblems = async ({
+export const queryProblems = async ({
   limit,
 }: TQueryLcProblemsProps): Response => {
   const result = await queryLeetcode({
@@ -38,6 +40,8 @@ query problemsetQuestionList($categorySlug: String, $limit: Int, $skip: Int, $fi
       difficulty
       title
       titleSlug
+      likes
+      dislikes
       topicTags {
         name
         slug
@@ -47,7 +51,7 @@ query problemsetQuestionList($categorySlug: String, $limit: Int, $skip: Int, $fi
 }
 `,
     variables: {
-      categorySlug: "",
+      categorySlug: '',
       skip: 0,
       limit,
       filters: {},

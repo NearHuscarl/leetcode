@@ -1,18 +1,18 @@
-import { promises as fs } from "fs";
-import { TProblem, TProblemEntry } from "src/types/problem";
-import { queryLcProblems, TLcQuestion } from "./queryLcProblems";
+import { promises as fs } from 'fs';
+import { TProblem, TProblemEntry } from 'src/types/problem';
+import { queryProblems, TLcQuestion } from './queryProblems';
 
-const leetcodePath = "./src/leetcode";
+const leetcodePath = './src/leetcode';
 
 const getLcProblems = async () => {
-  console.log("fetching LC problems...");
-  const { questions, total } = await queryLcProblems({ limit: 3000 });
+  console.log('fetching LC problems...');
+  const { questions, total } = await queryProblems({ limit: 3000 });
   console.log(`LC problems: ${total}`);
 
   await fs.writeFile(
     `./src/api/leetcode/problems.json`,
     JSON.stringify(questions, null, 2),
-    "utf-8"
+    'utf-8'
   );
 
   const problemLookup: Record<string, TLcQuestion> = {};
@@ -27,8 +27,8 @@ const getLcProblems = async () => {
 
 const getCode = (problemId: string, solutionId: string) => {
   return Promise.all([
-    fs.readFile(`${leetcodePath}/${problemId}/${solutionId}.js`, "utf-8"),
-    fs.readFile(`${leetcodePath}/${problemId}/${solutionId}.tsx`, "utf-8"),
+    fs.readFile(`${leetcodePath}/${problemId}/${solutionId}.js`, 'utf-8'),
+    fs.readFile(`${leetcodePath}/${problemId}/${solutionId}.tsx`, 'utf-8'),
   ]);
 };
 
@@ -46,7 +46,7 @@ const writeProblem = (problem: TProblem) => {
   return fs.writeFile(
     `./src/api/problems/${problem.id}.json`,
     JSON.stringify(problem, null, 2),
-    "utf-8"
+    'utf-8'
   );
 };
 
@@ -54,7 +54,7 @@ const writeList = (problems: TProblemEntry[]) => {
   return fs.writeFile(
     `./src/api/list/all.json`,
     JSON.stringify(problems, null, 2),
-    "utf-8"
+    'utf-8'
   );
 };
 
@@ -77,7 +77,7 @@ const updateProblem = async (
     settings.solutions[solutionId].visualizerCode = visualizerCode;
   }
 
-  console.log("update problem", settings.id);
+  console.log('update problem', settings.id);
   await writeProblem(settings);
   return settings;
 };
