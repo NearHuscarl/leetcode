@@ -4,8 +4,8 @@
     "difficulty": "Easy",
     "title": "Baseball Game",
     "titleSlug": "baseball-game",
-    "likes": 2162,
-    "dislikes": 1771,
+    "likes": 2163,
+    "dislikes": 1772,
     "topicTags": [
       {
         "name": "Array",
@@ -27,7 +27,7 @@
     "difficulty": "Easy",
     "title": "Best Time to Buy and Sell Stock",
     "titleSlug": "best-time-to-buy-and-sell-stock",
-    "likes": 24067,
+    "likes": 24071,
     "dislikes": 753,
     "topicTags": [
       {
@@ -46,7 +46,7 @@
     "difficulty": "Easy",
     "title": "Binary Search",
     "titleSlug": "binary-search",
-    "likes": 8281,
+    "likes": 8284,
     "dislikes": 178,
     "topicTags": [
       {
@@ -92,8 +92,8 @@
     "difficulty": "Easy",
     "title": "Contains Duplicate II",
     "titleSlug": "contains-duplicate-ii",
-    "likes": 4597,
-    "dislikes": 2534,
+    "likes": 4599,
+    "dislikes": 2535,
     "topicTags": [
       {
         "name": "Array",
@@ -106,6 +106,29 @@
       {
         "name": "Sliding Window",
         "slug": "sliding-window"
+      }
+    ],
+    "neetcode": "https://www.youtube.com/watch?v=ypn0aZ0nrL4"
+  },
+  {
+    "acRate": 45.6,
+    "difficulty": "Medium",
+    "title": "Evaluate Reverse Polish Notation",
+    "titleSlug": "evaluate-reverse-polish-notation",
+    "likes": 5537,
+    "dislikes": 853,
+    "topicTags": [
+      {
+        "name": "Array",
+        "slug": "array"
+      },
+      {
+        "name": "Math",
+        "slug": "math"
+      },
+      {
+        "name": "Stack",
+        "slug": "stack"
       }
     ],
     "neetcode": "https://www.youtube.com/watch?v=ypn0aZ0nrL4"
@@ -141,7 +164,7 @@
     "difficulty": "Easy",
     "title": "Invert Binary Tree",
     "titleSlug": "invert-binary-tree",
-    "likes": 11792,
+    "likes": 11795,
     "dislikes": 165,
     "topicTags": [
       {
@@ -168,7 +191,7 @@
     "difficulty": "Easy",
     "title": "Island Perimeter",
     "titleSlug": "island-perimeter",
-    "likes": 5451,
+    "likes": 5452,
     "dislikes": 268,
     "topicTags": [
       {
@@ -195,8 +218,8 @@
     "difficulty": "Medium",
     "title": "Longest Substring Without Repeating Characters",
     "titleSlug": "longest-substring-without-repeating-characters",
-    "likes": 32566,
-    "dislikes": 1421,
+    "likes": 32567,
+    "dislikes": 1422,
     "topicTags": [
       {
         "name": "Hash Table",
@@ -218,8 +241,8 @@
     "difficulty": "Easy",
     "title": "Merge Two Sorted Lists",
     "titleSlug": "merge-two-sorted-lists",
-    "likes": 17374,
-    "dislikes": 1600,
+    "likes": 17378,
+    "dislikes": 1602,
     "topicTags": [
       {
         "name": "Linked List",
@@ -237,7 +260,7 @@
     "difficulty": "Easy",
     "title": "Palindrome Linked List",
     "titleSlug": "palindrome-linked-list",
-    "likes": 13340,
+    "likes": 13345,
     "dislikes": 739,
     "topicTags": [
       {
@@ -264,7 +287,7 @@
     "difficulty": "Medium",
     "title": "Permutation in String",
     "titleSlug": "permutation-in-string",
-    "likes": 9454,
+    "likes": 9455,
     "dislikes": 299,
     "topicTags": [
       {
@@ -291,7 +314,7 @@
     "difficulty": "Easy",
     "title": "Reverse Linked List",
     "titleSlug": "reverse-linked-list",
-    "likes": 16941,
+    "likes": 16945,
     "dislikes": 296,
     "topicTags": [
       {
@@ -310,7 +333,7 @@
     "difficulty": "Easy",
     "title": "Reverse String",
     "titleSlug": "reverse-string",
-    "likes": 6998,
+    "likes": 7000,
     "dislikes": 1059,
     "topicTags": [
       {
@@ -329,7 +352,7 @@
     "difficulty": "Medium",
     "title": "Sort an Array",
     "titleSlug": "sort-an-array",
-    "likes": 4554,
+    "likes": 4558,
     "dislikes": 671,
     "topicTags": [
       {
@@ -371,7 +394,7 @@
     "difficulty": "Easy",
     "title": "Two Sum",
     "titleSlug": "two-sum",
-    "likes": 44046,
+    "likes": 44058,
     "dislikes": 1443,
     "topicTags": [
       {
@@ -390,7 +413,7 @@
     "difficulty": "Easy",
     "title": "Valid Anagram",
     "titleSlug": "valid-anagram",
-    "likes": 8440,
+    "likes": 8444,
     "dislikes": 276,
     "topicTags": [
       {
@@ -413,7 +436,7 @@
     "difficulty": "Easy",
     "title": "Valid Palindrome",
     "titleSlug": "valid-palindrome",
-    "likes": 6219,
+    "likes": 6221,
     "dislikes": 6749,
     "topicTags": [
       {
@@ -432,7 +455,7 @@
     "difficulty": "Easy",
     "title": "Valid Parentheses",
     "titleSlug": "valid-parentheses",
-    "likes": 18390,
+    "likes": 18393,
     "dislikes": 1046,
     "topicTags": [
       {
