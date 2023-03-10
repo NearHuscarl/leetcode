@@ -40,6 +40,18 @@ export type TStepType =
 export type TDebugValue = string | number;
 export type TDebugValue2 = TDebugValue | TDebugValue[];
 
+export interface TVIconProps extends TVBase {
+  color?: string;
+}
+export type TVIcon = (props: TVIconProps) => JSX.Element;
+
+export const VIcon: {
+  ArrowLeft: TVIcon;
+  ArrowLeftDouble: TVIcon;
+  ArrowRight: TVIcon;
+  ArrowRightDouble: TVIcon;
+};
+
 export interface TVCodeProps extends TVBase {
   width?: number | string;
   height?: number | string;
@@ -69,6 +81,11 @@ export interface TVArrayProps<
   label?: TSvgArrayProps<V>['label'];
   highlightRange?: TSvgArrayProps<V>['highlightRange'];
   getElementStyle?: TSvgArrayProps<V>['getElementStyle'];
+  getElementLabel?: (
+    value: V,
+    index: number,
+    position: [x: number, y: number]
+  ) => JSX.Element;
   pointers?: TArrayPointer[];
 }
 
@@ -335,6 +352,11 @@ interface TVStackProps<T extends TDebugValue> extends TVBase {
   value: T[];
   length: number;
   getElementStyle?: TSvgArrayProps<T>['getElementStyle'];
+  getElementLabel?: (
+    value: T,
+    index: number,
+    position: [x: number, y: number]
+  ) => JSX.Element;
 }
 export function VStack<T extends TDebugValue>(
   props: TVStackProps<T>

@@ -4,14 +4,6 @@
   "testCases": [
     {
       "asteroids": [
-        -1,
-        3,
-        2,
-        -3
-      ]
-    },
-    {
-      "asteroids": [
         10,
         3,
         7,
@@ -22,6 +14,14 @@
         3,
         -7,
         -15
+      ]
+    },
+    {
+      "asteroids": [
+        -1,
+        3,
+        2,
+        -3
       ]
     }
   ],
@@ -42,7 +42,7 @@
       "id": "stack",
       "name": "Stack",
       "programCode": "/**\r\n * @param {number[]} asteroids\r\n * @return {number[]}\r\n */\r\nvar asteroidCollision = function (asteroids) {\r\n  const asteroidsLeft = [];\r\n\r\n  for (let i = 0; i < asteroids.length; i++) {\r\n    let a = asteroids[i];\r\n\r\n    while (asteroidsLeft.length > 0 && a < 0 && asteroidsLeft.at(-1) > 0) {\r\n      if (Math.abs(a) > Math.abs(asteroidsLeft.at(-1))) {\r\n        asteroidsLeft.pop();\r\n      } else if (Math.abs(a) < Math.abs(asteroidsLeft.at(-1))) {\r\n        a = 0;\r\n      } else {\r\n        a = 0;\r\n        asteroidsLeft.pop();\r\n      }\r\n    }\r\n\r\n    if (a) {\r\n      asteroidsLeft.push(a);\r\n    }\r\n  }\r\n\r\n  return asteroidsLeft;\r\n};\r\n",
-      "visualizerCode": "import React from 'react';\r\nimport { useVisualizerData, VArray, VStack } from 'visualizer';\r\nimport { red, green, amber, lightGreen, blue } from 'colors';\r\n\r\nexport const Visualizer = () => {\r\n  const { data, expression, type } = useVisualizerData();\r\n  const {} = data;\r\n\r\n  return null;\r\n};\r\n",
+      "visualizerCode": "import React from 'react';\r\nimport {\r\n  useVisualizerData,\r\n  useTestCase,\r\n  VArray,\r\n  VStack,\r\n  VC,\r\n  VIcon,\r\n  TVStackProps,\r\n} from 'visualizer';\r\nimport { red, green, amber, lightGreen, blue } from 'colors';\r\n\r\nexport const Visualizer = () => {\r\n  const { data, expression, type } = useVisualizerData();\r\n  const { asteroids: asteroidsP } = useTestCase();\r\n  const { asteroids = [], i, asteroidsLeft } = data;\r\n\r\n  const test = type === 'testExpressionSuccess';\r\n  const sorted = asteroidsP\r\n    .slice()\r\n    .map(Math.abs)\r\n    .sort((a, b) => a - b);\r\n  const average = Math.round((sorted.at(0) + sorted.at(-1)) / 2);\r\n  const getElementLabel: TVStackProps<number>['getElementLabel'] = (\r\n    e,\r\n    i,\r\n    [x, y]\r\n  ) => {\r\n    if (Math.abs(e) > average) {\r\n      return e > 0 ? (\r\n        <VIcon.ArrowRightDouble color={lightGreen[500]} x={x} y={y} />\r\n      ) : (\r\n        <VIcon.ArrowLeftDouble color={red[500]} x={x} y={y} />\r\n      );\r\n    }\r\n    return e > 0 ? (\r\n      <VIcon.ArrowRight color={lightGreen[500]} x={x} y={y} />\r\n    ) : (\r\n      <VIcon.ArrowLeft color={red[500]} x={x} y={y} />\r\n    );\r\n  };\r\n\r\n  return (\r\n    <>\r\n      <VArray\r\n        y={40}\r\n        value={asteroids}\r\n        pointers={[{ name: 'i', value: i, color: red[500] }]}\r\n        getElementLabel={getElementLabel}\r\n        getElementStyle={(e, i2, style) => {\r\n          if (expression === 'a' && i === i2 && test) {\r\n            style.background = lightGreen[500];\r\n            style.color = '#ffffff';\r\n          }\r\n          if (\r\n            expression === 'Math.abs(a) > Math.abs(asteroidsLeft.at(-1))' &&\r\n            i === i2 &&\r\n            test\r\n          ) {\r\n            style.background = amber[500];\r\n            style.color = '#ffffff';\r\n          }\r\n          if (\r\n            expression === 'Math.abs(a) < Math.abs(asteroidsLeft.at(-1))' &&\r\n            i === i2\r\n          ) {\r\n            style.background = red[500];\r\n            style.color = '#ffffff';\r\n          }\r\n          return style;\r\n        }}\r\n      />\r\n      <VStack\r\n        y={VC.Array.ItemSize + 40 + 60}\r\n        value={asteroidsLeft}\r\n        length={asteroids.length}\r\n        getElementLabel={getElementLabel}\r\n        getElementStyle={(e, i2, style) => {\r\n          if (\r\n            expression === 'Math.abs(a) > Math.abs(asteroidsLeft.at(-1))' &&\r\n            asteroidsLeft.length - 1 === i2 &&\r\n            test\r\n          ) {\r\n            style.background = red[500];\r\n            style.color = '#ffffff';\r\n          }\r\n          if (\r\n            expression === 'Math.abs(a) < Math.abs(asteroidsLeft.at(-1))' &&\r\n            asteroidsLeft.length - 1 === i2\r\n          ) {\r\n            style.background = test ? lightGreen[500] : red[500];\r\n            style.color = '#ffffff';\r\n          }\r\n          return style;\r\n        }}\r\n      />\r\n    </>\r\n  );\r\n};\r\n",
       "timeComplexity": "n"
     }
   },
