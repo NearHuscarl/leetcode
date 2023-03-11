@@ -1,0 +1,63 @@
+{
+  "id": "repeated-dna-sequences",
+  "neetcode": "https://www.youtube.com/watch?v=FzTYfsmtOso",
+  "testCases": [
+    {
+      "s": "AAAAACCCCCAAAAACCCCCCAAAAAGGGTTT"
+    },
+    {
+      "s": "AAAAAAAAAAAAA"
+    }
+  ],
+  "metaData": {
+    "name": "findRepeatedDnaSequences",
+    "params": [
+      {
+        "name": "s",
+        "type": "string"
+      }
+    ],
+    "return": {
+      "type": "string[]"
+    }
+  },
+  "solutions": {
+    "set": {
+      "id": "set",
+      "name": "Set",
+      "programCode": "/**\r\n * @param {string} s\r\n * @return {string[]}\r\n */\r\nvar findRepeatedDnaSequences = function (s) {\r\n  const cachedSeqs = new Set();\r\n  const duplicatedSeqs = new Set();\r\n\r\n  for (let i = 0; i < s.length - 9; i++) {\r\n    const subStr = s.substring(i, i + 10);\r\n\r\n    if (cachedSeqs.has(subStr)) {\r\n      duplicatedSeqs.add(subStr);\r\n    }\r\n\r\n    cachedSeqs.add(subStr);\r\n  }\r\n\r\n  return [...duplicatedSeqs];\r\n};\r\n",
+      "visualizerCode": "import React from 'react';\r\nimport { useVisualizerData, VLookupTable, VArray, VC } from 'visualizer';\r\nimport { red, green, amber, teal, lightGreen } from 'colors';\r\n\r\nexport const Visualizer = () => {\r\n  const { data, expression, type } = useVisualizerData();\r\n  const {} = data;\r\n\r\n  return null;\r\n};\r\n",
+      "timeComplexity": "10n"
+    }
+  },
+  "acRate": 46.9,
+  "difficulty": "Medium",
+  "title": "Repeated DNA Sequences",
+  "titleSlug": "repeated-dna-sequences",
+  "topicTags": [
+    {
+      "name": "Hash Table",
+      "slug": "hash-table"
+    },
+    {
+      "name": "String",
+      "slug": "string"
+    },
+    {
+      "name": "Bit Manipulation",
+      "slug": "bit-manipulation"
+    },
+    {
+      "name": "Sliding Window",
+      "slug": "sliding-window"
+    },
+    {
+      "name": "Rolling Hash",
+      "slug": "rolling-hash"
+    },
+    {
+      "name": "Hash Function",
+      "slug": "hash-function"
+    }
+  ]
+}

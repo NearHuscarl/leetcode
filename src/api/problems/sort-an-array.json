@@ -55,7 +55,7 @@
       "timeComplexity": "n * log(n)"
     }
   },
-  "acRate": 59.8,
+  "acRate": 59.7,
   "difficulty": "Medium",
   "title": "Sort an Array",
   "titleSlug": "sort-an-array",

@@ -14,7 +14,7 @@ export const Visualizer = () => {
         value={tokens}
         pointers={[{ name: 'i', value: i, color: red[500] }]}
         getElementStyle={(e, i, style) => {
-          if (operators.has(e + '')) {
+          if (operators.has(e)) {
             style.background = amber[100];
           }
 

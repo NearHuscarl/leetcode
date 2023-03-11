@@ -4,7 +4,7 @@
     "difficulty": "Medium",
     "title": "Asteroid Collision",
     "titleSlug": "asteroid-collision",
-    "likes": 4728,
+    "likes": 4731,
     "dislikes": 425,
     "topicTags": [
       {
@@ -46,7 +46,7 @@
     "difficulty": "Easy",
     "title": "Best Time to Buy and Sell Stock",
     "titleSlug": "best-time-to-buy-and-sell-stock",
-    "likes": 24083,
+    "likes": 24087,
     "dislikes": 753,
     "topicTags": [
       {
@@ -65,7 +65,7 @@
     "difficulty": "Easy",
     "title": "Binary Search",
     "titleSlug": "binary-search",
-    "likes": 8292,
+    "likes": 8302,
     "dislikes": 178,
     "topicTags": [
       {
@@ -84,7 +84,7 @@
     "difficulty": "Easy",
     "title": "Binary Tree Inorder Traversal",
     "titleSlug": "binary-tree-inorder-traversal",
-    "likes": 11000,
+    "likes": 11004,
     "dislikes": 537,
     "topicTags": [
       {
@@ -111,7 +111,7 @@
     "difficulty": "Easy",
     "title": "Contains Duplicate II",
     "titleSlug": "contains-duplicate-ii",
-    "likes": 4603,
+    "likes": 4609,
     "dislikes": 2535,
     "topicTags": [
       {
@@ -134,8 +134,8 @@
     "difficulty": "Medium",
     "title": "Evaluate Reverse Polish Notation",
     "titleSlug": "evaluate-reverse-polish-notation",
-    "likes": 5540,
-    "dislikes": 853,
+    "likes": 5541,
+    "dislikes": 854,
     "topicTags": [
       {
         "name": "Array",
@@ -157,7 +157,7 @@
     "difficulty": "Easy",
     "title": "Fibonacci Number",
     "titleSlug": "fibonacci-number",
-    "likes": 6322,
+    "likes": 6325,
     "dislikes": 309,
     "topicTags": [
       {
@@ -183,7 +183,7 @@
     "difficulty": "Easy",
     "title": "Invert Binary Tree",
     "titleSlug": "invert-binary-tree",
-    "likes": 11801,
+    "likes": 11803,
     "dislikes": 165,
     "topicTags": [
       {
@@ -210,8 +210,8 @@
     "difficulty": "Easy",
     "title": "Island Perimeter",
     "titleSlug": "island-perimeter",
-    "likes": 5455,
-    "dislikes": 268,
+    "likes": 5458,
+    "dislikes": 267,
     "topicTags": [
       {
         "name": "Array",
@@ -237,7 +237,7 @@
     "difficulty": "Medium",
     "title": "Longest Substring Without Repeating Characters",
     "titleSlug": "longest-substring-without-repeating-characters",
-    "likes": 32582,
+    "likes": 32599,
     "dislikes": 1423,
     "topicTags": [
       {
@@ -260,8 +260,8 @@
     "difficulty": "Easy",
     "title": "Merge Two Sorted Lists",
     "titleSlug": "merge-two-sorted-lists",
-    "likes": 17397,
-    "dislikes": 1605,
+    "likes": 17403,
+    "dislikes": 1606,
     "topicTags": [
       {
         "name": "Linked List",
@@ -279,7 +279,7 @@
     "difficulty": "Easy",
     "title": "Palindrome Linked List",
     "titleSlug": "palindrome-linked-list",
-    "likes": 13356,
+    "likes": 13366,
     "dislikes": 740,
     "topicTags": [
       {
@@ -306,7 +306,7 @@
     "difficulty": "Medium",
     "title": "Permutation in String",
     "titleSlug": "permutation-in-string",
-    "likes": 9460,
+    "likes": 9465,
     "dislikes": 299,
     "topicTags": [
       {
@@ -329,12 +329,47 @@
     "neetcode": "https://www.youtube.com/watch?v=UbyhOgBN834"
   },
   {
+    "acRate": 46.9,
+    "difficulty": "Medium",
+    "title": "Repeated DNA Sequences",
+    "titleSlug": "repeated-dna-sequences",
+    "likes": 2755,
+    "dislikes": 470,
+    "topicTags": [
+      {
+        "name": "Hash Table",
+        "slug": "hash-table"
+      },
+      {
+        "name": "String",
+        "slug": "string"
+      },
+      {
+        "name": "Bit Manipulation",
+        "slug": "bit-manipulation"
+      },
+      {
+        "name": "Sliding Window",
+        "slug": "sliding-window"
+      },
+      {
+        "name": "Rolling Hash",
+        "slug": "rolling-hash"
+      },
+      {
+        "name": "Hash Function",
+        "slug": "hash-function"
+      }
+    ],
+    "neetcode": "https://www.youtube.com/watch?v=FzTYfsmtOso"
+  },
+  {
     "acRate": 73.4,
     "difficulty": "Easy",
     "title": "Reverse Linked List",
     "titleSlug": "reverse-linked-list",
-    "likes": 16964,
-    "dislikes": 296,
+    "likes": 16980,
+    "dislikes": 297,
     "topicTags": [
       {
         "name": "Linked List",
@@ -352,7 +387,7 @@
     "difficulty": "Easy",
     "title": "Reverse String",
     "titleSlug": "reverse-string",
-    "likes": 7005,
+    "likes": 7007,
     "dislikes": 1059,
     "topicTags": [
       {
@@ -367,12 +402,12 @@
     "neetcode": "https://www.youtube.com/watch?v=_d0T_2Lk2qA"
   },
   {
-    "acRate": 59.8,
+    "acRate": 59.7,
     "difficulty": "Medium",
     "title": "Sort an Array",
     "titleSlug": "sort-an-array",
-    "likes": 4565,
-    "dislikes": 671,
+    "likes": 4568,
+    "dislikes": 673,
     "topicTags": [
       {
         "name": "Array",
@@ -413,8 +448,8 @@
     "difficulty": "Easy",
     "title": "Two Sum",
     "titleSlug": "two-sum",
-    "likes": 44097,
-    "dislikes": 1444,
+    "likes": 44123,
+    "dislikes": 1445,
     "topicTags": [
       {
         "name": "Array",
@@ -432,8 +467,8 @@
     "difficulty": "Easy",
     "title": "Valid Anagram",
     "titleSlug": "valid-anagram",
-    "likes": 8451,
-    "dislikes": 276,
+    "likes": 8455,
+    "dislikes": 277,
     "topicTags": [
       {
         "name": "Hash Table",
@@ -455,8 +490,8 @@
     "difficulty": "Easy",
     "title": "Valid Palindrome",
     "titleSlug": "valid-palindrome",
-    "likes": 6230,
-    "dislikes": 6752,
+    "likes": 6240,
+    "dislikes": 6751,
     "topicTags": [
       {
         "name": "Two Pointers",
@@ -474,8 +509,8 @@
     "difficulty": "Easy",
     "title": "Valid Parentheses",
     "titleSlug": "valid-parentheses",
-    "likes": 18412,
-    "dislikes": 1047,
+    "likes": 18421,
+    "dislikes": 1048,
     "topicTags": [
       {
         "name": "String",
