@@ -79,6 +79,7 @@ export interface TVArrayProps<
 > extends TVBase {
   value?: A;
   label?: TSvgArrayProps<V>['label'];
+  color?: string;
   highlightRange?: TSvgArrayProps<V>['highlightRange'];
   getElementStyle?: TSvgArrayProps<V>['getElementStyle'];
   getElementLabel?: (
@@ -303,9 +304,11 @@ export function SvgArray<T extends TDebugValue>(
   props: TSvgArrayProps<T>
 ): JSX.Element;
 
-type HighlightedKey = string;
 type HighlightedColor = string;
-export type TLookupTableHighlight = Record<HighlightedKey, HighlightedColor>;
+export type TLookupTableHighlight<Key extends TDebugValue> = Record<
+  Key,
+  HighlightedColor
+>;
 
 export type TBoxStyle = {
   color?: string;
@@ -321,7 +324,7 @@ export type TEntryStyle = {
 
 interface TVLookupTableProps<K extends string, V> extends TVBase {
   value: Record<K, V>;
-  highlights?: TLookupTableHighlight;
+  highlights?: TLookupTableHighlight<K>;
   hideRatio?: boolean;
   keyWidth?: number;
   valueWidth?: number;
@@ -343,7 +346,8 @@ export type TSetElementStyle = {
 interface TVSetProps<K extends TDebugValue> extends TVBase {
   value?: K[];
   label?: string;
-  highlights?: [key: string, color: string][];
+  width?: number;
+  highlights?: TLookupTableHighlight<K>;
   getElementStyle?: (value: K, style: TSetElementStyle) => TSetElementStyle;
 }
 export function VSet<K extends TDebugValue>(props: TVSetProps<K>): JSX.Element;

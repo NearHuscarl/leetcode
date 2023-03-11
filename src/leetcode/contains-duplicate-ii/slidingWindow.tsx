@@ -32,7 +32,7 @@ export const Visualizer = () => {
         getElementStyle={(e, style) => {
           if (checkKeyExpr) {
             if (test) {
-              if (e === +nums[right]) {
+              if (e == nums[right]) {
                 style.background = lightGreen[500];
                 style.color = '#ffffff';
               }
