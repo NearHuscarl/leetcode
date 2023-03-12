@@ -12,7 +12,7 @@ export const Visualizer = () => {
     <>
       <VField
         x={180}
-        y={50}
+        y={40}
         label="maxProfit"
         value={maxProfit}
         color={lightGreen[500]}

@@ -21,11 +21,12 @@ export const Visualizer = () => {
   return (
     <>
       <VField
-        x={28}
-        y={70}
+        x={24}
+        y={50}
         label="Perimeter"
         value={perim}
         color={yellow[700]}
+        flashingColor={purple[500]}
       />
       <VMatrix
         y={80}

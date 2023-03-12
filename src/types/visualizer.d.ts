@@ -387,6 +387,8 @@ export interface TVFieldProps extends TVBase {
   label: string;
   value?: TDebugValue;
   color?: string;
+  width?: number;
+  flashingColor?: string;
 }
 
 export function VField(props: TVFieldProps): JSX.Element;
