@@ -183,6 +183,8 @@ export interface TTreeNodeD3<T extends TDebugValue2 = number, Type = TNodeType>
   children: TNodeId[];
   parent?: TNodeId | null;
   tooltip?: string;
+  bgColor?: string;
+  fontWeight?: number;
   color?: string;
   borderColor?: string;
   arrow?:
@@ -251,6 +253,7 @@ export interface THierarchyNode<Datum> {
 export interface VRecursiveTreeProps<T extends TDebugValue = number>
   extends TVBase {
   trackedFn: string;
+  getNodeValue?: (step: TStep) => string;
   pointers?: VTreeProps<T>['pointers'];
   onVisitNode?: (
     node: TTreeNodeD32<any, 'node'>,
@@ -406,7 +409,7 @@ export interface TVMatrixProps extends TVBase {
 
 export function VMatrix(props: TVMatrixProps): JSX.Element;
 
-export function useTestCase(): Record<string, string>;
+export function useTestCase(): Record<string, any>;
 
 export function useVisualizerData(): {
   index: number;
@@ -432,6 +435,34 @@ export function useVisualizerData(): {
   listNodes: Record<number, TListNodeD3<any>>;
   treeNodes: Record<number, TTreeNodeD3<any>>;
   treeNodeCount: number;
+};
+
+export type TStep = {
+  index: number;
+  type: TStepType;
+  loc: [
+    lineStart: number,
+    columnStart: number,
+    lineEnd: number,
+    columnEnd: number
+  ];
+  callStack: { name: string; params: any[] }[];
+  attributes: {
+    // callExpression
+    fnName?: string;
+    params?: string[];
+  };
+  expression?: string;
+  fn: {
+    key: string;
+    name: string;
+  };
+  watch: {
+    watch: object;
+    local: TIdentifier;
+  };
+  listNodes: Record<number, TListNodeD3<TDebugValue>>;
+  treeNodes: Record<number, TTreeNodeD3<TDebugValue>>;
 };
 
 export function Visualize(props: TVArrayProps): number;

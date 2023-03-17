@@ -11,7 +11,7 @@ export const settings: TProblemSettings = {
       n: 4,
     },
     {
-      n: 5,
+      n: 2,
     },
   ],
   metaData: {

@@ -18,24 +18,24 @@ export const Visualizer = () => {
             if (expression === 'inorder(node.left)') {
               const left = nodeLookup[n.children[0]];
               if (left) {
-                left.color = green[400];
+                left.bgColor = green[400];
               } else {
-                n.color = red[500];
+                n.bgColor = red[500];
               }
             }
             if (expression === 'inorder(node.right)') {
               const right = nodeLookup[n.children[1]];
               if (right) {
-                right.color = green[400];
+                right.bgColor = green[400];
               } else {
-                n.color = red[500];
+                n.bgColor = red[500];
               }
             }
           }
 
           callStack.forEach(({ params }, i) => {
             if (params[0].id === n.id) {
-              n.color = interpolateColor(i);
+              n.bgColor = interpolateColor(i);
             }
           });
           return n;

@@ -36,7 +36,7 @@ export const Visualizer = () => {
           if (!colorLookupRef.current[n.id]) {
             colorLookupRef.current[n.id] = color;
           }
-          n.color = colorLookupRef.current[n.id];
+          n.bgColor = colorLookupRef.current[n.id];
         });
       }}
       pointers={[

@@ -9,7 +9,7 @@
       "n": 4
     },
     {
-      "n": 5
+      "n": 2
     }
   ],
   "metaData": {
@@ -29,7 +29,7 @@
       "id": "backtracking",
       "name": "Backtracking",
       "programCode": "/**\r\n * @param {number} n\r\n * @return {string[]}\r\n */\r\nvar generateParenthesis = function (n) {\r\n  const stack = [];\r\n  const res = [];\r\n\r\n  const backtrack = (openN, closedN) => {\r\n    if (openN === closedN && closedN === n) {\r\n      res.push(stack.join(''));\r\n      return;\r\n    }\r\n\r\n    if (openN < n) {\r\n      stack.push('(');\r\n      backtrack(openN + 1, closedN);\r\n      stack.pop();\r\n    }\r\n    if (closedN < openN) {\r\n      stack.push(')');\r\n      backtrack(openN, closedN + 1);\r\n      stack.pop();\r\n    }\r\n  };\r\n\r\n  backtrack(0, 0);\r\n  return res;\r\n};\r\n",
-      "visualizerCode": "import React from 'react';\r\nimport { useVisualizerData, VArray, VLookupTable, VC } from 'visualizer';\r\nimport { red, yellow, amber, purple, lightGreen } from 'colors';\r\n\r\nexport const Visualizer = () => {\r\n  const { data, expression, type, callStack } = useVisualizerData();\r\n  const {} = data;\r\n\r\n  return null;\r\n};\r\n",
+      "visualizerCode": "import React from 'react';\r\nimport {\r\n  useVisualizerData,\r\n  useTestCase,\r\n  VStack,\r\n  VRecursiveTree,\r\n  VSet,\r\n  VC,\r\n} from 'visualizer';\r\nimport { red, yellow, amber, purple, lightGreen } from 'colors';\r\n\r\nexport const Visualizer = () => {\r\n  const { data, expression, type, callStack } = useVisualizerData();\r\n  const { n } = useTestCase();\r\n  const { stack, res } = data;\r\n\r\n  return (\r\n    <>\r\n      <VStack value={stack} length={2 * n} />\r\n      <VRecursiveTree\r\n        trackedFn=\"backtrack\"\r\n        getNodeValue={(step) => step.watch.local.stack.join('')}\r\n        onVisitNode={(node) => {\r\n          node.color = node.bgColor;\r\n          node.fontWeight = 600;\r\n          node.borderColor = '#ffffff';\r\n          node.bgColor = '#ffffff';\r\n\r\n          return node;\r\n        }}\r\n      />\r\n      <VSet\r\n        y={VC.Array.ItemSize + 50}\r\n        label=\"res\"\r\n        value={res}\r\n        width={n * 15 + 10}\r\n      />\r\n    </>\r\n  );\r\n};\r\n",
       "timeComplexity": "n"
     }
   },
