@@ -3,6 +3,10 @@ export type TVisualizerConstants = {
     ItemSize: number;
     BorderW: number;
   };
+  String: {
+    ItemHeight: number;
+    ItemWidth: number;
+  };
   LinkedList: {
     NodeSize: number;
     LinkDistance: number;
@@ -59,6 +63,18 @@ export interface TVCodeProps extends TVBase {
 }
 
 export function VCode(props: TVCodeProps): JSX.Element;
+
+export interface TVStringProps extends TVBase {
+  value?: TDebugValue;
+  label?: string;
+  color?: string;
+  pointers?: TArrayPointer[];
+  highlightRange?: TSvgArrayProps<TDebugValue>['highlightRange'];
+  colorTransformer?: Record<string | '', string>;
+  getElementStyle?: TSvgArrayProps<string>['getElementStyle'];
+}
+
+export function VString(props: TVStringProps): JSX.Element;
 
 export type TArrayPointer = {
   key?: string;
@@ -350,6 +366,7 @@ interface TVSetProps<K extends TDebugValue> extends TVBase {
   value?: K[];
   label?: string;
   width?: number;
+  renderItem?: (value: K, position: [number, number]) => React.ReactNode;
   highlights?: TLookupTableHighlight<K>;
   getElementStyle?: (value: K, style: TSetElementStyle) => TSetElementStyle;
 }
