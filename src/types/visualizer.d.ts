@@ -7,6 +7,9 @@ export type TVisualizerConstants = {
     ItemHeight: number;
     ItemWidth: number;
   };
+  Set: {
+    Color: string;
+  };
   LinkedList: {
     NodeSize: number;
     LinkDistance: number;
@@ -29,6 +32,7 @@ export type TVectorLike = {
 };
 
 export interface TVBase {
+  rootRef?: (r: SVGGElement | null) => void;
   x?: number;
   y?: number;
 }
@@ -68,6 +72,7 @@ export interface TVStringProps extends TVBase {
   value?: TDebugValue;
   label?: string;
   color?: string;
+  center?: boolean;
   pointers?: TArrayPointer[];
   highlightRange?: TSvgArrayProps<TDebugValue>['highlightRange'];
   colorTransformer?: Record<string | '', string>;
@@ -250,7 +255,12 @@ export interface VTreeProps<T extends TDebugValue = number> extends TVBase {
     nodeLookup: Record<TNodeId, TTreeNodeD3<T>>
   ) => TTreeNodeD3<T>;
   onDataComputed?: (data: TTreeData<T>) => void;
-  pointers: {
+  separationFactor?: number;
+  renderNode?: (
+    node: TTreeNodeD3<T>,
+    nodeLookup: Record<TNodeId, TTreeNodeD3<T>>
+  ) => React.ReactElement;
+  pointers?: {
     name: string;
     value: TTreeNodeD3<T>;
     color?: string;
@@ -271,6 +281,8 @@ export interface VRecursiveTreeProps<T extends TDebugValue = number>
   trackedFn: string;
   getNodeValue?: (step: TStep) => string;
   pointers?: VTreeProps<T>['pointers'];
+  separationFactor?: number;
+  renderNode?: VTreeProps<T>['renderNode'];
   onVisitNode?: (
     node: TTreeNodeD32<any, 'node'>,
     data: {

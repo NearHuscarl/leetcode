@@ -4,8 +4,8 @@
     "difficulty": "Medium",
     "title": "Asteroid Collision",
     "titleSlug": "asteroid-collision",
-    "likes": 4755,
-    "dislikes": 427,
+    "likes": 4760,
+    "dislikes": 429,
     "topicTags": [
       {
         "name": "Array",
@@ -23,8 +23,8 @@
     "difficulty": "Easy",
     "title": "Baseball Game",
     "titleSlug": "baseball-game",
-    "likes": 2175,
-    "dislikes": 1777,
+    "likes": 2178,
+    "dislikes": 1778,
     "topicTags": [
       {
         "name": "Array",
@@ -46,8 +46,8 @@
     "difficulty": "Easy",
     "title": "Best Time to Buy and Sell Stock",
     "titleSlug": "best-time-to-buy-and-sell-stock",
-    "likes": 24183,
-    "dislikes": 757,
+    "likes": 24222,
+    "dislikes": 756,
     "topicTags": [
       {
         "name": "Array",
@@ -65,8 +65,8 @@
     "difficulty": "Easy",
     "title": "Binary Search",
     "titleSlug": "binary-search",
-    "likes": 8367,
-    "dislikes": 179,
+    "likes": 8387,
+    "dislikes": 180,
     "topicTags": [
       {
         "name": "Array",
@@ -84,7 +84,7 @@
     "difficulty": "Easy",
     "title": "Binary Tree Inorder Traversal",
     "titleSlug": "binary-tree-inorder-traversal",
-    "likes": 11045,
+    "likes": 11066,
     "dislikes": 537,
     "topicTags": [
       {
@@ -111,8 +111,8 @@
     "difficulty": "Easy",
     "title": "Contains Duplicate II",
     "titleSlug": "contains-duplicate-ii",
-    "likes": 4639,
-    "dislikes": 2541,
+    "likes": 4642,
+    "dislikes": 2545,
     "topicTags": [
       {
         "name": "Array",
@@ -134,8 +134,8 @@
     "difficulty": "Medium",
     "title": "Evaluate Reverse Polish Notation",
     "titleSlug": "evaluate-reverse-polish-notation",
-    "likes": 5568,
-    "dislikes": 857,
+    "likes": 5576,
+    "dislikes": 856,
     "topicTags": [
       {
         "name": "Array",
@@ -157,7 +157,7 @@
     "difficulty": "Easy",
     "title": "Fibonacci Number",
     "titleSlug": "fibonacci-number",
-    "likes": 6362,
+    "likes": 6372,
     "dislikes": 310,
     "topicTags": [
       {
@@ -183,7 +183,7 @@
     "difficulty": "Medium",
     "title": "Generate Parentheses",
     "titleSlug": "generate-parentheses",
-    "likes": 17252,
+    "likes": 17279,
     "dislikes": 698,
     "topicTags": [
       {
@@ -206,7 +206,7 @@
     "difficulty": "Medium",
     "title": "Group Anagrams",
     "titleSlug": "group-anagrams",
-    "likes": 14577,
+    "likes": 14600,
     "dislikes": 425,
     "topicTags": [
       {
@@ -233,7 +233,7 @@
     "difficulty": "Easy",
     "title": "Invert Binary Tree",
     "titleSlug": "invert-binary-tree",
-    "likes": 11836,
+    "likes": 11852,
     "dislikes": 166,
     "topicTags": [
       {
@@ -260,7 +260,7 @@
     "difficulty": "Easy",
     "title": "Island Perimeter",
     "titleSlug": "island-perimeter",
-    "likes": 5483,
+    "likes": 5487,
     "dislikes": 268,
     "topicTags": [
       {
@@ -287,8 +287,8 @@
     "difficulty": "Medium",
     "title": "Longest Substring Without Repeating Characters",
     "titleSlug": "longest-substring-without-repeating-characters",
-    "likes": 32715,
-    "dislikes": 1427,
+    "likes": 32755,
+    "dislikes": 1431,
     "topicTags": [
       {
         "name": "Hash Table",
@@ -310,8 +310,8 @@
     "difficulty": "Easy",
     "title": "Merge Two Sorted Lists",
     "titleSlug": "merge-two-sorted-lists",
-    "likes": 17527,
-    "dislikes": 1614,
+    "likes": 17561,
+    "dislikes": 1617,
     "topicTags": [
       {
         "name": "Linked List",
@@ -325,11 +325,11 @@
     "neetcode": "https://www.youtube.com/watch?v=XIdigk956u0"
   },
   {
-    "acRate": 50.1,
+    "acRate": 50.2,
     "difficulty": "Easy",
     "title": "Palindrome Linked List",
     "titleSlug": "palindrome-linked-list",
-    "likes": 13421,
+    "likes": 13445,
     "dislikes": 741,
     "topicTags": [
       {
@@ -356,8 +356,8 @@
     "difficulty": "Medium",
     "title": "Permutation in String",
     "titleSlug": "permutation-in-string",
-    "likes": 9501,
-    "dislikes": 301,
+    "likes": 9513,
+    "dislikes": 302,
     "topicTags": [
       {
         "name": "Hash Table",
@@ -383,7 +383,7 @@
     "difficulty": "Medium",
     "title": "Repeated DNA Sequences",
     "titleSlug": "repeated-dna-sequences",
-    "likes": 2773,
+    "likes": 2777,
     "dislikes": 471,
     "topicTags": [
       {
@@ -414,12 +414,12 @@
     "neetcode": "https://www.youtube.com/watch?v=FzTYfsmtOso"
   },
   {
-    "acRate": 73.4,
+    "acRate": 73.5,
     "difficulty": "Easy",
     "title": "Reverse Linked List",
     "titleSlug": "reverse-linked-list",
-    "likes": 17053,
-    "dislikes": 300,
+    "likes": 17095,
+    "dislikes": 302,
     "topicTags": [
       {
         "name": "Linked List",
@@ -437,8 +437,8 @@
     "difficulty": "Easy",
     "title": "Reverse String",
     "titleSlug": "reverse-string",
-    "likes": 7039,
-    "dislikes": 1060,
+    "likes": 7049,
+    "dislikes": 1061,
     "topicTags": [
       {
         "name": "Two Pointers",
@@ -456,7 +456,7 @@
     "difficulty": "Medium",
     "title": "Sort an Array",
     "titleSlug": "sort-an-array",
-    "likes": 4617,
+    "likes": 4633,
     "dislikes": 676,
     "topicTags": [
       {
@@ -498,8 +498,8 @@
     "difficulty": "Easy",
     "title": "Two Sum",
     "titleSlug": "two-sum",
-    "likes": 44344,
-    "dislikes": 1446,
+    "likes": 44401,
+    "dislikes": 1447,
     "topicTags": [
       {
         "name": "Array",
@@ -517,8 +517,8 @@
     "difficulty": "Easy",
     "title": "Valid Anagram",
     "titleSlug": "valid-anagram",
-    "likes": 8509,
-    "dislikes": 277,
+    "likes": 8524,
+    "dislikes": 278,
     "topicTags": [
       {
         "name": "Hash Table",
@@ -540,8 +540,8 @@
     "difficulty": "Easy",
     "title": "Valid Palindrome",
     "titleSlug": "valid-palindrome",
-    "likes": 6284,
-    "dislikes": 6774,
+    "likes": 6294,
+    "dislikes": 6783,
     "topicTags": [
       {
         "name": "Two Pointers",
@@ -559,8 +559,8 @@
     "difficulty": "Easy",
     "title": "Valid Parentheses",
     "titleSlug": "valid-parentheses",
-    "likes": 18511,
-    "dislikes": 1058,
+    "likes": 18545,
+    "dislikes": 1065,
     "topicTags": [
       {
         "name": "String",

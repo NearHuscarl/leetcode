@@ -4,15 +4,20 @@ import {
   useTestCase,
   VStack,
   VRecursiveTree,
+  VString,
   VSet,
   VC,
 } from 'visualizer';
-import { red, yellow, amber, purple, lightGreen } from 'colors';
+import { red, yellow, blue, amber, purple, lightGreen } from 'colors';
 
 export const Visualizer = () => {
   const { data, expression, type, callStack } = useVisualizerData();
   const { n } = useTestCase();
   const { stack, res } = data;
+  const colorTransformer = {
+    '(': blue[500],
+    ')': yellow[600],
+  };
 
   return (
     <>
@@ -20,20 +25,35 @@ export const Visualizer = () => {
       <VRecursiveTree
         trackedFn="backtrack"
         getNodeValue={(step) => step.watch.local.stack.join('')}
-        onVisitNode={(node) => {
-          node.color = node.bgColor;
-          node.fontWeight = 600;
-          node.borderColor = '#ffffff';
-          node.bgColor = '#ffffff';
-
-          return node;
+        separationFactor={1.5}
+        renderNode={(n) => {
+          return (
+            <VString
+              value={n.val}
+              center
+              colorTransformer={colorTransformer}
+              getElementStyle={(value, i, style) => {
+                style.fontWeight = 600;
+                style.background = '#ffffff';
+                return style;
+              }}
+            />
+          );
         }}
       />
       <VSet
         y={VC.Array.ItemSize + 50}
+        renderItem={(value, [x, y]) => (
+          <VString
+            x={x}
+            y={y}
+            color={VC.Set.Color}
+            value={value}
+            colorTransformer={colorTransformer}
+          />
+        )}
         label="res"
         value={res}
-        width={n * 15 + 10}
       />
     </>
   );
