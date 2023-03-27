@@ -1,0 +1,64 @@
+{
+  "id": "largest-number",
+  "neetcode": "https://www.youtube.com/watch?v=WDx6Y4i4xJ8",
+  "testCases": [
+    {
+      "nums": [
+        3,
+        30,
+        34,
+        5,
+        9
+      ]
+    },
+    {
+      "nums": [
+        10,
+        2
+      ]
+    }
+  ],
+  "metaData": {
+    "name": "largestNumber",
+    "params": [
+      {
+        "name": "nums",
+        "type": "number[]"
+      }
+    ],
+    "return": {
+      "type": "string"
+    }
+  },
+  "solutions": {
+    "sort": {
+      "id": "sort",
+      "name": "Sort",
+      "programCode": "/**\r\n * @param {number[]} nums\r\n * @return {string}\r\n */\r\nvar largestNumber = function (nums) {\r\n  const strNums = nums.map(String);\r\n\r\n  strNums.sort((a, b) => {\r\n    const numStrA = a + b;\r\n    const numStrB = b + a;\r\n    if (numStrA > numStrB) {\r\n      return -1;\r\n    }\r\n    return 1;\r\n  });\r\n\r\n  const largeNum = strNums.reduce((a, c) => a + c, '');\r\n\r\n  return largeNum.split('').every((d) => d === '0') ? '0' : largeNum;\r\n};\r\n",
+      "visualizerCode": "import React from 'react';\r\nimport { useVisualizerData, VArray, VSet } from 'visualizer';\r\nimport { red, yellow, blue, lightGreen } from 'colors';\r\n\r\nexport const Visualizer = () => {\r\n  const { data, expression, type } = useVisualizerData();\r\n  const {} = data;\r\n\r\n  return <></>;\r\n};\r\n",
+      "timeComplexity": "n * log(n)"
+    }
+  },
+  "acRate": 34.5,
+  "difficulty": "Medium",
+  "title": "Largest Number",
+  "titleSlug": "largest-number",
+  "topicTags": [
+    {
+      "name": "Array",
+      "slug": "array"
+    },
+    {
+      "name": "String",
+      "slug": "string"
+    },
+    {
+      "name": "Greedy",
+      "slug": "greedy"
+    },
+    {
+      "name": "Sorting",
+      "slug": "sorting"
+    }
+  ]
+}
