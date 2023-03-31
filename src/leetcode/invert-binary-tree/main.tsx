@@ -1,5 +1,5 @@
 import React from 'react';
-import { useVisualizerData, VTree } from 'visualizer';
+import { useVisualizerData, useTestCase, VTree } from 'visualizer';
 import { red, green, amber, lightGreen, teal, transform } from 'colors';
 
 const interpolate = transform(
@@ -8,14 +8,15 @@ const interpolate = transform(
 );
 
 export const Visualizer = () => {
-  const { data, expression, type, treeNodes } = useVisualizerData();
+  const { data, expression, type } = useVisualizerData();
   const { root, node } = data;
+  const testCase = useTestCase();
   let minX = Number.MAX_SAFE_INTEGER;
   let maxX = Number.MIN_SAFE_INTEGER;
   const colorLookupRef = React.useRef({});
   const nodesRef = React.useRef(0);
 
-  const nodeCount = Object.keys(treeNodes).length;
+  const nodeCount = testCase.root.length;
   if (nodeCount !== nodesRef.current) {
     nodesRef.current = nodeCount;
     colorLookupRef.current = {};
@@ -23,7 +24,7 @@ export const Visualizer = () => {
 
   return (
     <VTree
-      nodes={treeNodes}
+      value={root}
       getNode={(n) => {
         if (n.tx < minX) minX = n.tx;
         if (n.tx > maxX) maxX = n.tx;
@@ -36,7 +37,7 @@ export const Visualizer = () => {
           if (!colorLookupRef.current[n.id]) {
             colorLookupRef.current[n.id] = color;
           }
-          n.bgColor = colorLookupRef.current[n.id];
+          n.style.bgColor = colorLookupRef.current[n.id];
         });
       }}
       pointers={[

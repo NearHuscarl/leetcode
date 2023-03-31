@@ -100,6 +100,7 @@ export interface TVArrayProps<
 > extends TVBase {
   value?: A;
   label?: TSvgArrayProps<V>['label'];
+  center?: boolean;
   color?: string;
   highlightRange?: TSvgArrayProps<V>['highlightRange'];
   getElementStyle?: TSvgArrayProps<V>['getElementStyle'];
@@ -194,20 +195,26 @@ export interface TVLinkedListProps<T extends TDebugValue = number>
 
 export function VLinkedList(props: TVLinkedListProps): JSX.Element;
 
-export interface TTreeNodeD3<T extends TDebugValue2 = number, Type = TNodeType>
-  extends SimulationNodeDatum {
-  id: TNodeId;
+export interface TTreeNode<T> {
+  id: number;
   val: T;
+  children: TTreeNode<T>[];
+}
+
+export interface TTreeNodeD3<T extends TDebugValue2 = number, Type = TNodeType>
+  extends SimulationNodeDatum,
+    Omit<TTreeNode<T>, 'id' | 'children'> {
+  id: TNodeId;
+  children: TTreeNodeD3<T, 'node'>[];
+  data: any;
   // for array node
   label?: string;
-  childIndex?: number;
-  children: TNodeId[];
-  parent?: TNodeId | null;
-  tooltip?: string;
-  bgColor?: string;
-  fontWeight?: number;
-  color?: string;
-  borderColor?: string;
+  style: {
+    bgColor?: string;
+    color?: string;
+    fontWeight?: number;
+    borderColor?: string;
+  };
   arrow?:
     | {
         color?: string;
@@ -215,6 +222,8 @@ export interface TTreeNodeD3<T extends TDebugValue2 = number, Type = TNodeType>
         width?: number;
       }
     | false;
+  parent?: TTreeNodeD3 | null;
+  tooltip?: string;
   type: Type;
   references: Set<TNodeId>;
   tx: Type extends 'node' ? number : undefined;
@@ -223,13 +232,7 @@ export interface TTreeNodeD3<T extends TDebugValue2 = number, Type = TNodeType>
   highlightBorder: Type extends 'pointer' ? boolean : undefined;
 }
 
-export interface TTreeNodeD32<T extends TDebugValue2, Type = TNodeType>
-  extends Partial<TTreeNodeD3<T, Type>> {
-  children: TTreeNodeD32<T, Type>[];
-  parent?: TTreeNodeD32<T, Type>;
-}
-
-export interface TTreeLinkD3<T extends TDebugValue = number>
+export interface TTreeLinkD3<T extends TDebugValue2 = number>
   extends SimulationNodeDatum {
   source: TTreeNodeD3<T>;
   target: TTreeNodeD3<T, 'node'>;
@@ -239,7 +242,7 @@ export interface TTreeLinkD3<T extends TDebugValue = number>
   display?: boolean;
 }
 
-export type TTreeData<T extends TDebugValue = number> = {
+export type TTreeData<T extends TDebugValue2 = number> = {
   nodes: TTreeNodeD3<T, TNodeType>[];
   links: TTreeLinkD3<T>[];
   nodeLookup: Record<TNodeId, TTreeNodeD3<T>>;
@@ -247,19 +250,12 @@ export type TTreeData<T extends TDebugValue = number> = {
   treePointers: TTreeNodeD3<T, 'pointer'>[];
 };
 
-export interface VTreeProps<T extends TDebugValue = number> extends TVBase {
-  nodes?: Record<TNodeId, TTreeNodeD3<T>>;
-  hierarchyNode?: THierarchyNode<TTreeNodeD3<T>>;
-  getNode?: (
-    node: TTreeNodeD3<T>,
-    nodeLookup: Record<TNodeId, TTreeNodeD3<T>>
-  ) => TTreeNodeD3<T>;
+export interface VTreeProps<T extends TDebugValue2 = number> extends TVBase {
+  value?: TTreeNode<T>;
+  getNode?: (node: TTreeNodeD3<T>) => TTreeNodeD3<T>;
   onDataComputed?: (data: TTreeData<T>) => void;
   separationFactor?: number;
-  renderNode?: (
-    node: TTreeNodeD3<T>,
-    nodeLookup: Record<TNodeId, TTreeNodeD3<T>>
-  ) => React.ReactElement;
+  renderNode?: (node: TTreeNodeD3<T>) => React.ReactElement;
   pointers?: {
     name: string;
     value: TTreeNodeD3<T>;
@@ -276,25 +272,42 @@ export interface THierarchyNode<Datum> {
   data: Datum;
 }
 
-export interface VRecursiveTreeProps<T extends TDebugValue = number>
+export interface TRecursiveData {
+  id: string | number;
+  val: string;
+  data: Record<any, any>;
+  completed?: boolean;
+  onStack?: boolean;
+  tip?: boolean;
+}
+
+export interface TRecursiveTreeNode<T = string> extends TTreeNode<T> {
+  recursiveData: TRecursiveData;
+  children: TRecursiveTreeNode<T>[];
+  p?: TRecursiveTreeNode<T> | null;
+}
+
+export interface TRecursiveTreeNodeD3<
+  T extends TDebugValue2 = number,
+  Type = TNodeType
+> extends TTreeNodeD3<T, Type> {
+  recursiveData: TRecursiveData;
+  children: TRecursiveTreeNodeD3<T, 'node'>[];
+}
+
+export interface VRecursiveTreeProps<T extends TDebugValue2 = number>
   extends TVBase {
   trackedFn: string;
+  getNode?: (node: TRecursiveTreeNodeD3<T>) => TRecursiveTreeNodeD3<T>;
   getNodeValue?: (step: TStep) => string;
   pointers?: VTreeProps<T>['pointers'];
   separationFactor?: number;
-  renderNode?: VTreeProps<T>['renderNode'];
-  onVisitNode?: (
-    node: TTreeNodeD32<any, 'node'>,
-    data: {
-      data: TIdentifier;
-      onStack?: boolean;
-      completed?: boolean;
-      tip?: boolean;
-    }
-  ) => void;
+  renderNode?: (node: TRecursiveTreeNodeD3<T>) => React.ReactElement;
 }
 
-export function VRecursiveTree(props: VRecursiveTreeProps): JSX.Element;
+export function VRecursiveTree<T extends TDebugValue2 = number>(
+  props: VRecursiveTreeProps<T>
+): JSX.Element;
 
 export type TSvgTextProps = {
   children: TDebugValue;
@@ -442,7 +455,7 @@ export function useTestCase(): Record<string, any>;
 
 export function useVisualizerData(): {
   index: number;
-  data: any;
+  data: TIdentifier;
   type: TStepType;
   loc: {
     lineStart: number;
@@ -493,5 +506,3 @@ export type TStep = {
   listNodes: Record<number, TListNodeD3<TDebugValue>>;
   treeNodes: Record<number, TTreeNodeD3<TDebugValue>>;
 };
-
-export function Visualize(props: TVArrayProps): number;

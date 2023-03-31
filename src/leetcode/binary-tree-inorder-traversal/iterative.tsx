@@ -1,10 +1,17 @@
 import React from 'react';
-import { useVisualizerData, VArray, VStack, VTree, VC } from 'visualizer';
+import {
+  useVisualizerData,
+  useTestCase,
+  VArray,
+  VStack,
+  VTree,
+  VC,
+} from 'visualizer';
 import { red, green, amber, lightGreen, teal } from 'colors';
 
 export const Visualizer = () => {
-  const { data, expression, type, treeNodes, treeNodeCount } =
-    useVisualizerData();
+  const { data, expression, type } = useVisualizerData();
+  const testCase = useTestCase();
   const { root, results = [], stack = [], node } = data;
   const padding = 30;
 
@@ -14,11 +21,11 @@ export const Visualizer = () => {
       <VStack
         y={VC.Array.ItemSize + padding}
         value={stack.map((n) => n.val)}
-        length={treeNodeCount}
+        length={testCase.root.filter((e) => e !== null).length}
       />
       <VTree
         y={VC.Array.ItemSize * 2 + padding * 3}
-        nodes={treeNodes}
+        value={root}
         pointers={[
           {
             name: 'root',

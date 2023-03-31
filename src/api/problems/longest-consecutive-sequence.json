@@ -43,7 +43,7 @@
     "set": {
       "id": "set",
       "name": "Set",
-      "programCode": "/**\r\n * @param {number[]} nums\r\n * @return {number}\r\n */\r\nvar longestConsecutive = function (nums) {\r\n  const set = new Set(nums);\r\n  let max = 0;\r\n\r\n  for (const item of nums) {\r\n    const isStartOfSeq = !set.has(item - 1);\r\n\r\n    if (isStartOfSeq) {\r\n      let seqLength = 1;\r\n      let seqItem = item;\r\n\r\n      while (set.has(seqItem + 1)) {\r\n        seqLength++;\r\n        seqItem++;\r\n      }\r\n      max = Math.max(seqLength, max);\r\n    }\r\n  }\r\n\r\n  return max;\r\n};\r\n",
+      "programCode": "/**\r\n * @param {number[]} nums\r\n * @return {number}\r\n */\r\nvar longestConsecutive = function (nums) {\r\n  const set = new Set(nums);\r\n  let max = 0;\r\n\r\n  for (let i = 0; i < nums.length; i++) {\r\n    const n = nums[i];\r\n    const isStartOfSeq = !set.has(n - 1);\r\n\r\n    if (isStartOfSeq) {\r\n      let seqLength = 1;\r\n      let seqItem = n;\r\n\r\n      while (set.has(seqItem + 1)) {\r\n        seqLength++;\r\n        seqItem++;\r\n      }\r\n      max = Math.max(seqLength, max);\r\n    }\r\n  }\r\n\r\n  return max;\r\n};\r\n",
       "visualizerCode": "import React from 'react';\r\nimport { useVisualizerData, VArray, VSet } from 'visualizer';\r\nimport { red, yellow, blue, lightGreen } from 'colors';\r\n\r\nexport const Visualizer = () => {\r\n  const { data, expression, type } = useVisualizerData();\r\n  const {} = data;\r\n\r\n  return <></>;\r\n};\r\n",
       "timeComplexity": "n"
     }

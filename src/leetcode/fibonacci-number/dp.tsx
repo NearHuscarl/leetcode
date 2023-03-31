@@ -1,6 +1,6 @@
-import React from "react";
-import { useVisualizerData, VRecursiveTree } from "visualizer";
-import { amber } from "colors";
+import React from 'react';
+import { useVisualizerData, VRecursiveTree } from 'visualizer';
+import { amber } from 'colors';
 
 export const Visualizer = () => {
   const { expression, type, data } = useVisualizerData();
@@ -8,15 +8,18 @@ export const Visualizer = () => {
   return (
     <VRecursiveTree
       trackedFn="memoization"
-      onVisitNode={(node, nodeData) => {
-        const test = type === "testExpressionSuccess";
-        const hitCache = expression === "cache[n] !== undefined" && test;
-        const isHighlightedNode = nodeData.tip || nodeData.data.n === data.n;
+      getNode={(node) => {
+        const test = type === 'testExpressionSuccess';
+        const hitCache = expression === 'cache[n] !== undefined' && test;
+        const { recursiveData } = node;
+        const isHighlightedNode =
+          recursiveData.tip || recursiveData.data?.n === data.n;
 
         if (hitCache && isHighlightedNode) {
-          node.color = amber[500];
-          node.borderColor = amber[500];
+          node.style.bgColor = amber[500];
+          node.style.borderColor = '#ffffff00';
         }
+        return node;
       }}
     />
   );

@@ -12,11 +12,11 @@ import { red, green, amber, lightGreen, blue } from 'colors';
 
 export const Visualizer = () => {
   const { data, expression, type } = useVisualizerData();
-  const { asteroids: asteroidsP } = useTestCase();
+  const testCase = useTestCase();
   const { asteroids = [], i, asteroidsLeft } = data;
 
   const test = type === 'testExpressionSuccess';
-  const sorted = asteroidsP
+  const sorted = testCase.asteroids
     .slice()
     .map(Math.abs)
     .sort((a, b) => a - b);
