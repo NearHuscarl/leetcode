@@ -19,7 +19,7 @@ export const Visualizer = () => {
         highlightRange={[start, end, teal[300]]}
         getElementStyle={(value, index, style) => {
           style.color = '#ffffff';
-          if (value === pivot?.val) {
+          if (value === pivot) {
             style.background = amber[500];
           }
 
@@ -27,9 +27,12 @@ export const Visualizer = () => {
           const inRange = start <= index && index <= end;
           const visited = computed ? true : index <= i;
           if (value < pivot) {
-            style.background = inRange && visited ? lightGreen[500] : lightGreen[200];
-            style.borderColor = inRange && visited ? lightGreen[500] : lightGreen[200];
-          } if (value > pivot) {
+            style.background =
+              inRange && visited ? lightGreen[500] : lightGreen[200];
+            style.borderColor =
+              inRange && visited ? lightGreen[500] : lightGreen[200];
+          }
+          if (value > pivot) {
             style.background = inRange && visited ? red[500] : red[200];
             style.borderColor = inRange && visited ? red[500] : red[200];
           }
@@ -58,7 +61,7 @@ export const Visualizer = () => {
               center
               highlightRange={[start, end, teal[300]]}
               getElementStyle={(e, i, style) => {
-                if (pivot?.val === e) {
+                if (pivot === e) {
                   style.background = amber[500];
                   style.color = '#ffffff';
                 }
@@ -68,7 +71,7 @@ export const Visualizer = () => {
                 return style;
               }}
             />
-          )
+          );
         }}
       />
     </>

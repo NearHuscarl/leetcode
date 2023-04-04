@@ -43,7 +43,7 @@
       "timeComplexity": "s*log(s) + t*log(t)"
     }
   },
-  "acRate": 63,
+  "acRate": 63.1,
   "difficulty": "Easy",
   "title": "Valid Anagram",
   "titleSlug": "valid-anagram",

@@ -33,7 +33,7 @@
       "timeComplexity": "n"
     }
   },
-  "acRate": 72.4,
+  "acRate": 72.5,
   "difficulty": "Medium",
   "title": "Generate Parentheses",
   "titleSlug": "generate-parentheses",

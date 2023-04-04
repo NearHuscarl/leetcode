@@ -69,7 +69,7 @@
       "timeComplexity": "log(n)"
     }
   },
-  "acRate": 55.5,
+  "acRate": 56.1,
   "difficulty": "Easy",
   "title": "Binary Search",
   "titleSlug": "binary-search",

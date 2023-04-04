@@ -59,7 +59,7 @@
       "timeComplexity": "n"
     }
   },
-  "acRate": 45.7,
+  "acRate": 45.8,
   "difficulty": "Medium",
   "title": "Evaluate Reverse Polish Notation",
   "titleSlug": "evaluate-reverse-polish-notation",

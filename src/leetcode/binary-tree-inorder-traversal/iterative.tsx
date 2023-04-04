@@ -17,10 +17,10 @@ export const Visualizer = () => {
 
   return (
     <>
-      <VArray value={results.map((n) => n.val)} />
+      <VArray value={results} />
       <VStack
         y={VC.Array.ItemSize + padding}
-        value={stack.map((n) => n.val)}
+        value={stack}
         length={testCase.root.filter((e) => e !== null).length}
       />
       <VTree
