@@ -1,0 +1,55 @@
+{
+  "id": "remove-duplicates-from-sorted-array",
+  "neetcode": "https://www.youtube.com/watch?v=DEJAZBq0FDA",
+  "testCases": [
+    {
+      "nums": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        2,
+        2,
+        3,
+        3,
+        4
+      ]
+    }
+  ],
+  "metaData": {
+    "name": "removeDuplicates",
+    "params": [
+      {
+        "name": "nums",
+        "type": "number[]"
+      }
+    ],
+    "return": {
+      "type": "number"
+    }
+  },
+  "solutions": {
+    "twoPointers": {
+      "id": "twoPointers",
+      "name": "Two Pointers",
+      "programCode": "/**\r\n * @param {number[]} nums\r\n * @return {number}\r\n */\r\nvar removeDuplicates = function (nums) {\r\n  let left = 1;\r\n  let right = 1;\r\n\r\n  while (right <= nums.length - 1) {\r\n    if (nums[right] !== nums[right - 1]) {\r\n      nums[left] = nums[right];\r\n      left++;\r\n    }\r\n\r\n    right++;\r\n  }\r\n\r\n  return left;\r\n};\r\n",
+      "visualizerCode": "import React from 'react';\r\nimport { useVisualizerData, VArray, VTree } from 'visualizer';\r\nimport { red, green, amber, lightGreen, teal, transform } from 'colors';\r\n\r\nconst interpolateColor = transform([1, 6], [amber[200], amber[900]]);\r\n\r\nexport const Visualizer = () => {\r\n  const { data, expression, type } = useVisualizerData();\r\n  const {} = data;\r\n\r\n  return null;\r\n};\r\n",
+      "timeComplexity": "n"
+    }
+  },
+  "acRate": 51.6,
+  "difficulty": "Easy",
+  "title": "Remove Duplicates from Sorted Array",
+  "titleSlug": "remove-duplicates-from-sorted-array",
+  "topicTags": [
+    {
+      "name": "Array",
+      "slug": "array"
+    },
+    {
+      "name": "Two Pointers",
+      "slug": "two-pointers"
+    }
+  ]
+}
