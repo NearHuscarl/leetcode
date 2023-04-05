@@ -183,7 +183,7 @@
     "difficulty": "Medium",
     "title": "Generate Parentheses",
     "titleSlug": "generate-parentheses",
-    "likes": 17455,
+    "likes": 17456,
     "dislikes": 706,
     "topicTags": [
       {
@@ -254,6 +254,29 @@
       }
     ],
     "neetcode": "https://www.youtube.com/watch?v=OnSn2XEQ4MY"
+  },
+  {
+    "acRate": 47.6,
+    "difficulty": "Easy",
+    "title": "Is Subsequence",
+    "titleSlug": "is-subsequence",
+    "likes": 7144,
+    "dislikes": 408,
+    "topicTags": [
+      {
+        "name": "Two Pointers",
+        "slug": "two-pointers"
+      },
+      {
+        "name": "String",
+        "slug": "string"
+      },
+      {
+        "name": "Dynamic Programming",
+        "slug": "dynamic-programming"
+      }
+    ],
+    "neetcode": "https://www.youtube.com/watch?v=99RVfqklbCE"
   },
   {
     "acRate": 69.7,
@@ -360,8 +383,8 @@
     "difficulty": "Easy",
     "title": "Merge Two Sorted Lists",
     "titleSlug": "merge-two-sorted-lists",
-    "likes": 17766,
-    "dislikes": 1638,
+    "likes": 17769,
+    "dislikes": 1639,
     "topicTags": [
       {
         "name": "Linked List",
@@ -379,7 +402,7 @@
     "difficulty": "Easy",
     "title": "Palindrome Linked List",
     "titleSlug": "palindrome-linked-list",
-    "likes": 13580,
+    "likes": 13581,
     "dislikes": 746,
     "topicTags": [
       {
@@ -406,7 +429,7 @@
     "difficulty": "Medium",
     "title": "Permutation in String",
     "titleSlug": "permutation-in-string",
-    "likes": 9606,
+    "likes": 9607,
     "dislikes": 310,
     "topicTags": [
       {
@@ -507,7 +530,7 @@
     "title": "Reverse String",
     "titleSlug": "reverse-string",
     "likes": 7123,
-    "dislikes": 1069,
+    "dislikes": 1070,
     "topicTags": [
       {
         "name": "Two Pointers",
@@ -567,7 +590,7 @@
     "difficulty": "Easy",
     "title": "Two Sum",
     "titleSlug": "two-sum",
-    "likes": 44951,
+    "likes": 44953,
     "dislikes": 1465,
     "topicTags": [
       {

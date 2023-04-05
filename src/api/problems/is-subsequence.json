@@ -1,0 +1,57 @@
+{
+  "id": "is-subsequence",
+  "neetcode": "https://www.youtube.com/watch?v=99RVfqklbCE",
+  "testCases": [
+    {
+      "s": "abc",
+      "t": "ahbgdc"
+    },
+    {
+      "s": "axc",
+      "t": "ahbgdc"
+    }
+  ],
+  "metaData": {
+    "name": "isSubsequence",
+    "params": [
+      {
+        "name": "s",
+        "type": "string"
+      },
+      {
+        "name": "t",
+        "type": "string"
+      }
+    ],
+    "return": {
+      "type": "boolean"
+    }
+  },
+  "solutions": {
+    "twoPointers": {
+      "id": "twoPointers",
+      "name": "Two Pointers",
+      "programCode": "/**\r\n * @param {string} s\r\n * @param {string} t\r\n * @return {boolean}\r\n */\r\nvar isSubsequence = function (s, t) {\r\n  let sPointer = 0;\r\n  let tPointer = 0;\r\n\r\n  while (tPointer <= t.length - 1) {\r\n    if (s[sPointer] === t[tPointer]) {\r\n      sPointer++;\r\n    }\r\n    tPointer++;\r\n  }\r\n\r\n  return sPointer === s.length;\r\n};\r\n",
+      "visualizerCode": "import React from 'react';\r\nimport { useVisualizerData, VArray } from 'visualizer';\r\nimport { red, green, amber, lightGreen, teal, transform } from 'colors';\r\n\r\nexport const Visualizer = () => {\r\n  const { data, expression, type } = useVisualizerData();\r\n  const {} = data;\r\n\r\n  return null;\r\n};\r\n",
+      "timeComplexity": "t"
+    }
+  },
+  "acRate": 47.6,
+  "difficulty": "Easy",
+  "title": "Is Subsequence",
+  "titleSlug": "is-subsequence",
+  "topicTags": [
+    {
+      "name": "Two Pointers",
+      "slug": "two-pointers"
+    },
+    {
+      "name": "String",
+      "slug": "string"
+    },
+    {
+      "name": "Dynamic Programming",
+      "slug": "dynamic-programming"
+    }
+  ]
+}
