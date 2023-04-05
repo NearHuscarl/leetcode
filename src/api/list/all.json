@@ -23,7 +23,7 @@
     "difficulty": "Easy",
     "title": "Baseball Game",
     "titleSlug": "baseball-game",
-    "likes": 2209,
+    "likes": 2210,
     "dislikes": 1785,
     "topicTags": [
       {
@@ -46,7 +46,7 @@
     "difficulty": "Easy",
     "title": "Best Time to Buy and Sell Stock",
     "titleSlug": "best-time-to-buy-and-sell-stock",
-    "likes": 24541,
+    "likes": 24545,
     "dislikes": 766,
     "topicTags": [
       {
@@ -84,7 +84,7 @@
     "difficulty": "Easy",
     "title": "Binary Tree Inorder Traversal",
     "titleSlug": "binary-tree-inorder-traversal",
-    "likes": 11190,
+    "likes": 11191,
     "dislikes": 549,
     "topicTags": [
       {
@@ -112,7 +112,7 @@
     "title": "Contains Duplicate II",
     "titleSlug": "contains-duplicate-ii",
     "likes": 4694,
-    "dislikes": 2569,
+    "dislikes": 2568,
     "topicTags": [
       {
         "name": "Array",
@@ -134,7 +134,7 @@
     "difficulty": "Medium",
     "title": "Evaluate Reverse Polish Notation",
     "titleSlug": "evaluate-reverse-polish-notation",
-    "likes": 5630,
+    "likes": 5631,
     "dislikes": 863,
     "topicTags": [
       {
@@ -260,7 +260,7 @@
     "difficulty": "Easy",
     "title": "Island Perimeter",
     "titleSlug": "island-perimeter",
-    "likes": 5532,
+    "likes": 5533,
     "dislikes": 269,
     "topicTags": [
       {
@@ -506,7 +506,7 @@
     "difficulty": "Easy",
     "title": "Reverse String",
     "titleSlug": "reverse-string",
-    "likes": 7122,
+    "likes": 7123,
     "dislikes": 1069,
     "topicTags": [
       {
