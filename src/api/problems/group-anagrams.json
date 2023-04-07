@@ -34,7 +34,7 @@
       "timeComplexity": "n"
     }
   },
-  "acRate": 66.7,
+  "acRate": 66.8,
   "difficulty": "Medium",
   "title": "Group Anagrams",
   "titleSlug": "group-anagrams",
