@@ -1,5 +1,5 @@
 import React from 'react';
-import { useVisualizerData, VArray, VSet } from 'visualizer';
+import { useVisualizerData, VArray, VSet, VField, VC } from 'visualizer';
 import { red, yellow, blue, lightGreen } from 'colors';
 
 export const Visualizer = () => {
@@ -13,7 +13,7 @@ export const Visualizer = () => {
       <VArray
         x={65}
         y={50}
-        label={`s, maxLength=${maxLength ?? 0}`}
+        label="s"
         value={s}
         highlightRange={[left, right, lightGreen[500]]}
         getElementStyle={(e, i, style) => {
@@ -31,6 +31,12 @@ export const Visualizer = () => {
           }
           return style;
         }}
+      />
+      <VField
+        x={65}
+        y={VC.Array.ItemSize * 2 + 60}
+        label="maxLength"
+        value={maxLength}
       />
       <VSet
         y={50}
