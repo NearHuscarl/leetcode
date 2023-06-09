@@ -4,8 +4,8 @@
     "difficulty": "Medium",
     "title": "Asteroid Collision",
     "titleSlug": "asteroid-collision",
-    "likes": 4869,
-    "dislikes": 437,
+    "likes": 5138,
+    "dislikes": 485,
     "topicTags": [
       {
         "name": "Array",
@@ -19,12 +19,12 @@
     "neetcode": "https://www.youtube.com/watch?v=LN7KjRszjk4"
   },
   {
-    "acRate": 74.3,
+    "acRate": 74.6,
     "difficulty": "Easy",
     "title": "Baseball Game",
     "titleSlug": "baseball-game",
-    "likes": 2215,
-    "dislikes": 1785,
+    "likes": 2327,
+    "dislikes": 1804,
     "topicTags": [
       {
         "name": "Array",
@@ -42,12 +42,12 @@
     "neetcode": "https://www.youtube.com/watch?v=Id_tqGdsZQI"
   },
   {
-    "acRate": 54.3,
+    "acRate": 54.1,
     "difficulty": "Easy",
     "title": "Best Time to Buy and Sell Stock",
     "titleSlug": "best-time-to-buy-and-sell-stock",
-    "likes": 24588,
-    "dislikes": 766,
+    "likes": 25711,
+    "dislikes": 809,
     "topicTags": [
       {
         "name": "Array",
@@ -61,12 +61,12 @@
     "neetcode": "https://www.youtube.com/watch?v=1pkOgXD63yU"
   },
   {
-    "acRate": 56.1,
+    "acRate": 56.3,
     "difficulty": "Easy",
     "title": "Binary Search",
     "titleSlug": "binary-search",
-    "likes": 9211,
-    "dislikes": 191,
+    "likes": 9735,
+    "dislikes": 197,
     "topicTags": [
       {
         "name": "Array",
@@ -80,12 +80,12 @@
     "neetcode": "https://www.youtube.com/watch?v=s4DPM8ct1pI"
   },
   {
-    "acRate": 73.8,
+    "acRate": 74.1,
     "difficulty": "Easy",
     "title": "Binary Tree Inorder Traversal",
     "titleSlug": "binary-tree-inorder-traversal",
-    "likes": 11201,
-    "dislikes": 550,
+    "likes": 11578,
+    "dislikes": 589,
     "topicTags": [
       {
         "name": "Stack",
@@ -107,12 +107,12 @@
     "neetcode": "https://www.youtube.com/watch?v=g_S5WuasWUE"
   },
   {
-    "acRate": 42.6,
+    "acRate": 42.7,
     "difficulty": "Easy",
     "title": "Contains Duplicate II",
     "titleSlug": "contains-duplicate-ii",
-    "likes": 4701,
-    "dislikes": 2571,
+    "likes": 4936,
+    "dislikes": 2657,
     "topicTags": [
       {
         "name": "Array",
@@ -130,12 +130,12 @@
     "neetcode": "https://www.youtube.com/watch?v=ypn0aZ0nrL4"
   },
   {
-    "acRate": 45.8,
+    "acRate": 46.3,
     "difficulty": "Medium",
     "title": "Evaluate Reverse Polish Notation",
     "titleSlug": "evaluate-reverse-polish-notation",
-    "likes": 5638,
-    "dislikes": 864,
+    "likes": 5886,
+    "dislikes": 892,
     "topicTags": [
       {
         "name": "Array",
@@ -153,12 +153,12 @@
     "neetcode": "https://www.youtube.com/watch?v=ypn0aZ0nrL4"
   },
   {
-    "acRate": 69.8,
+    "acRate": 70,
     "difficulty": "Easy",
     "title": "Fibonacci Number",
     "titleSlug": "fibonacci-number",
-    "likes": 6498,
-    "dislikes": 311,
+    "likes": 6856,
+    "dislikes": 315,
     "topicTags": [
       {
         "name": "Math",
@@ -179,12 +179,12 @@
     ]
   },
   {
-    "acRate": 72.5,
+    "acRate": 72.8,
     "difficulty": "Medium",
     "title": "Generate Parentheses",
     "titleSlug": "generate-parentheses",
-    "likes": 17483,
-    "dislikes": 706,
+    "likes": 18168,
+    "dislikes": 741,
     "topicTags": [
       {
         "name": "String",
@@ -206,8 +206,8 @@
     "difficulty": "Medium",
     "title": "Group Anagrams",
     "titleSlug": "group-anagrams",
-    "likes": 14792,
-    "dislikes": 430,
+    "likes": 15561,
+    "dislikes": 445,
     "topicTags": [
       {
         "name": "Array",
@@ -229,12 +229,12 @@
     "neetcode": "https://www.youtube.com/watch?v=vzdNOK2oB2E"
   },
   {
-    "acRate": 74.7,
+    "acRate": 75,
     "difficulty": "Easy",
     "title": "Invert Binary Tree",
     "titleSlug": "invert-binary-tree",
-    "likes": 11948,
-    "dislikes": 169,
+    "likes": 12283,
+    "dislikes": 175,
     "topicTags": [
       {
         "name": "Tree",
@@ -256,12 +256,12 @@
     "neetcode": "https://www.youtube.com/watch?v=OnSn2XEQ4MY"
   },
   {
-    "acRate": 47.5,
+    "acRate": 47.4,
     "difficulty": "Easy",
     "title": "Is Subsequence",
     "titleSlug": "is-subsequence",
-    "likes": 7157,
-    "dislikes": 408,
+    "likes": 7540,
+    "dislikes": 420,
     "topicTags": [
       {
         "name": "Two Pointers",
@@ -283,8 +283,8 @@
     "difficulty": "Easy",
     "title": "Island Perimeter",
     "titleSlug": "island-perimeter",
-    "likes": 5540,
-    "dislikes": 269,
+    "likes": 5698,
+    "dislikes": 277,
     "topicTags": [
       {
         "name": "Array",
@@ -306,12 +306,12 @@
     "neetcode": "https://www.youtube.com/watch?v=fISIuAFRM2s"
   },
   {
-    "acRate": 34.6,
+    "acRate": 34.8,
     "difficulty": "Medium",
     "title": "Largest Number",
     "titleSlug": "largest-number",
-    "likes": 6759,
-    "dislikes": 554,
+    "likes": 7018,
+    "dislikes": 569,
     "topicTags": [
       {
         "name": "Array",
@@ -333,12 +333,12 @@
     "neetcode": "https://www.youtube.com/watch?v=WDx6Y4i4xJ8"
   },
   {
-    "acRate": 48.5,
+    "acRate": 48.2,
     "difficulty": "Medium",
     "title": "Longest Consecutive Sequence",
     "titleSlug": "longest-consecutive-sequence",
-    "likes": 15515,
-    "dislikes": 641,
+    "likes": 16347,
+    "dislikes": 690,
     "topicTags": [
       {
         "name": "Array",
@@ -360,8 +360,8 @@
     "difficulty": "Medium",
     "title": "Longest Substring Without Repeating Characters",
     "titleSlug": "longest-substring-without-repeating-characters",
-    "likes": 33161,
-    "dislikes": 1447,
+    "likes": 34398,
+    "dislikes": 1514,
     "topicTags": [
       {
         "name": "Hash Table",
@@ -379,12 +379,12 @@
     "neetcode": "https://www.youtube.com/watch?v=wiGpQwVHdE0"
   },
   {
-    "acRate": 62.5,
+    "acRate": 62.7,
     "difficulty": "Easy",
     "title": "Merge Two Sorted Lists",
     "titleSlug": "merge-two-sorted-lists",
-    "likes": 17799,
-    "dislikes": 1644,
+    "likes": 18550,
+    "dislikes": 1727,
     "topicTags": [
       {
         "name": "Linked List",
@@ -398,12 +398,12 @@
     "neetcode": "https://www.youtube.com/watch?v=XIdigk956u0"
   },
   {
-    "acRate": 50.2,
+    "acRate": 50.4,
     "difficulty": "Easy",
     "title": "Palindrome Linked List",
     "titleSlug": "palindrome-linked-list",
-    "likes": 13598,
-    "dislikes": 747,
+    "likes": 14126,
+    "dislikes": 771,
     "topicTags": [
       {
         "name": "Linked List",
@@ -429,8 +429,8 @@
     "difficulty": "Medium",
     "title": "Permutation in String",
     "titleSlug": "permutation-in-string",
-    "likes": 9624,
-    "dislikes": 310,
+    "likes": 9923,
+    "dislikes": 317,
     "topicTags": [
       {
         "name": "Hash Table",
@@ -452,12 +452,12 @@
     "neetcode": "https://www.youtube.com/watch?v=UbyhOgBN834"
   },
   {
-    "acRate": 51.6,
+    "acRate": 52,
     "difficulty": "Easy",
     "title": "Remove Duplicates from Sorted Array",
     "titleSlug": "remove-duplicates-from-sorted-array",
-    "likes": 10531,
-    "dislikes": 14229,
+    "likes": 11175,
+    "dislikes": 15063,
     "topicTags": [
       {
         "name": "Array",
@@ -471,12 +471,31 @@
     "neetcode": "https://www.youtube.com/watch?v=DEJAZBq0FDA"
   },
   {
-    "acRate": 47,
+    "acRate": 53,
+    "difficulty": "Medium",
+    "title": "Remove Duplicates from Sorted Array II",
+    "titleSlug": "remove-duplicates-from-sorted-array-ii",
+    "likes": 5064,
+    "dislikes": 1005,
+    "topicTags": [
+      {
+        "name": "Array",
+        "slug": "array"
+      },
+      {
+        "name": "Two Pointers",
+        "slug": "two-pointers"
+      }
+    ],
+    "neetcode": "https://www.youtube.com/watch?v=ycAq8iqh0TI"
+  },
+  {
+    "acRate": 47.2,
     "difficulty": "Medium",
     "title": "Repeated DNA Sequences",
     "titleSlug": "repeated-dna-sequences",
-    "likes": 2813,
-    "dislikes": 474,
+    "likes": 2917,
+    "dislikes": 482,
     "topicTags": [
       {
         "name": "Hash Table",
@@ -506,12 +525,12 @@
     "neetcode": "https://www.youtube.com/watch?v=FzTYfsmtOso"
   },
   {
-    "acRate": 73.6,
+    "acRate": 74,
     "difficulty": "Easy",
     "title": "Reverse Linked List",
     "titleSlug": "reverse-linked-list",
-    "likes": 17346,
-    "dislikes": 313,
+    "likes": 18124,
+    "dislikes": 336,
     "topicTags": [
       {
         "name": "Linked List",
@@ -525,12 +544,12 @@
     "neetcode": "https://www.youtube.com/watch?v=G0_I-ZF0S38"
   },
   {
-    "acRate": 76.7,
+    "acRate": 76.9,
     "difficulty": "Easy",
     "title": "Reverse String",
     "titleSlug": "reverse-string",
-    "likes": 7130,
-    "dislikes": 1074,
+    "likes": 7369,
+    "dislikes": 1088,
     "topicTags": [
       {
         "name": "Two Pointers",
@@ -544,12 +563,12 @@
     "neetcode": "https://www.youtube.com/watch?v=_d0T_2Lk2qA"
   },
   {
-    "acRate": 59.5,
+    "acRate": 59,
     "difficulty": "Medium",
     "title": "Sort an Array",
     "titleSlug": "sort-an-array",
-    "likes": 4744,
-    "dislikes": 682,
+    "likes": 4973,
+    "dislikes": 696,
     "topicTags": [
       {
         "name": "Array",
@@ -586,12 +605,12 @@
     ]
   },
   {
-    "acRate": 49.7,
+    "acRate": 50,
     "difficulty": "Easy",
     "title": "Two Sum",
     "titleSlug": "two-sum",
-    "likes": 45008,
-    "dislikes": 1469,
+    "likes": 47184,
+    "dislikes": 1531,
     "topicTags": [
       {
         "name": "Array",
@@ -609,8 +628,8 @@
     "difficulty": "Easy",
     "title": "Valid Anagram",
     "titleSlug": "valid-anagram",
-    "likes": 8671,
-    "dislikes": 281,
+    "likes": 9275,
+    "dislikes": 290,
     "topicTags": [
       {
         "name": "Hash Table",
@@ -628,12 +647,12 @@
     "neetcode": "https://www.youtube.com/watch?v=9UtInBqnCgA"
   },
   {
-    "acRate": 44.4,
+    "acRate": 44.7,
     "difficulty": "Easy",
     "title": "Valid Palindrome",
     "titleSlug": "valid-palindrome",
-    "likes": 6421,
-    "dislikes": 6876,
+    "likes": 6950,
+    "dislikes": 7147,
     "topicTags": [
       {
         "name": "Two Pointers",
@@ -647,12 +666,12 @@
     "neetcode": "https://www.youtube.com/watch?v=jJXJ16kPFWg"
   },
   {
-    "acRate": 40.2,
+    "acRate": 40.3,
     "difficulty": "Easy",
     "title": "Valid Parentheses",
     "titleSlug": "valid-parentheses",
-    "likes": 18787,
-    "dislikes": 1092,
+    "likes": 20171,
+    "dislikes": 1232,
     "topicTags": [
       {
         "name": "String",

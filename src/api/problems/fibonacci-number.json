@@ -39,7 +39,7 @@
       "timeComplexity": "2^n"
     }
   },
-  "acRate": 69.8,
+  "acRate": 70,
   "difficulty": "Easy",
   "title": "Fibonacci Number",
   "titleSlug": "fibonacci-number",

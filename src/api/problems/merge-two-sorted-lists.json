@@ -50,7 +50,7 @@
       "timeComplexity": "n1 + n2"
     }
   },
-  "acRate": 62.5,
+  "acRate": 62.7,
   "difficulty": "Easy",
   "title": "Merge Two Sorted Lists",
   "titleSlug": "merge-two-sorted-lists",

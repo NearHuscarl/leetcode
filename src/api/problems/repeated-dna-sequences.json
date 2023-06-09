@@ -30,7 +30,7 @@
       "timeComplexity": "10n"
     }
   },
-  "acRate": 47,
+  "acRate": 47.2,
   "difficulty": "Medium",
   "title": "Repeated DNA Sequences",
   "titleSlug": "repeated-dna-sequences",

@@ -1,0 +1,71 @@
+{
+  "id": "remove-duplicates-from-sorted-array-ii",
+  "neetcode": "https://www.youtube.com/watch?v=ycAq8iqh0TI",
+  "testCases": [
+    {
+      "nums": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        2,
+        2,
+        2,
+        2,
+        3,
+        3,
+        3
+      ]
+    },
+    {
+      "nums": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        2,
+        3,
+        3
+      ]
+    }
+  ],
+  "metaData": {
+    "name": "removeDuplicates",
+    "params": [
+      {
+        "name": "nums",
+        "type": "number[]"
+      }
+    ],
+    "return": {
+      "type": "number"
+    }
+  },
+  "solutions": {
+    "twoPointers": {
+      "id": "twoPointers",
+      "name": "Two Pointers",
+      "programCode": "/**\r\n * @param {number[]} nums\r\n * @return {number}\r\n */\r\nvar removeDuplicates = function (nums) {\r\n  let left = 0;\r\n  let right = 0;\r\n\r\n  while (right < nums.length) {\r\n    let count = 1;\r\n\r\n    while (nums[right] === nums[right + 1]) {\r\n      count++;\r\n      right++;\r\n    }\r\n\r\n    const leftMoves = Math.min(2, count);\r\n\r\n    for (let i = 0; i < leftMoves; i++, left++) {\r\n      nums[left] = nums[right];\r\n    }\r\n\r\n    right++;\r\n  }\r\n\r\n  return left;\r\n};\r\n",
+      "visualizerCode": "import React from 'react';\r\nimport { useVisualizerData, VArray, VField } from 'visualizer';\r\nimport {\r\n  red,\r\n  indigo,\r\n  amber,\r\n  pink,\r\n  lightGreen,\r\n  deepPurple,\r\n  transform,\r\n} from 'colors';\r\n\r\nexport const Visualizer = () => {\r\n  const { data, expression, type } = useVisualizerData();\r\n};\r\n",
+      "timeComplexity": "n"
+    }
+  },
+  "acRate": 53,
+  "difficulty": "Medium",
+  "title": "Remove Duplicates from Sorted Array II",
+  "titleSlug": "remove-duplicates-from-sorted-array-ii",
+  "topicTags": [
+    {
+      "name": "Array",
+      "slug": "array"
+    },
+    {
+      "name": "Two Pointers",
+      "slug": "two-pointers"
+    }
+  ]
+}

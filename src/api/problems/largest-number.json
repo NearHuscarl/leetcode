@@ -39,7 +39,7 @@
       "timeComplexity": "n * log(n)"
     }
   },
-  "acRate": 34.6,
+  "acRate": 34.8,
   "difficulty": "Medium",
   "title": "Largest Number",
   "titleSlug": "largest-number",

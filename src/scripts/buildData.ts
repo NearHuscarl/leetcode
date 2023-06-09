@@ -4,15 +4,31 @@ import { queryProblems, TLcQuestion } from './queryProblems';
 
 const leetcodePath = './src/leetcode';
 
-const getLcProblems = async () => {
-  console.log('fetching LC problems...');
-  const { questions, total } = await queryProblems({ limit: 3000 });
-  console.log(`LC problems: ${total}`);
+async function checkFileExists(file: string) {
+  try {
+    await fs.access(file, fs.constants.F_OK);
+    return true;
+  } catch (err) {
+    return false;
+  }
+}
 
-  await fs.writeFile(
-    `./src/api/leetcode/problems.json`,
-    JSON.stringify(questions, null, 2),
-    'utf-8'
+const getLcProblems = async () => {
+  const leetcodePath = `./src/api/leetcode/problems.json`;
+
+  if (!(await checkFileExists(leetcodePath))) {
+    console.log('fetching LC problems...');
+    const { questions, total } = await queryProblems({ limit: 3000 });
+    console.log(`LC problems: ${total}`);
+
+    await fs.writeFile(
+      leetcodePath,
+      JSON.stringify(questions, null, 2),
+      'utf-8'
+    );
+  }
+  const questions: TLcQuestion[] = JSON.parse(
+    await fs.readFile(leetcodePath, 'utf-8')
   );
 
   const problemLookup: Record<string, TLcQuestion> = {};

@@ -48,7 +48,7 @@
       "timeComplexity": "n"
     }
   },
-  "acRate": 48.5,
+  "acRate": 48.2,
   "difficulty": "Medium",
   "title": "Longest Consecutive Sequence",
   "titleSlug": "longest-consecutive-sequence",

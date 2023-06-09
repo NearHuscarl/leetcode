@@ -38,7 +38,7 @@
       "timeComplexity": "n"
     }
   },
-  "acRate": 51.6,
+  "acRate": 52,
   "difficulty": "Easy",
   "title": "Remove Duplicates from Sorted Array",
   "titleSlug": "remove-duplicates-from-sorted-array",

@@ -50,7 +50,7 @@
       "timeComplexity": "s"
     }
   },
-  "acRate": 76.7,
+  "acRate": 76.9,
   "difficulty": "Easy",
   "title": "Reverse String",
   "titleSlug": "reverse-string",
